@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragmentos/header::header}"> 
+<body>
+    <nav th:replace="~{fragmentos/nav::nav}" id="colorNav" class="navbar navbar-expand-sm">
+   
+      </nav>
+
+      <main id="colorMainPortada">
+
+        <div class="container mt-3">
+            <div class="border">
+                <img th:src="${producto.imagen}" alt="">
+                <p th:text="${producto.nombre}"></p>
+                <p th:text="${producto.precio}"></p>
+                <p th:text="${producto.descripcion}"></p>
+               
+            </div>
+        </div>
+
+      </main>
+	  
+	  <footer th:replace="~{fragmentos/footer::footer}" id="colorFooter" class="container-fluid text-center text-light"></footer>
+
+
+</body>
+</html>

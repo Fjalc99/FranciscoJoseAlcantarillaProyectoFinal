@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos/headerAdmin::headerAdmin}">
+
+</head>
+
+<body>
+  <nav th:replace="~{fragmentos/nav::nav}" id="colorNav" class="navbar navbar-expand-sm text-light bg-black">
+
+  </nav>
+
+
+
+
+  <div class="container mt-3">
+    <h2>Lista de productos</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+		  <th>Numero</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Telefono</th>
+          <th>Email</th>
+          <th>Dirección</th>
+          <th>Provincia</th>
+          <th>Codigo <br> Postal</th>
+          <th>DNI</th>
+          <th>Contraseña</th>
+          <th>Repetir <br> Contraseña</th>
+          <th>Fecha <br> de <br> nacimiento</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+
+
+        <tr th:each="socio : ${listaSocios}">
+		  <td th:text="${socioStat.count}"></td>
+          <td th:text="${socio.nombre}"></td>
+          <td th:text="${socio.apellidos}"></td>
+          <td th:text="${socio.telefono}"></td>
+          <td th:text="${socio.email}"></td>
+          <td th:text="${socio.direccion}"></td>
+          <td th:text="${socio.provincia}"></td>
+          <td th:text="${socio.codigoPostal}"></td>
+          <td th:text="${socio.dni}"></td>
+          <td th:text="${socio.contrasenia}"></td>
+          <td th:text="${socio.repetirContrasenia}"></td>
+          <td th:text="${#temporals.format(socio.fechaDeNacimiento, 'YYYY-MM-dd')}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</body>
+
+</html>

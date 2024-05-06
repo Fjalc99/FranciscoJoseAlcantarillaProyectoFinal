@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos/header::header}"></head>
+
+<body>
+
+  <nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/nav::nav}"></nav>
+
+
+
+  <main>
+
+    <div class="container mt-3">
+      <h2>Hazte socio</h2>
+      <form action="#" th:action="@{/nuevo/addProducto}" method="POST" th:object="${producto}">
+        <div class="row">
+          <div class="col input-group">
+
+          <div class="col input-group">
+            <label for="nombre" class="input-group-text">Nombre</label>
+            <input type="text" class="form-control" name="nombre" th:field="*{nombre}">
+          </div>
+          <div class="col input-group">
+            <label for="descripcion" class="input-group-text">Descripción</label>
+            <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}">
+          </div>
+          <div class="col input-group">
+            <label for="precio" class="input-group-text">Precio</label>
+            <input type="number" class="form-control" name="precio" th:field="*{precio}">
+          </div>
+          <div class="col input-group">
+            <label for="imagen" class="input-group-text">Imagen</label>
+            <input type="text" class="form-control" name="imagen" th:field="*{imagen}">
+          </div>
+            <input type="submit" class="input-group" value="enviar">
+        </div>
+    </div>
+
+
+      </form>
+    </div>
+
+
+  </main>
+
+  <footer id="colorFooter" class="container-fluid text-center text-light">
+    <section class="row">
+      <div class="col-12 col-lg-4">
+        <h3>Redes sociales</h3>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <h3>Contacta con nosotros</h3>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <h3>Legal</h3>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+    </section>
+
+
+  </footer>
+</body>
+
+</html>

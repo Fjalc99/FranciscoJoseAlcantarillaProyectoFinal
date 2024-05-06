@@ -1,0 +1,33 @@
+/*Nav*/
+
+
+#colorNav{
+    background-color: green;
+}
+
+
+/*Footer*/
+#colorFooter{
+    background-color: green;
+}
+li{
+    list-style: none;
+}
+
+
+
+/*Portada*/
+#colorAsidePortada{
+    background-color: rgb(12, 68, 12);
+}
+
+#colorMainPortada{
+    background-color: cornsilk;
+}
+
+
+
+/*Tabla*/
+table{
+    border: 1px solid green;
+}
