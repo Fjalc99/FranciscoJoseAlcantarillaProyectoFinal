@@ -1,10 +1,13 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
@@ -53,5 +56,25 @@ public class ProductoController {
 	public String submit(@ModelAttribute("producto")Producto producto) {
 		productoservice.save(producto);
 		return "redirect:/productoAdmin";
+	}
+	
+	@GetMapping("editar/{id}")
+	public String verEditarFormulario (@PathVariable("id") Long id, Model model) {
+
+		Optional<Producto> pEditar = productoservice.findById(id); 
+		if (pEditar.isPresent()) {
+			model.addAttribute("producto", pEditar.get());
+			return "formularioProductos";
+		}else {
+			return "redirect:/productoAdmin";
+		}
+
+	}
+
+
+	@PostMapping("editar/addProducto")
+	public String verInformacionEditada (@ModelAttribute("producto")Producto p) {
+		productoservice.edit(p);
+		return"redirect:/productoAdmin";
 	}
 }

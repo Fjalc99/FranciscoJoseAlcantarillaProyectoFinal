@@ -8,15 +8,14 @@
 
       <main id="colorMainPortada">
 
-        <div class="container mt-3">
-            <div class="border">
-                <img th:src="${producto.imagen}" alt="">
-                <p th:text="${producto.nombre}"></p>
-                <p th:text="${producto.precio}"></p>
-                <p th:text="${producto.descripcion}"></p>
-               
-            </div>
-        </div>
+		<div class="card col-4 m-5" th:each="producto : ${listaProductos}" style="width:450px">
+				           <img class="card-img-top" th:src="${producto.imagen}" alt="Card image">
+				           <div class="card-body">
+				             <h4 th:text="${producto.nombre}" class="card-title"></h4>
+				             <p  th:text="${producto.precio + '€'}"class="card-text"></p>
+							 <a th:href="@{/descripcionDelProducto}" class="btn btn-primary">Ir al producto</a>
+				           </div>
+				         </div>
 
       </main>
 	  

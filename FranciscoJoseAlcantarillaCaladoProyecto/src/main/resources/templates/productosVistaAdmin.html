@@ -21,20 +21,26 @@
 		<table class="table table-striped ">
 		  <thead>
 			<tr>
-			  <th>Número</th>
+			  <th>Id</th>
+			  <th>Categoria</th>
 			  <th>Nombre</th>
 			  <th>Descripción</th>
 			  <th>Precio</th>
 			  <th>Imagen</th>
+			  <th>Editar</th>
 			</tr>
 		  </thead>
 		  <tbody>
 			<tr th:each="producto : ${listaProductos}">
-				<td th:text="${productoStat.count}"></td>
+				<td :text="${producto.id}"></td>
+				<td></td>
 				<td th:text="${producto.nombre}"></td>
 				<td th:text="${producto.descripcion}">Red chair</td>
 				<td th:text="${#numbers.formatDecimal(producto.precio, 1, 2)+' €'}">$350</td>
 				<td th:text="${producto.imagen}"></td>
+				<td>
+					<a th:href="@{/editar/{id}(id=${producto.id})}"><i class="bi bi-pencil-square"></i></a>
+				</td>
 				
 				
 			</tr>

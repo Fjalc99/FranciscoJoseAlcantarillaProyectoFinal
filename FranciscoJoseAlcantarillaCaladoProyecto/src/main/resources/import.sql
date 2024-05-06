@@ -14,11 +14,19 @@ ALTER SEQUENCE SOCIO_SEQ RESTART WITH (57)
 -------------------------------------------
 /*Productos*/
 
-insert into producto (id, nombre, descripcion, precio, imagen) values (1,'Balon','balón del centario', 300.0, 'https://m.media-amazon.com/images/I/71XnnlWmbmL._AC_SL1500_.jpg');
-insert into producto (id, nombre, descripcion, precio, imagen) values (2,'Balon de entramiento','balón con el entrenanmiento', 400.0, 'https://m.media-amazon.com/images/I/81dP3IFmfrL._AC_SL1500_.jpg');
-insert into producto (id, nombre, descripcion, precio, imagen) values (3,'Equipación de entrenamiento de Isco','Equipación con la que entrena isco', 60.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/222512-6143_2_1.jpg?crop=center&v=1714122436&width=960');
-insert into producto (id, nombre, descripcion, precio, imagen) values (4,'Bufanda del derbi','Bufanda del derbi 23/24', 300.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/000773_1.jpg?crop=center&v=1714122305&width=960');
-insert into producto (id, nombre, descripcion, precio, imagen) values (5,'Bufanda del derbi','Bufanda del derbi 23/24', 300.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/000773_1.jpg?crop=center&v=1714122305&width=960');
-insert into producto (id, nombre, descripcion, precio, imagen) values (6,'Bufanda del derbi','Bufanda del derbi 23/24', 300.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/000773_1.jpg?crop=center&v=1714122305&width=960');
+insert into producto (id,  nombre, descripcion, precio, imagen) values (1, 'Balon','balón del centario', 300.0, 'https://m.media-amazon.com/images/I/71XnnlWmbmL._AC_SL1500_.jpg');
+insert into producto (id,  nombre, descripcion, precio, imagen) values (2, 'Balon de entramiento','balón con el entrenanmiento', 400.0, 'https://m.media-amazon.com/images/I/81dP3IFmfrL._AC_SL1500_.jpg');
+insert into producto (id,  nombre, descripcion, precio, imagen) values (3, 'Equipación de entrenamiento de Isco','Equipación con la que entrena isco', 60.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/222512-6143_2_1.jpg?crop=center&v=1714122436&width=960');
+insert into producto (id,  nombre, descripcion, precio, imagen) values (4, 'Bufanda del derbi','Bufanda del derbi 23/24', 300.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/000773_1.jpg?crop=center&v=1714122305&width=960');
+insert into producto (id,  nombre, descripcion, precio, imagen) values (5, 'Bufanda del derbi','Bufanda del derbi 23/24', 300.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/000773_1.jpg?crop=center&v=1714122305&width=960');
+insert into producto (id,  nombre, descripcion, precio, imagen) values (6, 'Bufanda del derbi','Bufanda del derbi 23/24', 300.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/000773_1.jpg?crop=center&v=1714122305&width=960');
 
 ALTER SEQUENCE PRODUCTO_SEQ RESTART WITH (57)
+
+---------------------------------------------------------------------
+/*Categorias*/
+insert into categoria (id, nombre) values (1,'Balones');
+insert into categoria (id, nombre) values (2,'Equipacion');
+insert into categoria (id, nombre) values (3,'Accesorios');
+
+ALTER SEQUENCE CATEGORIA_SEQ RESTART WITH (57)
