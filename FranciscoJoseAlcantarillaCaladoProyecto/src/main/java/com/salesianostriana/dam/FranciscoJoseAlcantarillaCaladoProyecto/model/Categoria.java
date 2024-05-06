@@ -26,7 +26,7 @@ public class Categoria {
 	@Id @GeneratedValue
 	private Long id;
 	
-	private String nombre;
+	private String nombreCategoria;
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @NoArgsConstructor @AllArgsConstructor
-public class Socio {
+public class Usuario {
 	
 	@Id @GeneratedValue
 	private Long id;

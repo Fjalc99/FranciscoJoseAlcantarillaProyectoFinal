@@ -7,32 +7,34 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Socio;
-import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.SocioService;
+
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.UsuarioService;
+
 
 @Controller
-public class SocioController {
+public class UsuarioController {
 	
 	
 	@Autowired
-	private SocioService socioService;
+	private UsuarioService usuarioService;
 	
 	
 	
 	//Login
 	
-	@GetMapping("/loginSocio")
+	@GetMapping("/loginUsuario")
 	private String loginSocio(Model model) {
 		
-		Socio socio = new Socio();
-		model.addAttribute("loginForm", socio);
+		Usuario usuario = new Usuario();
+		model.addAttribute("loginForm", usuario);
 		
 		return "login";		
 	}
 	
 	@PostMapping("/loginSocio/addSocio")
-	public String submit (@ModelAttribute("loginForm")Socio socio, Model model) {
-		model.addAttribute("socio", socio);
+	public String submit (@ModelAttribute("loginForm") Usuario usuario, Model model) {
+		model.addAttribute("Usuario", usuario);
 		
 		return"redirect:/tienda";
 	}
@@ -43,19 +45,19 @@ public class SocioController {
 	
 	@GetMapping("/sociosAdmin")
 	private String listarSocios (Model model) {
-		model.addAttribute("listaSocios", socioService.findAll());
+		model.addAttribute("listaSocios", usuarioService.findAll());
 		return "socioVistaAdmin";
 	}
 	
 	@GetMapping("/nuevoSocios")
 	private String formRegistro (Model model) {	
-		model.addAttribute("socio", new Socio());
+		model.addAttribute("usuario", new Usuario());
 		return "registroSocio";
 	}
 	
 	@PostMapping("/nuevoSocios/addSocioNuevo")
-	public String submitRegistro (@ModelAttribute("socio") Socio socio) {
-		socioService.save(socio);
+	public String submitRegistro (@ModelAttribute("usuario") Usuario usuario) {
+		usuarioService.save(usuario);
 		return "redirect:/sociosAdmin";
 	}
 	
