@@ -28,11 +28,12 @@
 			  <th>Precio</th>
 			  <th>Imagen</th>
 			  <th>Editar</th>
+			  <th>Borrar</th>
 			</tr>
 		  </thead>
 		  <tbody>
 			<tr th:each="producto : ${listaProductos}">
-				<td :text="${producto.id}"></td>
+				<td th:text="${producto.id}"></td>
 				<td></td>
 				<td th:text="${producto.nombre}"></td>
 				<td th:text="${producto.descripcion}">Red chair</td>
@@ -40,6 +41,10 @@
 				<td th:text="${producto.imagen}"></td>
 				<td>
 					<a th:href="@{/editar/{id}(id=${producto.id})}"><i class="bi bi-pencil-square"></i></a>
+				</td>
+				<td>
+					<a th:href="@{/borrar/{id}(id=${producto.id})}"><i class="bi bi-trash"></i></a>
+					
 				</td>
 				
 				
