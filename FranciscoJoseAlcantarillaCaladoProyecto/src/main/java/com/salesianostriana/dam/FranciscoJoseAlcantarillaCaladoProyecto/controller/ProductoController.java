@@ -58,7 +58,7 @@ public class ProductoController {
 		return "redirect:/productoAdmin";
 	}
 	
-	@GetMapping("editar/{id}")
+	@GetMapping("/editar/{id}")
 	public String verEditarFormulario (@PathVariable("id") Long id, Model model) {
 
 		Optional<Producto> pEditar = productoservice.findById(id); 
@@ -72,9 +72,17 @@ public class ProductoController {
 	}
 
 
-	@PostMapping("editar/addProducto")
+	@PostMapping("/editar/addProducto")
 	public String verInformacionEditada (@ModelAttribute("producto")Producto p) {
 		productoservice.edit(p);
 		return"redirect:/productoAdmin";
 	}
+	
+	
+	@GetMapping("/borrar/{id}")
+	public String borrarProducto(@PathVariable("id")Long id, Model model) {
+		productoservice.deleteById(id);
+		return "redirect:/productoAdmin";
+	}
+	
 }
