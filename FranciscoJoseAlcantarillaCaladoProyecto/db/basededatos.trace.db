@@ -649,3 +649,7 @@ insert into producto (id,  nombre, descripcion, precio, imagen, categoria_id) va
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.FranciscoJoseAlcantarillaCaladoProyectoApplication.main(FranciscoJoseAlcantarillaCaladoProyectoApplication.java:10)
+2024-05-07 13:30:25.457041+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * [*]LINEA_DE_VENTA"
+Syntax error in SQL statement "SELECT * [*]LINEA_DE_VENTA"; SQL statement:
+SELECT * LINEA_DE_VENTA [42000-224]
