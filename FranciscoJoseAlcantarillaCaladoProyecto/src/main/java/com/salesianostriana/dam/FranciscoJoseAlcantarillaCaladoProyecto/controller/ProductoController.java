@@ -19,18 +19,18 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 public class ProductoController {
 
 	@Autowired
-	private ProductoService productoservice;
+	private ProductoService productoService;
 	
 	@GetMapping("/productoAdmin")
 	private String listarProductos(Model model) {
-		model.addAttribute("listaProductos", productoservice.findAll());
+		model.addAttribute("listaProductos", productoService.findAll());
 		return "productosVistaAdmin";
 	}
 	
 	
 	@GetMapping("/tienda")
 	private String vistaTienda(Model model) {
-		model.addAttribute("listaProductos", productoservice.findAll());
+		model.addAttribute("listaProductos", productoService.findAll());
 		return "producto";
 	}
 	
@@ -54,14 +54,14 @@ public class ProductoController {
 	
 	@PostMapping("/nuevo/addProducto")
 	public String submit(@ModelAttribute("producto")Producto producto) {
-		productoservice.save(producto);
+		productoService.save(producto);
 		return "redirect:/productoAdmin";
 	}
 	
 	@GetMapping("/editar/{id}")
 	public String verEditarFormulario (@PathVariable("id") Long id, Model model) {
 
-		Optional<Producto> pEditar = productoservice.findById(id); 
+		Optional<Producto> pEditar = productoService.findById(id); 
 		if (pEditar.isPresent()) {
 			model.addAttribute("producto", pEditar.get());
 			return "formularioProductos";
@@ -74,14 +74,14 @@ public class ProductoController {
 
 	@PostMapping("/editar/addProducto")
 	public String verInformacionEditada (@ModelAttribute("producto")Producto p) {
-		productoservice.edit(p);
+		productoService.edit(p);
 		return"redirect:/productoAdmin";
 	}
 	
 	
 	@GetMapping("/borrar/{id}")
 	public String borrarProducto(@PathVariable("id")Long id, Model model) {
-		productoservice.deleteById(id);
+		productoService.deleteById(id);
 		return "redirect:/productoAdmin";
 	}
 	
