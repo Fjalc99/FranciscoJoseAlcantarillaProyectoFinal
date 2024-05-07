@@ -9,42 +9,36 @@
 
 
 
-  <main>
+  <main  class="d-flex flex-column justify-content-between min-vh-100">
 
-    <div class="container mt-3">
-      <h2>Hazte socio</h2>
-	  <form action="#" th:action="${producto.id != 0} ? @{/editar/addProducto} : @{/nuevo/addProducto}" method="POST" th:object="${producto}">
-        <div class="row">
-			<div class="col input-group">
-				<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
-			</div>
-					
-
-          <div class="col input-group">
-            <label for="nombre" class="input-group-text">Nombre</label>
-            <input type="text" class="form-control" name="nombre" th:field="*{nombre}">
-          </div>
-          <div class="col input-group">
-            <label for="descripcion" class="input-group-text">Descripción</label>
-            <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}">
-          </div>
-          <div class="col input-group">
-            <label for="precio" class="input-group-text">Precio</label>
-            <input type="number" class="form-control" name="precio" th:field="*{precio}">
-          </div>
-          <div class="col input-group">
-            <label for="imagen" class="input-group-text">Imagen</label>
-            <input type="text" class="form-control" name="imagen" th:field="*{imagen}">
-          </div>
-            <input type="submit" class="input-group" value="enviar">
-        </div>
-    </div>
-
-
-      </form>
-    </div>
-
-
+        <div class="container mt-3">
+          <h2>Hazte socio</h2>
+          <form action="#" th:action="${producto.id != 0} ? @{/admin/editar/addProducto} : @{/admin/nuevo/addProducto}" method="POST" th:object="${producto}">
+    
+            <div class="row">
+              <div class="col input-group">
+                  <input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
+              </div>
+              <div class="col input-group">
+                <label for="nombre" class="input-group-text">Nombre</label>
+                <input type="text" class="form-control" name="nombre" th:field="*{nombre}">
+              </div>
+              <div class="col input-group">
+                <label for="descripcion" class="input-group-text">Descripción</label>
+                <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}">
+              </div>
+              <div class="col input-group">
+                <label for="precio" class="input-group-text">Precio</label>
+                <input type="number" class="form-control" name="precio" th:field="*{precio}">
+              </div>
+              <div class="col input-group">
+                <label for="imagen" class="input-group-text">Imagen</label>
+                <input type="text" class="form-control" name="imagen" th:field="*{imagen}">
+              </div>
+                <input type="submit" class="form-control input-group" value="enviar">
+            </div>  
+        </form>
+     </div>  
   </main>
 
   <footer id="colorFooter" class="container-fluid text-center text-light">

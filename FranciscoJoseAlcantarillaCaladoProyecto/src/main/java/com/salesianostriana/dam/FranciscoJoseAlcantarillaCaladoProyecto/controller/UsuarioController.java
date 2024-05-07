@@ -6,13 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.UsuarioService;
 
 
 @Controller
+@RequestMapping("/admin")
 public class UsuarioController {
 	
 	
@@ -46,19 +47,19 @@ public class UsuarioController {
 	@GetMapping("/sociosAdmin")
 	private String listarSocios (Model model) {
 		model.addAttribute("listaSocios", usuarioService.findAll());
-		return "socioVistaAdmin";
+		return "/admin/socioVistaAdmin";
 	}
 	
 	@GetMapping("/nuevoSocios")
 	private String formRegistro (Model model) {	
 		model.addAttribute("usuario", new Usuario());
-		return "registroSocio";
+		return "/admin/registroSocio";
 	}
 	
 	@PostMapping("/nuevoSocios/addSocioNuevo")
 	public String submitRegistro (@ModelAttribute("usuario") Usuario usuario) {
 		usuarioService.save(usuario);
-		return "redirect:/sociosAdmin";
+		return "redirect:/admin/sociosAdmin";
 	}
 	
 }

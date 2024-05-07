@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
@@ -16,6 +17,7 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 
 
 @Controller
+@RequestMapping("/admin")
 public class ProductoController {
 
 	@Autowired
@@ -24,7 +26,7 @@ public class ProductoController {
 	@GetMapping("/productoAdmin")
 	private String listarProductos(Model model) {
 		model.addAttribute("listaProductos", productoService.findAll());
-		return "productosVistaAdmin";
+		return "/admin/productosVistaAdmin";
 	}
 	
 	
@@ -46,7 +48,7 @@ public class ProductoController {
 	public String formularioProducto(Model model) {
 		model.addAttribute("producto", new  Producto());
 		
-		return "formularioProductos";
+		return "/admin/formularioProductos";
 	}
 	
 	
@@ -55,7 +57,7 @@ public class ProductoController {
 	@PostMapping("/nuevo/addProducto")
 	public String submit(@ModelAttribute("producto")Producto producto) {
 		productoService.save(producto);
-		return "redirect:/productoAdmin";
+		return "redirect:/admin/productoAdmin";
 	}
 	
 	@GetMapping("/editar/{id}")
@@ -64,9 +66,9 @@ public class ProductoController {
 		Optional<Producto> pEditar = productoService.findById(id); 
 		if (pEditar.isPresent()) {
 			model.addAttribute("producto", pEditar.get());
-			return "formularioProductos";
+			return "/admin/formularioProductos";
 		}else {
-			return "redirect:/productoAdmin";
+			return "redirect:/admin/productoAdmin";
 		}
 
 	}
@@ -75,14 +77,14 @@ public class ProductoController {
 	@PostMapping("/editar/addProducto")
 	public String verInformacionEditada (@ModelAttribute("producto")Producto p) {
 		productoService.edit(p);
-		return"redirect:/productoAdmin";
+		return"redirect:/admin/productoAdmin";
 	}
 	
 	
 	@GetMapping("/borrar/{id}")
 	public String borrarProducto(@PathVariable("id")Long id, Model model) {
 		productoService.deleteById(id);
-		return "redirect:/productoAdmin";
+		return "redirect:/admin/productoAdmin";
 	}
 	
 }
