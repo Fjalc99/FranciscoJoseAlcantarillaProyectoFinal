@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{fragmentos/headerAdmin::headerAdmin}">
+<head th:replace="~{fragmentos/header::header}">
 
 </head>
 
@@ -14,6 +14,7 @@
 
 
   <div class="container mt-3">
+	<a  th:href="@{/admin/nuevoSocios}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
     <h2>Lista de productos</h2>
     <table class="table table-striped">
       <thead>

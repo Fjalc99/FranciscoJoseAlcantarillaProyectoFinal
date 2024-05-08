@@ -9,60 +9,74 @@
 
 
 
-  <main>
+  <main class="d-flex flex-column justify-content-between min-vh-100">
 
     <div class="container mt-3">
       <h2>Hazte socio</h2>
-      <form action="#" th:action="@{/admin/nuevoSocios}" method="POST" th:object="${socio}">
-        <div class="col input-group">
-          <label for="nombre" class="input-group-text">Nombre</label>
-          <input type="text" class="form-control" name="nombre" th:field="*{nombre}">
-        </div>
-        <div class="col input-group">
-          <label for="apellidos" class="input-group-text">Apellidos</label>
-          <input type="text" class="form-control" name="apellidos" th:field="*{apellidos}">
-        </div>
-        <div class="col input-group">
-          <label for="telefono" class="input-group-text">Telefono</label>
-          <input type="text" class="form-control" name="telefono" th:field="*{telefono}">
-        </div>
-        <div class="col input-group">
-          <label for="email" class="input-group-text">Email</label>
-          <input type="email" class="form-control" name="email" th:field="*{email}">
+      <form action="#" th:action="@{/admin/nuevoSocios/addSocioNuevo}" method="POST" th:object="${usuario}">
+
+        <div class="row">
+
+          <div class="col-6">
+            <div class="col input-group mt-3">
+              <label for="nombre" class="input-group-text">Nombre</label>
+              <input type="text" class="form-control" name="nombre" th:field="*{nombre}">
+            </div>
+            <div class="col input-group mt-3">
+              <label for="apellidos" class="input-group-text">Apellidos</label>
+              <input type="text" class="form-control" name="apellidos" th:field="*{apellidos}">
+            </div>
+            <div class="col input-group mt-3">
+              <label for="telefono" class="input-group-text">Telefono</label>
+              <input type="text" class="form-control" name="telefono" th:field="*{telefono}">
+            </div>
+            <div class="col input-group mt-3">
+              <label for="email" class="input-group-text">Email</label>
+              <input type="email" class="form-control" name="email" th:field="*{email}">
+            </div>
+  
+            <div class="col input-group mt-3">
+              <label for="direccion" class="input-group-text">Direccion</label>
+              <input type="text" class="form-control" name="direccion" th:field="*{direccion}">
+            </div>
+            <div class="col input-group mt-3">
+              <label for="provincia" class="input-group-text">Provincia</label>
+              <input type="text" class="form-control" name="provincia" th:field="*{provincia}">
+            </div>
+  
+          </div>
+  
+  
+          <div class="col-6">
+           
+            <div class="col input-group mt-3">
+              <label for="codigoPostal" class="input-group-text">Codigo Postal</label>
+              <input type="text" class="form-control" name="codigoPostal" th:field="*{codigoPostal}">
+            </div>
+            <div class="col input-group mt-3">
+              <label for="dni" class="input-group-text">DNI</label>
+              <input type="text" class="form-control" name="dni" th:field="*{dni}">
+            </div>
+         
+            <div class="col input-group mt-3">
+              <label for="contrasenia" class="input-group-text">Contraseña</label>
+              <input type="text" class="form-control" name="contrasenia" th:field="*{contrasenia}">
+            </div>
+            <div class="col input-group mt-3">
+              <label for="repetirContrasenia" class="input-group-text">Repetir Contraseña</label>
+              <input type="text" class="form-control" name="repetirContrasenia" th:field="*{repetirContrasenia}">
+            </div>
+            <div class="col input-group mt-3">
+              <label for="fechaDeNacimiento" class="input-group-text">Fecha de nacimiento</label>
+              <input type="date" class="form-control" name="fechaDeNacimiento" th:field="*{fechaDeNacimiento}">
+            </div>
+          </div>
         </div>
 
-        <div class="col input-group">
-          <label for="direccion" class="input-group-text">Direccion</label>
-          <input type="text" class="form-control" name="direccion" th:field="*{direccion}">
-        </div>
-        <div class="col input-group">
-          <label for="provincia" class="input-group-text">Provincia</label>
-          <input type="text" class="form-control" name="provincia" th:field="*{provincia}">
-        </div>
-        <div class="col input-group">
-          <label for="codigoPostal" class="input-group-text">Codigo Postal</label>
-          <input type="text" class="form-control" name="codigoPostal" th:field="*{codigoPostal}">
-        </div>
-        <div class="col input-group">
-          <label for="dni" class="input-group-text">DNI</label>
-          <input type="text" class="form-control" name="dni" th:field="*{dni}">
+        <div class="input-group mt-3">
+          <input type="submit" class="form-control bg-success w-25 align-content-center" value="Enviar" >
         </div>
 
-        <div class="col input-group">
-          <label for="contrasenia" class="input-group-text">Contraseña</label>
-          <input type="text" class="form-control" name="contrasenia" th:field="*{contrasenia}">
-        </div>
-        <div class="col input-group">
-          <label for="repetirContrasenia" class="input-group-text">Repetir Contraseña</label>
-          <input type="text" class="form-control" name="repetirContrasenia" th:field="*{repetirContrasenia}">
-        </div>
-        <div class="col input-group">
-          <label for="fechaDeNacimiento" class="input-group-text">Fecha de nacimiento</label>
-          <input type="date" class="form-control" name="fechaDeNacimiento" th:field="*{fechaDeNacimiento}">
-        </div>
-        <div class="col input-group">
-          <input type="submit" class="form-control" value="Enviar" >
-        </div>
       </form>
     </div>
 
