@@ -15,28 +15,38 @@
           <h2>Hazte socio</h2>
           <form action="#" th:action="${producto.id != 0} ? @{/admin/editar/addProducto} : @{/admin/nuevo/addProducto}" method="POST" th:object="${producto}">
     
-            <div class="row">
-              <div class="col input-group">
-                  <input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
+            
+            <div class="col input-group">
+              <input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
+            </div>
+         
+              <div class="row">
+                <div class="col input-group mt-2">
+                  <label for="nombre" class="input-group-text">Nombre</label>
+                  <input type="text" class="form-control" name="nombre" th:field="*{nombre}">
+                </div>
+                <div class="col input-group mt-2">
+                  <label for="descripcion" class="input-group-text">Descripción</label>
+                  <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}">
+                </div>
               </div>
-              <div class="col input-group">
-                <label for="nombre" class="input-group-text">Nombre</label>
-                <input type="text" class="form-control" name="nombre" th:field="*{nombre}">
+              
+              <div class="row"> 
+                <div class="col input-group mt-2">
+                  <label for="precio" class="input-group-text">Precio</label>
+                  <input type="number" class="form-control" name="precio" th:field="*{precio}">
+                </div>
+                <div class="col input-group mt-2">
+                  <label for="imagen" class="input-group-text">Imagen</label>
+                  <input type="text" class="form-control" name="imagen" th:field="*{imagen}">
+                </div>
               </div>
-              <div class="col input-group">
-                <label for="descripcion" class="input-group-text">Descripción</label>
-                <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}">
+              
+             <div class="row">
+              <div class="col-5 input-group w-25 align-content-center mt-2">
+                <input type="submit" class="form-control input-group" value="Enviar">
               </div>
-              <div class="col input-group">
-                <label for="precio" class="input-group-text">Precio</label>
-                <input type="number" class="form-control" name="precio" th:field="*{precio}">
-              </div>
-              <div class="col input-group">
-                <label for="imagen" class="input-group-text">Imagen</label>
-                <input type="text" class="form-control" name="imagen" th:field="*{imagen}">
-              </div>
-                <input type="submit" class="form-control input-group" value="enviar">
-            </div>  
+             </div>
         </form>
      </div>  
   </main>

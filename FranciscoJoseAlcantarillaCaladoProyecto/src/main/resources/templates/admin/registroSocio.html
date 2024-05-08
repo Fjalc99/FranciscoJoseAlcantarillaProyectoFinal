@@ -13,7 +13,7 @@
 
     <div class="container mt-3">
       <h2>Hazte socio</h2>
-      <form action="#" th:action="@{/nuevoSocios/addSocioNuevo}" method="POST" th:object="${socio}">
+      <form action="#" th:action="@{/admin/nuevoSocios}" method="POST" th:object="${socio}">
         <div class="col input-group">
           <label for="nombre" class="input-group-text">Nombre</label>
           <input type="text" class="form-control" name="nombre" th:field="*{nombre}">
