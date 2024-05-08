@@ -17,30 +17,19 @@
 
         
 	<div class="container mt-3">
-		<a  th:href="@{/admin/nuevo}"><i class="bi bi-plus-circle-fill"></i></a>
-		<h2 class="text-center mt-3">Lista de productos</h2>      
+		<a  th:href="@{/admin/nuevaCategoria}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
+		<h2 class="text-center mt-3">Lista de categorias</h2>      
 		<table class="table table-striped align-content-center mt-3">
 		  <thead>
 			<tr>
 			  <th>Id</th>
 			  <th>Nombre</th>
-			  <th>Editar</th>
-			  <th>Borrar</th>
 			</tr>
 		  </thead>
 		  <tbody>
-			<tr th:each="producto : ${listaProductos}">
-				<td th:text="${producto.id}"></td>
-				<td th:text="${producto.nombre}"></td>
-				<td>
-					<a th:href="@{/admin/editar/{id}(id=${producto.id})}"><i class="bi bi-pencil-square"></i></a>
-				</td>
-				<td>
-					<a th:href="@{/admin/borrar/{id}(id=${producto.id})}"><i class="bi bi-trash"></i></a>
-					
-				</td>
-				
-				
+			<tr th:each="categoria : ${listaCategorias}">
+				<td th:text="${categoria.id}"></td>
+				<td th:text="${categoria.nombreCategoria}"></td>
 			</tr>
 			
 		  </tbody>

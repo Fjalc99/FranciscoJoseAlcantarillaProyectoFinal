@@ -15,7 +15,7 @@ insert into categoria (id, nombre_categoria) values (1,'Balones');
 insert into categoria (id, nombre_categoria) values (2,'Equipación');
 insert into categoria (id, nombre_categoria) values (3,'Accesorios');
 
-ALTER SEQUENCE CATEGORIA_SEQ RESTART WITH (57)
+ALTER SEQUENCE CATEGORIA_SEQ RESTART WITH (53)
 -------------------------------------------
 /*Productos*/
 
