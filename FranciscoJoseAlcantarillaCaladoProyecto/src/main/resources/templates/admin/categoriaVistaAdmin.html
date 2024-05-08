@@ -25,6 +25,7 @@
 			  <th>Id</th>
 			  <th>Nombre</th>
 			  <th>Editar</th>
+			  <th>Borrar</th>
 			</tr>
 		  </thead>
 		  <tbody>
@@ -33,6 +34,9 @@
 				<td th:text="${categoria.nombreCategoria}"></td>
 				<td>
 					<a th:href="@{/admin/editarCategoria/{id}(id=${categoria.id})}"><i class="bi bi-pencil-square"></i></a>
+				</td>
+				<td>
+					<a th:href="@{/admin/borrarCategoria/{id}(id=${categoria.id})}"><i class="bi bi-trash"></i></a>
 				</td>
 			</tr>
 			
