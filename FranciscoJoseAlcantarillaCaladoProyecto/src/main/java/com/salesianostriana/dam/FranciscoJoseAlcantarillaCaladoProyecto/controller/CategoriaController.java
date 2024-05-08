@@ -59,4 +59,11 @@ public class CategoriaController {
 		categoriaService.edit(c);
 		return "redirect:/admin/categoriaAdmin";
 	}
+	
+	@GetMapping("/borrarCategoria/{id}")
+	public String borrarCategoria(@PathVariable("id")Long id, Model model) {
+		categoriaService.deleteById(id);
+		return "redirect:/admin/categoriaAdmin";
+		
+	}
 }
