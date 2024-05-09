@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.UsuarioService;
-import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.VentaService;
+
 
 @Controller
 @RequestMapping("/admin")
@@ -25,6 +25,13 @@ public class AdminController {
 	@Autowired
 	private CategoriaService categoriaService;
 	
+	
+	
+	
+	@GetMapping("/")
+	public String index() {
+		return "portada";
+	}
 	
 	
 	@GetMapping("/productoAdmin")

@@ -47,19 +47,24 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    	http.authorizeHttpRequests(
-				(authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**") //Con esto podemos hacer que el admin solo entre sus ventanas
-				.permitAll().anyRequest().authenticated())
-			.formLogin((loginz) -> loginz
-					.loginPage("/login").permitAll());
-		
-		// Añadimos esto para poder seguir accediendo a la consola de H2
-		// con Spring Security habilitado.
-    	http.csrf(csrfz -> csrfz.disable());
-    	http.headers(headersz -> headersz
-    			.frameOptions(frameOptionsz -> frameOptionsz.disable()));
-		
-		return http.build();
-	}
+        http.authorizeHttpRequests(
+                        (authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**").permitAll()
+                                .requestMatchers("/admin/**").hasRole("ADMIN")
+                                .anyRequest().authenticated())
+                .formLogin((loginz) -> loginz
+                        .loginPage("/login").permitAll())
+                .logout((logoutz) -> logoutz
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login")
+                        .permitAll());
+
+        // Añadimos esto para poder seguir accediendo a la consola de H2
+        // con Spring Security habilitado.
+        http.csrf(csrfz -> csrfz.disable());
+        http.headers(headersz -> headersz
+                .frameOptions(frameOptionsz -> frameOptionsz.disable()));
+
+        return http.build();
+    }
 
 }

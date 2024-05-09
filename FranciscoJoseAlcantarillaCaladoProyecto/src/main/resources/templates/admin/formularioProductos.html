@@ -13,7 +13,7 @@
 
         <div class="container mt-3">
           <h2>Hazte socio</h2>
-          <form action="#" th:action="${producto.id != 0} ? @{/admin/editar/addProducto} : @{/admin/nuevo/addProducto}" method="POST" th:object="${producto}">
+          <form action="#" th:action="${producto.id != 0} ? @{editar/addProducto} : @{nuevo/addProducto}" method="POST" th:object="${producto}">
     
             
             <div class="col input-group">
