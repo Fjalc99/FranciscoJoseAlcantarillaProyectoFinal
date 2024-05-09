@@ -12,22 +12,11 @@
             <div class="container mt-3 text-center">
                 <h2 class="text-center">¿Eres socio?</h2>
                 <h4 class="text-center">Si lo eres inicia sesión aquí</h4>
-                <form th:action="@{/loginSocio/addSocio}" method="POST" th:object="${loginForm}" class="align-content-center text-center">
-                    <div class="mb-3 mt-3 d-flex justify-content-center"> 
-                        <div class="w-50"> 
-                            <label for="email" class="form-label">Correo electrónico:</label>
-                            <input type="email" th:field="*{email}" class="form-control p-3" id="email" placeholder="Ingrese su correo electrónico" name="email">
-                        </div>
-                    </div>
-                    <div class="mb-3 d-flex justify-content-center"> 
-                        <div class="w-50">
-                            <label for="pwd">Contraseña:</label>
-                            <input type="password" th:field="*{contrasenia}" class="form-control p-3" id="pwd" placeholder="Ingrese su contraseña" name="pswd">
-                        </div>
-                    </div>
-                    <h4 class="text-center"><a th:href="@{/admin/registroSocio}">Hazte socio aquí</a></h4>
-                    <button type="submit" class="btn btn-success my-3">Enviar</button>
-                </form>
+				<form method="POST" action="#" th:action="@{/login}">
+					<input type="text" id="username" name="username" placeholder="Username" required autofocus> 
+					<input type="password" name="password" id="password" placeholder="Password" required>
+					<input type="submit" name="enviar" value="Enviar" />
+				</form>
             </div>
          </main>
     </body>

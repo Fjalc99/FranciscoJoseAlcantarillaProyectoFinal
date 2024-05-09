@@ -6,50 +6,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.UsuarioService;
 
 
 @Controller
-@RequestMapping("/admin")
 public class UsuarioController {
 	
 	
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	
-	
-	//Login
-	
-	@GetMapping("/loginUsuario")
-	private String loginSocio(Model model) {
-		
-		Usuario usuario = new Usuario();
-		model.addAttribute("loginForm", usuario);
-		
-		return "login";		
-	}
-	
-	@PostMapping("/loginSocio/addSocio")
-	public String submit (@ModelAttribute("loginForm") Usuario usuario, Model model) {
-		model.addAttribute("Usuario", usuario);
-		
-		return"redirect:/tienda";
-	}
-	
-	
-	//--------------------------------------------------------
-	//Socio Nuevo
-	
-	@GetMapping("/sociosAdmin")
-	private String listarSocios (Model model) {
-		model.addAttribute("listaSocios", usuarioService.findAll());
-		return "/admin/socioVistaAdmin";
-	}
-	
+
 	@GetMapping("/nuevoSocios")
 	private String formRegistro (Model model) {	
 		model.addAttribute("usuario", new Usuario());

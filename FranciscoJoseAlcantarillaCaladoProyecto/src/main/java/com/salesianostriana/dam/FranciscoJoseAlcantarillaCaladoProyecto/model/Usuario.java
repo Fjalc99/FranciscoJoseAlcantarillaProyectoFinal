@@ -38,7 +38,6 @@ public class Usuario implements UserDetails {
 	private String dni;
 	private String username;
 	private String password;
-	private String repeatPassword;
 	private boolean admin;
 	@DateTimeFormat(iso = ISO.DATE_TIME)
 	private LocalDate fechaDeNacimiento;
@@ -72,19 +71,6 @@ public class Usuario implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 
 }

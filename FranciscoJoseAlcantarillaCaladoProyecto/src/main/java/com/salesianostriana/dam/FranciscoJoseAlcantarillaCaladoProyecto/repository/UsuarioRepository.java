@@ -9,5 +9,5 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Us
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	Optional<Usuario> findFirstByUsername(String username);
+	Optional <Usuario> findFirstByUsername(String username);
 }

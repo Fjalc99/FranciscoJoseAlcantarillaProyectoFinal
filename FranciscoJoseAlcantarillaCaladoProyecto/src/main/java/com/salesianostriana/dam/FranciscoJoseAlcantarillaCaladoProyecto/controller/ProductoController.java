@@ -17,18 +17,11 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 
 
 @Controller
-@RequestMapping("/admin")
 public class ProductoController {
 
 	@Autowired
 	private ProductoService productoService;
 	
-	@GetMapping("/productoAdmin")
-	private String listarProductos(Model model) {
-		model.addAttribute("listaProductos", productoService.findAll());
-		return "/admin/productosVistaAdmin";
-	}
-
 	
 	@GetMapping("/tienda")
 	private String vistaTienda(Model model) {

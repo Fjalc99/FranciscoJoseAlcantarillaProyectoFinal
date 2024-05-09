@@ -28,8 +28,8 @@
           <th>Provincia</th>
           <th>Codigo <br> Postal</th>
           <th>DNI</th>
+		  <th>Nombre Usuario</th>
           <th>Contraseña</th>
-          <th>Repetir <br> Contraseña</th>
           <th>Fecha <br> de <br> nacimiento</th>
         </tr>
       </thead>
@@ -48,8 +48,8 @@
           <td th:text="${socio.provincia}"></td>
           <td th:text="${socio.codigoPostal}"></td>
           <td th:text="${socio.dni}"></td>
-          <td th:text="${socio.contrasenia}"></td>
-          <td th:text="${socio.repetirContrasenia}"></td>
+		  <td th:text="${socio.username}"></td>
+          <td th:text="${socio.password}"></td>
           <td th:text="${#temporals.format(socio.fechaDeNacimiento, 'YYYY-MM-dd')}"></td>
         </tr>
       </tbody>
