@@ -25,7 +25,7 @@ public class ProductoController {
 	@GetMapping("/tienda")
 	private String vistaTienda(Model model) {
 		model.addAttribute("listaProductos", productoService.findAll());
-		return "producto";
+		return "tienda";
 	}
 	
 	

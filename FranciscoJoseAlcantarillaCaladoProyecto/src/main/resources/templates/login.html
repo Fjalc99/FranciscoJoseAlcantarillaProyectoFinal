@@ -5,14 +5,30 @@
 
     <body>
 
-		<nav th:replace="~{fragmentos/nav::nav}" id="colorNav" class="navbar navbar-expand-sm text-light"></nav>
+		<nav id="colorNav" class="navbar navbar-expand-sm">
+			<div class="container-fluid">
+				<a id="colorNav" class="navbar-brand"><img src="../img/logo-rb.png" width="200px" alt="logo del betis"></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="mynavbar">
+					<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
+					<div class="collapse navbar-collapse justify-content-end">
+						<i class="bi bi-search nav-item m-2 p-1 text-light border"></i>
+						<i class="bi bi-cart nav-item m-2 p-1 text-light border"></i>
+						<a href="javascript:document.getElementById('logoutForm').submit()">
+						<i class="bi bi-person nav-item m-2 p-1 text-light border"></i></a>
+					</div>
+				</div>
+			</div>
+		</nav>
 
 
           <main>
             <div class="container mt-3 text-center">
                 <h2 class="text-center">¿Eres socio?</h2>
                 <h4 class="text-center">Si lo eres inicia sesión aquí</h4>
-				<form method="POST" action="#" th:action="@{/login}">
+				<form name="login" method="POST" action="#" th:action="@{/login}">
 					<input type="text" id="username" name="username" placeholder="Username" required autofocus> 
 					<input type="password" name="password" id="password" placeholder="Password" required>
 					<input type="submit" name="enviar" value="Enviar" />

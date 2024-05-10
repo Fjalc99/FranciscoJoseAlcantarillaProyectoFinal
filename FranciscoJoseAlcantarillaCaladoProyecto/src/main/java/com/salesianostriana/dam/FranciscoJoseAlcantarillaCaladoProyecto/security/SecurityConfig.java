@@ -48,11 +48,11 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
-                        (authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**").permitAll()
+                        (authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**", "/img/**").permitAll()
                                 .requestMatchers("/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated())
                 .formLogin((loginz) -> loginz
-                        .loginPage("/login").permitAll())
+                        .loginPage("/login").defaultSuccessUrl("/index").permitAll())
                 .logout((logoutz) -> logoutz
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login")

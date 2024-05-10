@@ -28,12 +28,6 @@ public class AdminController {
 	
 	
 	
-	@GetMapping("/")
-	public String index() {
-		return "portada";
-	}
-	
-	
 	@GetMapping("/productoAdmin")
 	private String listarProductos(Model model) {
 		model.addAttribute("listaProductos", productoService.findAll());
