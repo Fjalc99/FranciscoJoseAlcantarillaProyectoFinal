@@ -4,6 +4,7 @@ package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Builder
+@IdClass(LineaDeVentaPk.class)
 public class LineaDeVenta {
 
 	@Id @GeneratedValue
@@ -23,7 +25,7 @@ public class LineaDeVenta {
 	private int cantidadProducto;
 	private double subTotal;
 	
-	
+	@Id
 	@ManyToOne
 	private Venta venta;
 	
