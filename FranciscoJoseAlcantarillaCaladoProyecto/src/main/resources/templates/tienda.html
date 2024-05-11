@@ -5,32 +5,12 @@
 </head>
 <body>
 	
-    <nav th:replace="~{fragmentos/nav::nav}" id="colorNav" class="navbar navbar-expand-sm">
-        <div class="container-fluid">
-          <a id="colorNav" class="navbar-brand"><img src="../img/logo-rb.png" width="200px" alt="logo del betis"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link border text-light" href="javascript:void(0)">Balones</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link border text-light" href="javascript:void(0)">Equipaciónes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link border text-light" href="javascript:void(0)">Accesorios</a>
-              </li>
-            </ul>
-            <div class="collapse navbar-collapse justify-content-end">
-                <i class="bi bi-search nav-item m-2 p-1 text-light border"></i>
-                <i class="bi bi-cart nav-item m-2 p-1 text-light border"></i>
-                <i class="bi bi-person nav-item m-2 p-1 text-light border"></i>
-            </div>
-          </div>
-        </div>
-      </nav>
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+		</div>
+		<div sec:authorize="hasRole('ROLE_USER')">
+			<nav th:replace="~{fragmentos/nav::nav}"></nav>
+		</div>
 
   
         <main id="colorMainPortada" class="row justify-content-center">

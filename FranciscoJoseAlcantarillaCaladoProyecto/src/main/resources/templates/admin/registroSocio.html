@@ -13,7 +13,7 @@
 
     <div class="container mt-3">
       <h2>Hazte socio</h2>
-      <form action="#" th:action="@{/admin/nuevoSocios/addSocioNuevo}" method="POST" th:object="${usuario}">
+      <form action="#" th:action="@{nuevoSocios/addSocioNuevo}" method="POST" th:object="${usuario}">
 
         <div class="row">
 
@@ -58,13 +58,17 @@
               <input type="text" class="form-control" name="dni" th:field="*{dni}">
             </div>
          
+			<div class="col input-group mt-3">
+			      <label for="username" class="input-group-text">Usuario</label>
+			      <input type="text" class="form-control" name="username" th:field="*{username}">
+			 </div>
             <div class="col input-group mt-3">
-              <label for="contrasenia" class="input-group-text">Contraseña</label>
-              <input type="text" class="form-control" name="contrasenia" th:field="*{contrasenia}">
+              <label for="password" class="input-group-text">Contraseña</label>
+              <input type="text" class="form-control" name="password" th:field="*{password}">
             </div>
             <div class="col input-group mt-3">
-              <label for="repetirContrasenia" class="input-group-text">Repetir Contraseña</label>
-              <input type="text" class="form-control" name="repetirContrasenia" th:field="*{repetirContrasenia}">
+              <label for="repeatPassword" class="input-group-text">Repetir Contraseña</label>
+              <input type="text" class="form-control" name="repeatPassword">
             </div>
             <div class="col input-group mt-3">
               <label for="fechaDeNacimiento" class="input-group-text">Fecha de nacimiento</label>

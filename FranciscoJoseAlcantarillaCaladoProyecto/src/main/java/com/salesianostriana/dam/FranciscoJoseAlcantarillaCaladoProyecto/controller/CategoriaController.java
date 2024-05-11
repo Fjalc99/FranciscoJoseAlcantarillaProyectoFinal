@@ -15,19 +15,12 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Ca
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
 
 @Controller
-@RequestMapping("/admin")
 public class CategoriaController {
 
 	@Autowired
 	private CategoriaService categoriaService;
 	
-	@GetMapping("/categoriaAdmin")
-	public String listarCategorias(Model model) {
-		model.addAttribute("listaCategorias", categoriaService.findAll());
-		return "/admin/categoriaVistaAdmin";
-	}
-	
-	
+
 	@GetMapping("/nuevaCategoria")
 	public String formularioCategoria(Model model) {
 		model.addAttribute("categoria", new Categoria());
@@ -35,7 +28,7 @@ public class CategoriaController {
 	}
 	
 	
-	@PostMapping("/nuevaCategoria/addCategoria")
+	@PostMapping("/nuevaCategoria/submit")
 	public String submitCategoria(@ModelAttribute("categoria")Categoria categoria) {
 		categoriaService.save(categoria);
 		
@@ -54,7 +47,7 @@ public class CategoriaController {
 		}
 	}
 	
-	@PostMapping("/editarCategoria/addCategoria")
+	@PostMapping("/editarCategoria/submit")
 	public String verInformacionEditada(@ModelAttribute("categoria")Categoria c) {
 		categoriaService.edit(c);
 		return "redirect:/admin/categoriaAdmin";

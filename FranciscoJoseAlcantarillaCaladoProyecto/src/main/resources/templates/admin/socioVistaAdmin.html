@@ -6,7 +6,7 @@
 </head>
 
 <body>
-  <nav th:replace="~{fragmentos/nav::nav}" id="colorNav" class="navbar navbar-expand-sm text-light bg-black">
+  <nav th:replace="~{fragmentos/navAdmin::navAdmin}" id="colorNav" class="navbar navbar-expand-sm text-light bg-black">
 
   </nav>
 
@@ -14,7 +14,7 @@
 
 
   <div class="container mt-3">
-	<a  th:href="@{/admin/nuevoSocios}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
+	<a  th:href="@{/nuevoSocios}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
     <h2>Lista de productos</h2>
     <table class="table table-striped">
       <thead>
@@ -28,8 +28,7 @@
           <th>Provincia</th>
           <th>Codigo <br> Postal</th>
           <th>DNI</th>
-          <th>Contraseña</th>
-          <th>Repetir <br> Contraseña</th>
+		  <th>Nombre Usuario</th>
           <th>Fecha <br> de <br> nacimiento</th>
         </tr>
       </thead>
@@ -48,8 +47,7 @@
           <td th:text="${socio.provincia}"></td>
           <td th:text="${socio.codigoPostal}"></td>
           <td th:text="${socio.dni}"></td>
-          <td th:text="${socio.contrasenia}"></td>
-          <td th:text="${socio.repetirContrasenia}"></td>
+		  <td th:text="${socio.username}"></td>
           <td th:text="${#temporals.format(socio.fechaDeNacimiento, 'YYYY-MM-dd')}"></td>
         </tr>
       </tbody>

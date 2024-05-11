@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{fragmentos/header::header}"></head>
 <body>
-    <nav th:replace="~{fragmentos/nav::nav}" id="colorNav" class="navbar navbar-expand-sm text-light">
+    <nav th:replace="~{fragmentos/navAdmin::navAdmin}" id="colorNav" class="navbar navbar-expand-sm text-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="javascript:void(0)"><img src="../static/img/logo-rb.png" thim width="200px" alt="escudo del betis"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -17,7 +17,7 @@
 
         
 	<div class="container mt-3">
-		<a  th:href="@{/admin/nuevo}"><i class="bi bi-plus-circle-fill"></i></a>
+		<a  th:href="@{/nuevo}"><i class="bi bi-plus-circle-fill"></i></a>
 		<h2 class="text-center mt-3">Lista de productos</h2>      
 		<table class="table table-striped align-content-center mt-3">
 		  <thead>
@@ -35,16 +35,16 @@
 		  <tbody>
 			<tr th:each="producto : ${listaProductos}">
 				<td th:text="${producto.id}"></td>
-				<td></td>
+				<td th:text="${producto.categoria.nombreCategoria}"></td>
 				<td th:text="${producto.nombre}"></td>
-				<td th:text="${producto.descripcion}">Red chair</td>
-				<td th:text="${#numbers.formatDecimal(producto.precio, 1, 2)+' €'}">$350</td>
+				<td th:text="${producto.descripcion}"></td>
+				<td th:text="${#numbers.formatDecimal(producto.precio, 1, 2)+' €'}"></td>
 				<td th:text="${producto.imagen}"></td>
 				<td>
-					<a th:href="@{/admin/editar/{id}(id=${producto.id})}"><i class="bi bi-pencil-square"></i></a>
+					<a th:href="@{/editar/{id}(id=${producto.id})}"><i class="bi bi-pencil-square"></i></a>
 				</td>
 				<td>
-					<a th:href="@{/admin/borrar/{id}(id=${producto.id})}"><i class="bi bi-trash"></i></a>
+					<a th:href="@{/borrar/{id}(id=${producto.id})}"><i class="bi bi-trash"></i></a>
 				</td>
 				
 				

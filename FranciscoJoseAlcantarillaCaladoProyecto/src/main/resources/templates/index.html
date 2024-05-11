@@ -4,8 +4,16 @@
 
 </head>
 <body>
-    
-	<nav th:replace="~{fragmentos/nav::nav}"></nav>
+	
+   
+	
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+		<nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+	</div>
+	<div sec:authorize="hasRole('ROLE_USER')">
+		<nav th:replace="~{fragmentos/nav::nav}"></nav>
+	</div>
+	
 	   
 
       <div class="row">
