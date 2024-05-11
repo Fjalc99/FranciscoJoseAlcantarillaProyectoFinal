@@ -16,7 +16,7 @@
         <main id="colorMainPortada" class="row justify-content-center">
 			
          
-          <div class="card col-4 m-5" th:each="producto : ${listaProductos}" style="width:450px">
+          <div class="card col-4 m-5" data-aos="flip-left" th:each="producto : ${listaProductos}" style="width:450px">
             <img class="card-img-top" th:src="${producto.imagen}" alt="Card image">
             <div class="card-body">
               <h4 th:text="${producto.nombre}" class="card-title"></h4>
@@ -30,12 +30,10 @@
 
 
 
-      <footer th:replace="fragmentos/footer::footer" id="colorFooter" class="container-fluid text-center text-light">
-      
-    
-    
-    </footer>
-
+      <footer th:replace="fragmentos/footer::footer" id="colorFooter" class="container-fluid text-center text-light"> </footer>
+	  <script>
+	    AOS.init();
+	  </script>
 
 </body>
 </html>
