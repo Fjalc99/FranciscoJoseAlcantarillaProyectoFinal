@@ -1,69 +1,113 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{fragmentos/header::header}">
 
 </head>
+
 <body>
-	
-   
-	
+
+
+
 	<div sec:authorize="hasRole('ROLE_ADMIN')">
 		<nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
 	</div>
 	<div sec:authorize="hasRole('ROLE_USER')">
 		<nav th:replace="~{fragmentos/nav::nav}"></nav>
 	</div>
-	
-	   
 
-      <div class="row">
-      <aside id="colorAsidePortada" class="col-2 text-light" >
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptatum suscipit eligendi optio sequi saepe at tenetur vitae quidem, praesentium adipisci, in earum fuga ex debitis fugiat, eos illum. Obcaecati!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, exercitationem velit. Voluptas debitis quos corrupti? Eum enim sint praesentium explicabo consequatur aliquid, dolorem nesciunt sequi iure consectetur quia perspiciatis ipsa.
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam debitis officia asperiores modi consectetur! Illum fuga officia temporibus, voluptatem earum necessitatibus deleniti quidem debitis quasi unde maxime porro distinctio nostrum?
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea magnam officia, laboriosam illum eaque dolor id possimus facere dolore quae officiis corporis velit, facilis veritatis maiores voluptatibus rem quidem quod?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam asperiores nihil, molestias labore natus, pariatur deserunt itaque suscipit voluptas beatae officiis placeat dolorum harum eum, aliquam ducimus similique optio. Non!
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis ex nobis non excepturi facere eius pariatur dolorum quibusdam illum sunt? Dolores reprehenderit incidunt, ad error inventore doloribus commodi odio nostrum.
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt laboriosam rem quis officia, illum soluta optio possimus nisi eos quidem voluptatem corrupti, debitis non natus? Rem, iste! Asperiores, at explicabo?
-        </p>
-      </aside>
-      <main id="colorMainPortada" class=" col-10 text-dark">
-        <section>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptatum suscipit eligendi optio sequi saepe at tenetur vitae quidem, praesentium adipisci, in earum fuga ex debitis fugiat, eos illum. Obcaecati!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, exercitationem velit. Voluptas debitis quos corrupti? Eum enim sint praesentium explicabo consequatur aliquid, dolorem nesciunt sequi iure consectetur quia perspiciatis ipsa.
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam debitis officia asperiores modi consectetur! Illum fuga officia temporibus, voluptatem earum necessitatibus deleniti quidem debitis quasi unde maxime porro distinctio nostrum?
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea magnam officia, laboriosam illum eaque dolor id possimus facere dolore quae officiis corporis velit, facilis veritatis maiores voluptatibus rem quidem quod?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam asperiores nihil, molestias labore natus, pariatur deserunt itaque suscipit voluptas beatae officiis placeat dolorum harum eum, aliquam ducimus similique optio. Non!
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis ex nobis non excepturi facere eius pariatur dolorum quibusdam illum sunt? Dolores reprehenderit incidunt, ad error inventore doloribus commodi odio nostrum.
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt laboriosam rem quis officia, illum soluta optio possimus nisi eos quidem voluptatem corrupti, debitis non natus? Rem, iste! Asperiores, at explicabo?
-        </section>
-      </main>
-    </div>
 
-      
-    <footer id="colorFooter" class="container-fluid text-center text-light">
-      <section class="row">
-          <div class="col-12 col-lg-4">
-              <h3>Redes sociales</h3>
-              <p></p>
-              <p></p>
-              <p></p>
-          </div>
-          <div class="col-12 col-lg-4">
-              <h3>Contacta con nosotros</h3>
-              <p></p>
-              <p></p>
-              <p></p>
-          </div>
-          <div class="col-12 col-lg-4">
-              <h3>Legal</h3>
-              <p></p>
-              <p></p>
-              <p></p>
-          </div>
-      </section>
-  
-  
-  </footer>
+
+	<div class="row">
+		<aside id="colorAsidePortada" class="col-2 text-light">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptatum suscipit eligendi optio sequi
+				saepe at tenetur vitae quidem, praesentium adipisci, in earum fuga ex debitis fugiat, eos illum.
+				Obcaecati!
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, exercitationem velit. Voluptas
+				debitis quos corrupti? Eum enim sint praesentium explicabo consequatur aliquid, dolorem nesciunt sequi
+				iure consectetur quia perspiciatis ipsa.
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam debitis officia asperiores modi
+				consectetur! Illum fuga officia temporibus, voluptatem earum necessitatibus deleniti quidem debitis
+				quasi unde maxime porro distinctio nostrum?
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea magnam officia, laboriosam illum eaque
+				dolor id possimus facere dolore quae officiis corporis velit, facilis veritatis maiores voluptatibus rem
+				quidem quod?
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam asperiores nihil, molestias labore
+				natus, pariatur deserunt itaque suscipit voluptas beatae officiis placeat dolorum harum eum, aliquam
+				ducimus similique optio. Non!
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis ex nobis non excepturi facere eius
+				pariatur dolorum quibusdam illum sunt? Dolores reprehenderit incidunt, ad error inventore doloribus
+				commodi odio nostrum.
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt laboriosam rem quis officia, illum soluta
+				optio possimus nisi eos quidem voluptatem corrupti, debitis non natus? Rem, iste! Asperiores, at
+				explicabo?
+			</p>
+		</aside>
+		<main id="colorMainPortada" class=" col-10 text-dark">
+			<section>
+
+				<p>El Real Betis Balompié, una institución emblemática del fútbol español con sede en la hermosa ciudad
+					de Sevilla, ha forjado una historia rica y cautivadora desde su fundación en 1907. Con su estadio,
+					el imponente Benito Villamarín, como templo sagrado, el Betis ha deleitado a generaciones de
+					aficionados con su estilo distintivo y su compromiso con un juego elegante y ofensivo.</p>
+
+				<p>A lo largo de los años, el Betis ha experimentado tanto momentos gloriosos como desafíos difíciles,
+					pero su espíritu indomable ha perdurado a través de los altibajos. Desde la conquista de la Liga
+					Española en la temporada 1934-35 hasta sus dos triunfos en la Copa del Rey en 1977 y 2005, el Betis
+					ha dejado una huella indeleble en la historia del fútbol español.</p>
+
+				<p>La rivalidad eterna con su vecino, el Sevilla FC, ha añadido un condimento especial a la historia del
+					Betis. Los derbis sevillanos son eventos cargados de emoción y pasión, donde los corazones de toda
+					una ciudad se detienen para presenciar la batalla entre dos gigantes del fútbol andaluz.</p>
+
+				<p>El Betis, además de su éxito en el ámbito nacional, ha dejado su marca en el escenario europeo. Sus
+					participaciones en la UEFA Europa League y la antigua Copa de la UEFA han llevado el nombre del club
+					más allá de las fronteras españolas, atrayendo la atención de aficionados de todo el continente.</p>
+
+				<p>La cantera del Betis ha sido una fuente inagotable de talento, produciendo jugadores que han dejado
+					una marca indeleble en el fútbol español. Desde figuras legendarias como Rafael Gordillo hasta
+					talentos contemporáneos como Dani Ceballos, el Betis ha demostrado su compromiso con el desarrollo y
+					la promoción de jóvenes talentos.</p>
+
+				<p>Pero más allá de los trofeos y los resultados en el campo, lo que distingue verdaderamente al Real
+					Betis es su apasionada afición. Los béticos, como se les conoce cariñosamente, son el corazón y el
+					alma del club, llenando el Benito Villamarín con sus cánticos y su inquebrantable apoyo en cada
+					partido.</p>
+
+				<p>En la actualidad, el Betis continúa su búsqueda de la grandeza, compitiendo en La Liga y persiguiendo
+					sus ambiciones tanto en el ámbito nacional como internacional. Con una base sólida de talento, una
+					afición devota y una historia llena de gloria, el Real Betis Balompié sigue siendo una fuerza a
+					tener en cuenta en el mundo del fútbol.</p>
+
+			</section>
+		</main>
+	</div>
+
+
+	<footer id="colorFooter" class="container-fluid text-center text-light">
+		<section class="row">
+			<div class="col-12 col-lg-4">
+				<h3>Redes sociales</h3>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="col-12 col-lg-4">
+				<h3>Contacta con nosotros</h3>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="col-12 col-lg-4">
+				<h3>Legal</h3>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+		</section>
+
+
+	</footer>
 </body>
+
 </html>
