@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
 
 
@@ -20,6 +21,9 @@ public class ProductoController {
 
 	@Autowired
 	private ProductoService productoService;
+	
+	@Autowired
+	private CategoriaService categoriaService;
 	
 	
 	@GetMapping("/tienda")
@@ -39,14 +43,14 @@ public class ProductoController {
 	@GetMapping("/nuevo")
 	public String formularioProducto(Model model) {
 		model.addAttribute("producto", new  Producto());
-		
+		model.addAttribute("listaCategorias", categoriaService.findAll());
 		return "/admin/formularioProductos";
 	}
 	
 	
 	
 	
-	@PostMapping("/nuevo/addProducto")
+	@PostMapping("/nuevo/submit")
 	public String submit(@ModelAttribute("producto")Producto producto) {
 		productoService.save(producto);
 		return "redirect:/admin/productoAdmin";
@@ -58,6 +62,7 @@ public class ProductoController {
 		Optional<Producto> pEditar = productoService.findById(id); 
 		if (pEditar.isPresent()) {
 			model.addAttribute("producto", pEditar.get());
+			model.addAttribute("listaCategorias", categoriaService.findAll());
 			return "/admin/formularioProductos";
 		}else {
 			return "redirect:/admin/productoAdmin";
@@ -66,7 +71,7 @@ public class ProductoController {
 	}
 
 
-	@PostMapping("/editar/addProducto")
+	@PostMapping("/editar/submit")
 	public String verInformacionEditada (@ModelAttribute("producto")Producto p) {
 		productoService.edit(p);
 		return"redirect:/admin/productoAdmin";

@@ -35,7 +35,7 @@
 		  <tbody>
 			<tr th:each="producto : ${listaProductos}">
 				<td th:text="${producto.id}"></td>
-				<td></td>
+				<td th:text="${producto.categoria.nombreCategoria}"></td>
 				<td th:text="${producto.nombre}"></td>
 				<td th:text="${producto.descripcion}"></td>
 				<td th:text="${#numbers.formatDecimal(producto.precio, 1, 2)+' €'}"></td>

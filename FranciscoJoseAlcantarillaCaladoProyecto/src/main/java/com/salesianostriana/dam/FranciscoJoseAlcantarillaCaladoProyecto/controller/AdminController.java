@@ -36,7 +36,7 @@ public class AdminController {
 
 	@GetMapping("/categoriaAdmin")
 	public String listarCategorias(Model model) {
-		model.addAttribute("listaCategorias", categoriaService.findAll());
+		model.addAttribute("listarCategorias", categoriaService.findAll());
 		return "/admin/categoriaVistaAdmin";
 	}
 	
