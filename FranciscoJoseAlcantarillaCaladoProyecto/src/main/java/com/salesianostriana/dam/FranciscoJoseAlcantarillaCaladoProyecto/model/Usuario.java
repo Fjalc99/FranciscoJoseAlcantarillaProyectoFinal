@@ -39,7 +39,8 @@ public class Usuario implements UserDetails {
 	private String username;
 	private String password;
 	private boolean admin;
-	@DateTimeFormat(iso = ISO.DATE_TIME)
+	
+	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate fechaDeNacimiento;
 	
 	

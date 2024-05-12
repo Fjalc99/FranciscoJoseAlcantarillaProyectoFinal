@@ -5,112 +5,119 @@
 
 <body>
 
-  <nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/nav::nav}"></nav>
+	<nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/nav::nav}"></nav>
 
 
 
-  <main class="d-flex flex-column justify-content-between min-vh-100">
+	<main class="d-flex flex-column justify-content-between min-vh-100">
 
-    <div class="container mt-3">
-      <h2>Hazte socio</h2>
-      <form action="#" th:action="@{nuevoSocios/addSocioNuevo}" method="POST" th:object="${usuario}">
-
-        <div class="row">
-
-          <div class="col-6">
-            <div class="col input-group mt-3">
-              <label for="nombre" class="input-group-text">Nombre</label>
-              <input type="text" class="form-control" name="nombre" th:field="*{nombre}">
-            </div>
-            <div class="col input-group mt-3">
-              <label for="apellidos" class="input-group-text">Apellidos</label>
-              <input type="text" class="form-control" name="apellidos" th:field="*{apellidos}">
-            </div>
-            <div class="col input-group mt-3">
-              <label for="telefono" class="input-group-text">Telefono</label>
-              <input type="text" class="form-control" name="telefono" th:field="*{telefono}">
-            </div>
-            <div class="col input-group mt-3">
-              <label for="email" class="input-group-text">Email</label>
-              <input type="email" class="form-control" name="email" th:field="*{email}">
-            </div>
-  
-            <div class="col input-group mt-3">
-              <label for="direccion" class="input-group-text">Direccion</label>
-              <input type="text" class="form-control" name="direccion" th:field="*{direccion}">
-            </div>
-            <div class="col input-group mt-3">
-              <label for="provincia" class="input-group-text">Provincia</label>
-              <input type="text" class="form-control" name="provincia" th:field="*{provincia}">
-            </div>
-  
-          </div>
-  
-  
-          <div class="col-6">
-           
-            <div class="col input-group mt-3">
-              <label for="codigoPostal" class="input-group-text">Codigo Postal</label>
-              <input type="text" class="form-control" name="codigoPostal" th:field="*{codigoPostal}">
-            </div>
-            <div class="col input-group mt-3">
-              <label for="dni" class="input-group-text">DNI</label>
-              <input type="text" class="form-control" name="dni" th:field="*{dni}">
-            </div>
-         
-			<div class="col input-group mt-3">
-			      <label for="username" class="input-group-text">Usuario</label>
-			      <input type="text" class="form-control" name="username" th:field="*{username}">
-			 </div>
-            <div class="col input-group mt-3">
-              <label for="password" class="input-group-text">Contraseña</label>
-              <input type="text" class="form-control" name="password" th:field="*{password}">
-            </div>
-            <div class="col input-group mt-3">
-              <label for="repeatPassword" class="input-group-text">Repetir Contraseña</label>
-              <input type="text" class="form-control" name="repeatPassword">
-            </div>
-            <div class="col input-group mt-3">
-              <label for="fechaDeNacimiento" class="input-group-text">Fecha de nacimiento</label>
-              <input type="date" class="form-control" name="fechaDeNacimiento" th:field="*{fechaDeNacimiento}">
-            </div>
-          </div>
-        </div>
-
-        <div class="input-group mt-3">
-          <input type="submit" class="form-control bg-success w-25 align-content-center" value="Enviar" >
-        </div>
-
-      </form>
-    </div>
+		<div class="container mt-3">
+			<h2>Hazte socio</h2>
+			<form action="#" th:action="${usuario.id != 0} ? @{/editarSocio/submit} : @{/nuevoSocios/submit}" method="POST"
+				th:object="${usuario}">
 
 
-  </main>
-
-  <footer id="colorFooter" class="container-fluid text-center text-light">
-    <section class="row">
-      <div class="col-12 col-lg-4">
-        <h3>Redes sociales</h3>
-        <p></p>
-        <p></p>
-        <p></p>
-      </div>
-      <div class="col-12 col-lg-4">
-        <h3>Contacta con nosotros</h3>
-        <p></p>
-        <p></p>
-        <p></p>
-      </div>
-      <div class="col-12 col-lg-4">
-        <h3>Legal</h3>
-        <p></p>
-        <p></p>
-        <p></p>
-      </div>
-    </section>
+				<div class="col input-group">
+					<input th:if="${usuario.id != 0}" type="hidden" name="id" th:field="*{id}" />
+				</div>
 
 
-  </footer>
+				<div class="row">
+
+					<div class="col-6">
+						<div class="col input-group mt-3">
+							<label for="nombre" class="input-group-text">Nombre</label>
+							<input type="text" class="form-control" name="nombre" th:field="*{nombre}">
+						</div>
+						<div class="col input-group mt-3">
+							<label for="apellidos" class="input-group-text">Apellidos</label>
+							<input type="text" class="form-control" name="apellidos" th:field="*{apellidos}">
+						</div>
+						<div class="col input-group mt-3">
+							<label for="telefono" class="input-group-text">Telefono</label>
+							<input type="text" class="form-control" name="telefono" th:field="*{telefono}">
+						</div>
+						<div class="col input-group mt-3">
+							<label for="email" class="input-group-text">Email</label>
+							<input type="email" class="form-control" name="email" th:field="*{email}">
+						</div>
+
+						<div class="col input-group mt-3">
+							<label for="direccion" class="input-group-text">Direccion</label>
+							<input type="text" class="form-control" name="direccion" th:field="*{direccion}">
+						</div>
+						<div class="col input-group mt-3">
+							<label for="provincia" class="input-group-text">Provincia</label>
+							<input type="text" class="form-control" name="provincia" th:field="*{provincia}">
+						</div>
+
+					</div>
+
+
+					<div class="col-6">
+
+						<div class="col input-group mt-3">
+							<label for="codigoPostal" class="input-group-text">Codigo Postal</label>
+							<input type="text" class="form-control" name="codigoPostal" th:field="*{codigoPostal}">
+						</div>
+						<div class="col input-group mt-3">
+							<label for="dni" class="input-group-text">DNI</label>
+							<input type="text" class="form-control" name="dni" th:field="*{dni}">
+						</div>
+
+						<div class="col input-group mt-3">
+							<label for="username" class="input-group-text">Usuario</label>
+							<input type="text" class="form-control" name="username" th:field="*{username}">
+						</div>
+						<div class="col input-group mt-3">
+							<label for="password" class="input-group-text">Contraseña</label>
+							<input type="text" class="form-control" name="password" th:field="*{password}">
+						</div>
+						<div class="col input-group mt-3">
+							<label for="repeatPassword" class="input-group-text">Repetir Contraseña</label>
+							<input type="text" class="form-control" name="repeatPassword">
+						</div>
+						<div class="col input-group mt-3">
+							<label for="fechaDeNacimiento" class="input-group-text">Fecha de nacimiento</label>
+							<input type="date" class="form-control" name="fechaDeNacimiento" th:field="*{fechaDeNacimiento}">
+						</div>
+					</div>
+				</div>
+
+				<div class="input-group mt-3">
+					<input type="submit" class="form-control bg-success w-25 align-content-center" value="Enviar">
+				</div>
+
+			</form>
+		</div>
+
+
+	</main>
+
+	<footer id="colorFooter" class="container-fluid text-center text-light">
+		<section class="row">
+			<div class="col-12 col-lg-4">
+				<h3>Redes sociales</h3>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="col-12 col-lg-4">
+				<h3>Contacta con nosotros</h3>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="col-12 col-lg-4">
+				<h3>Legal</h3>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+		</section>
+
+
+	</footer>
 </body>
 
 </html>
