@@ -15,7 +15,9 @@
           <h2>Resgistra nueva Talla</h2>
 		  <form th:action="@{/nuevaTalla/submit}" method="POST" th:object="${talla}">
     
-			
+			<div class="col input-group mt-2">
+				<input th:if="${talla.id != 0}" type="hidden" name="id" th:field="*{id}" />
+			</div>
 			
  	       <div class="row">
 				
