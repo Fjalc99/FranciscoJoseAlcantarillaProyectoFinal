@@ -6,20 +6,27 @@
    
       </nav>
 
-      <main id="colorMainPortada">
+      <main id="colorMainPortada" class="d-flex flex-column justify-content-between min-vh-100">
 
-		<div class="card col-4 m-5" th:each="producto : ${listaProductos}" style="width:450px">
-				           <img class="card-img-top" th:src="${producto.imagen}" alt="Card image">
-				           <div class="card-body">
-				             <h4 th:text="${producto.nombre}" class="card-title"></h4>
-				             <p  th:text="${producto.precio + '€'}"class="card-text"></p>
-							 <a th:href="@{/descripcionDelProducto}" class="btn btn-primary">Ir al producto</a>
-				           </div>
-				         </div>
+		<div class="container py-4 border">
+			<h1 th:text="${producto.nombre}" class="mb-4 text-center"></h1>
+			<div class="row">
+				<!-- Columna izquierda -->
+				<div class="col-md-6">
+					<img th:src="${producto.imagen}" width="100%" alt="Nombre del Producto" class="mb-4">
+					<p th:text="${producto.descripcion}" class="my-3">Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac velit efficitur, consectetur odio eu, tempus ligula.</p>
+				</div>
+				<!-- Columna derecha -->
+				<div class="col-md-6 mt-md-5 text-end">
+					<p class="my-3 fw-bold" th:text="${producto.precio + '€'}"></p>
+					<button class="btn btn-primary">Agregar al Carrito</button>
+				</div>
+			</div>
+		</div>
 
       </main>
 	  
-	  <footer th:replace="~{fragmentos/footer::footer}" id="colorFooter" class="container-fluid text-center text-light"></footer>
+	  <footer th:replace="~{fragmentos/footer::footer}" id="colorFooter" class="container-fluid text-center text-light"> </footer>
 
 
 </body>
