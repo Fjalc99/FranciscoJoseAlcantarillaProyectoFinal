@@ -20,9 +20,13 @@ ALTER SEQUENCE CATEGORIA_SEQ RESTART WITH (53)
 /*Tallas*/
 
 insert into talla (id, nombre_talla) values (1, 'XS')
+insert into talla (id, nombre_talla) values (2, 'S')
+insert into talla (id, nombre_talla) values (3, 'M')
+insert into talla (id, nombre_talla) values (4, 'XL')
+insert into talla (id, nombre_talla) values (5, 'XXL')
 
 
-ALTER SEQUENCE TALLA_SEQ RESTART WITH (51)
+ALTER SEQUENCE TALLA_SEQ RESTART WITH (55)
 -------------------------------------------
 /*Productos*/
 

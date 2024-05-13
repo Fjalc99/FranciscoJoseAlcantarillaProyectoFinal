@@ -24,12 +24,16 @@
 			<tr>
 			  <th>Id</th>
 			  <th>Talla</th>
+			  <th>Eliminar</th>
 			</tr>
 		  </thead>
 		  <tbody>
 			<tr th:each="talla : ${listarTallas}">
 				<td th:text="${talla.id}"></td>
 				<td th:text="${talla.nombreTalla}"></td>
+				<td>
+					<a th:href="@{/borrarTalla/{id}(id=${talla.id})}"><i class="bi bi-trash"></i></a>
+				</td>
 			</tr>
 			
 			
