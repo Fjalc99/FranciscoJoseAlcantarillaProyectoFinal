@@ -16,6 +16,13 @@ insert into categoria (id, nombre_categoria) values (2,'Equipación');
 insert into categoria (id, nombre_categoria) values (3,'Accesorios');
 
 ALTER SEQUENCE CATEGORIA_SEQ RESTART WITH (53)
+----------------------------------------------------
+/*Tallas*/
+
+insert into talla (id, nombre_talla) values (1, 'XS')
+
+
+ALTER SEQUENCE TALLA_SEQ RESTART WITH (51)
 -------------------------------------------
 /*Productos*/
 

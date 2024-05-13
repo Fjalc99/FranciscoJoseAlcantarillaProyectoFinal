@@ -54,7 +54,7 @@ public class AdminController {
 	
 	@GetMapping("/tallasAdmin")
 	private String listarVariantes(Model model) {
-		model.addAttribute("variante", tallaService.findAll());
+		model.addAttribute("listarTallas", tallaService.findAll());
 		return "/admin/varianteVistaAdmin";
 	}
 

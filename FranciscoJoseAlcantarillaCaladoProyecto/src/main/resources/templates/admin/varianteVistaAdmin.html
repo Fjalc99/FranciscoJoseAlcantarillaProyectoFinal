@@ -23,19 +23,13 @@
 		  <thead>
 			<tr>
 			  <th>Id</th>
-			  <th>Nombre</th>
+			  <th>Talla</th>
 			</tr>
 		  </thead>
 		  <tbody>
-			<tr th:each="talla  : ${listarTallas}">
+			<tr th:each="talla : ${listarTallas}">
 				<td th:text="${talla.id}"></td>
-				<td th:text="${talla.nombre}"></td>
-				<td>
-					<a th:href="@{/talla/{id}(id=${talla.id})}"><i class="bi bi-pencil-square"></i></a>
-				</td>
-				<td>
-					<a th:href="@{/talla/{id}(id=${talla.id})}"><i class="bi bi-trash"></i></a>
-				</td>
+				<td th:text="${talla.nombreTalla}"></td>
 			</tr>
 			
 			

@@ -17,7 +17,7 @@ public class Talla {
 	private Long id;
 	
 	private String nombreTalla;
-	private String talla;
+
 
 	
 	

@@ -5,24 +5,20 @@
 
 <body>
 
-  <nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/nav::nav}"></nav>
+  <nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
 
 
 
   <main  class="d-flex flex-column justify-content-between min-vh-100">
 
         <div class="container mt-3">
-          <h2>Resgistra nueva categoria</h2>
-		  <form action="#" th:action="${talla.id != 0} ? @{/editarTalla/submit} : @{/nuevaTalla/submit}" method="POST" th:object="${talla}">
+          <h2>Resgistra nueva Talla</h2>
+		  <form th:action="@{/nuevaTalla/submit}" method="POST" th:object="${talla}">
     
 			
 			
  	       <div class="row">
 				
-			<div class="col input-group mt-2">
-			   	<input th:if="${talla.id != 0}" type="hidden" name="id" th:field="*{id}" />
-			</div>
-			
                 <div class="col input-group mt-2">
                   <label for="nombreTalla" class="input-group-text">Talla</label>
                   <input type="text" class="form-control" name="nombreTalla" th:field="*{nombreTalla}">

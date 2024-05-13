@@ -18,13 +18,13 @@ public class TallaController {
 	
 	
 	@GetMapping("/nuevaTalla")
-	public String nuevaTalla (Model model) {
+	public String formularioTalla (Model model) {
 	model.addAttribute("talla", new Talla ());
 	return "/admin/formularioVariante";
 	}
 	
 	@PostMapping("/nuevaTalla/submit")
-	public String submit (@ModelAttribute("talla") Talla talla) {
+	public String submitCategoria (@ModelAttribute("talla") Talla talla) {
 		tallaService.save(talla);
 		return "redirect:/admin/tallasAdmin";
 	}
