@@ -6,57 +6,62 @@
 </head>
 
 <body>
-  <nav th:replace="~{fragmentos/navAdmin::navAdmin}" id="colorNav" class="navbar navbar-expand-sm text-light bg-black">
+	<nav th:replace="~{fragmentos/navAdmin::navAdmin}" id="colorNav"
+		class="navbar navbar-expand-sm text-light bg-black">
 
-  </nav>
-
-
-
-
-  <div class="container mt-3">
-	<a  th:href="@{/nuevoSocios}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
-    <h2>Lista de productos</h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-		  <th>Numero</th>
-          <th>Nombre</th>
-          <th>Apellidos</th>
-          <th>Telefono</th>
-          <th>Email</th>
-          <th>Dirección</th>
-          <th>Provincia</th>
-          <th>Codigo <br> Postal</th>
-          <th>DNI</th>
-		  <th>Nombre Usuario</th>
-          <th>Fecha <br> de <br> nacimiento</th>
-		  <th>Editar</th>
-        </tr>
-      </thead>
-
-      <tbody>
+	</nav>
 
 
 
-        <tr th:each="socio : ${listaSocios}">
-		  <td th:text="${socioStat.count}"></td>
-          <td th:text="${socio.nombre}"></td>
-          <td th:text="${socio.apellidos}"></td>
-          <td th:text="${socio.telefono}"></td>
-          <td th:text="${socio.email}"></td>
-          <td th:text="${socio.direccion}"></td>
-          <td th:text="${socio.provincia}"></td>
-          <td th:text="${socio.codigoPostal}"></td>
-          <td th:text="${socio.dni}"></td>
-		  <td th:text="${socio.username}"></td>
-          <td th:text="${#temporals.format(socio.fechaDeNacimiento, 'YYYY-MM-dd')}"></td>
-		  <td>
-		  	<a th:href="@{/editarSocio/{id}(id=${socio.id})}"><i class="bi bi-pencil-square"></i></a>
-		  </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+	<div class="container mt-3">
+		<a th:href="@{/nuevoSocios}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
+		<h2>Lista de productos</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Numero</th>
+					<th>Nombre</th>
+					<th>Apellidos</th>
+					<th>Telefono</th>
+					<th>Email</th>
+					<th>Dirección</th>
+					<th>Provincia</th>
+					<th>Codigo <br> Postal</th>
+					<th>DNI</th>
+					<th>Nombre Usuario</th>
+					<th>Fecha <br> de <br> nacimiento</th>
+					<th>Editar</th>
+					<th>Borrar</th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+
+
+				<tr th:each="socio : ${listaSocios}">
+					<td th:text="${socioStat.count}"></td>
+					<td th:text="${socio.nombre}"></td>
+					<td th:text="${socio.apellidos}"></td>
+					<td th:text="${socio.telefono}"></td>
+					<td th:text="${socio.email}"></td>
+					<td th:text="${socio.direccion}"></td>
+					<td th:text="${socio.provincia}"></td>
+					<td th:text="${socio.codigoPostal}"></td>
+					<td th:text="${socio.dni}"></td>
+					<td th:text="${socio.username}"></td>
+					<td th:text="${#temporals.format(socio.fechaDeNacimiento, 'YYYY-MM-dd')}"></td>
+					<td>
+						<a th:href="@{/editarSocio/{id}(id=${socio.id})}"><i class="bi bi-pencil-square"></i></a>
+					</td>
+					<td>
+						<a th:href="@{/borrarSocio/{id}(id=${socio.id})}"><i class="bi bi-pencil-square"></i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 
 </body>

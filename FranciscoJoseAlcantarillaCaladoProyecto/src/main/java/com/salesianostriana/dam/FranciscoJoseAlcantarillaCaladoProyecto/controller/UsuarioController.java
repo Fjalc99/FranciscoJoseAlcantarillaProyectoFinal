@@ -57,4 +57,10 @@ public class UsuarioController {
 		return"redirect:/admin/sociosAdmin";
 	}
 	
+	@GetMapping("/borrarSocio/{id}")
+	public String borrarSocio (@PathVariable("id")Long id, Model model) {
+		usuarioService.deleteById(id);
+		return "redirect:/admin/sociosAdmin";
+	}
+	
 }
