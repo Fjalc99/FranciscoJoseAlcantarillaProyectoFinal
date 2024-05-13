@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos/header::header}"></head>
+
+<body>
+
+  <nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+
+
+
+  <main  class="d-flex flex-column justify-content-between min-vh-100">
+
+        <div class="container mt-3">
+          <h2>Resgistra nueva Talla</h2>
+		  <form th:action="@{/nuevaTalla/submit}" method="POST" th:object="${talla}">
+    
+			
+			
+ 	       <div class="row">
+				
+                <div class="col input-group mt-2">
+                  <label for="nombreTalla" class="input-group-text">Talla</label>
+                  <input type="text" class="form-control" name="nombreTalla" th:field="*{nombreTalla}">
+                </div>
+
+             <div class="row">
+              <div class="col-5 input-group w-25 align-content-center mt-2">
+                <input type="submit" class="form-control input-group" value="Enviar">
+              </div>
+             </div>
+        </form>
+     </div>  
+  </main>
+
+  <footer id="colorFooter" class="container-fluid text-center text-light">
+    <section class="row">
+      <div class="col-12 col-lg-4">
+        <h3>Redes sociales</h3>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <h3>Contacta con nosotros</h3>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <h3>Legal</h3>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+    </section>
+
+
+  </footer>
+</body>
+
+</html>

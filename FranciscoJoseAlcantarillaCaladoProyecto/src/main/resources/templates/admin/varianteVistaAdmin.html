@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragmentos/header::header}"></head>
+<body>
+    <nav th:replace="~{fragmentos/navAdmin::navAdmin}" id="colorNav" class="navbar navbar-expand-sm text-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="javascript:void(0)"><img src="../static/img/logo-rb.png" thim width="200px" alt="escudo del betis"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+
+
+	
+    
+
+        
+	<div class="container mt-3">
+		<a  th:href="@{/nuevaTalla}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
+		<h2 class="text-center mt-3">Lista de Tallas</h2>      
+		<table class="table table-striped align-content-center mt-3">
+		  <thead>
+			<tr>
+			  <th>Id</th>
+			  <th>Talla</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr th:each="talla : ${listarTallas}">
+				<td th:text="${talla.id}"></td>
+				<td th:text="${talla.nombreTalla}"></td>
+			</tr>
+			
+			
+		  </tbody>
+		</table>
+	  </div>
+
+
+</body>
+</html>
