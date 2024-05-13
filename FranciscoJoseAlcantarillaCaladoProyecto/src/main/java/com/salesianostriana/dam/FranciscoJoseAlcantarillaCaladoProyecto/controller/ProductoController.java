@@ -26,19 +26,30 @@ public class ProductoController {
 	private CategoriaService categoriaService;
 	
 	
-	@GetMapping("/tienda")
+	@GetMapping("/tiendaPrincipal")
 	private String vistaTienda(Model model) {
 		model.addAttribute("listaProductos", productoService.findAll());
 		return "tienda";
 	}
 	
 	
-	@GetMapping("/descripcionProducto")
-	private String vistaDescripcion(Model model) {
-		Producto producto = new Producto ();
-		model.addAttribute("vistaDescripcion", producto);
-		return "descripcionDelProducto";
-	}
+
+    @GetMapping("/producto/{id}")
+    public String verProductoPorId(@PathVariable("id")Long id, Model model) {
+
+        Optional<Producto> hayProducto = productoService.findById(id);
+
+        if (hayProducto.isPresent()) {
+
+            model.addAttribute("producto", hayProducto.get());
+
+            return "descripcionDelProducto";
+        } else {
+
+            return "redirect:/tienda";
+        }
+    }
+
 	
 	@GetMapping("/nuevo")
 	public String formularioProducto(Model model) {

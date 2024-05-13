@@ -5340,3 +5340,78 @@ insert into talla (id, nombre_talla) values (1, 'XS') [42122-224]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.FranciscoJoseAlcantarillaCaladoProyectoApplication.main(FranciscoJoseAlcantarillaCaladoProyectoApplication.java:10)
+2024-05-13 19:47:41.895543+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "DESCRIPCION CHARACTER VARYING(255)": "'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptatum suscip... (1563)"
+Value too long for column "DESCRIPCION CHARACTER VARYING(255)": "'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptatum suscip... (1563)"; SQL statement:
+insert into producto (id,  nombre, descripcion, precio, imagen, categoria_id) values (1, 'Balon','Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptatum suscipit eligendi optio sequisaepe at tenetur vitae quidem, praesentium adipisci, in earum fuga ex debitis fugiat, eos illum.Obcaecati!Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, exercitationem velit. Voluptasdebitis quos corrupti? Eum enim sint praesentium explicabo consequatur aliquid, dolorem nesciunt sequiiure consectetur quia perspiciatis ipsa.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam debitis officia asperiores modiconsectetur! Illum fuga officia temporibus, voluptatem earum necessitatibus deleniti quidem debitisquasi unde maxime porro distinctio nostrum?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea magnam officia, laboriosam illum eaquedolor id possimus facere dolore quae officiis corporis velit, facilis veritatis maiores voluptatibus remquidem quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam asperiores nihil, molestias laborenatus, pariatur deserunt itaque suscipit voluptas beatae officiis placeat dolorum harum eum, aliquamducimus similique optio. Non!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis ex nobis non excepturi facere eiuspariatur dolorum quibusdam illum sunt? Dolores reprehenderit incidunt, ad error inventore doloribuscommodi odio nostrum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt laboriosam rem quis officia, illum solutaoptio possimus nisi eos quidem voluptatem corrupti, debitis non natus? Rem, iste! Asperiores, atexplicabo?', 300.0, 'https://m.media-amazon.com/images/I/71XnnlWmbmL._AC_SL1500_.jpg', 1) [22001-224]
+2024-05-13 19:49:27.490972+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "DESCRIPCION CHARACTER VARYING(255)": "U&'bal\\00f3n del centario aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... (411)"
+Value too long for column "DESCRIPCION CHARACTER VARYING(255)": "U&'bal\\00f3n del centario aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... (411)"; SQL statement:
+insert into producto (id,  nombre, descripcion, precio, imagen, categoria_id) values (1, 'Balon','balón del centario aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 300.0, 'https://m.media-amazon.com/images/I/71XnnlWmbmL._AC_SL1500_.jpg', 1) [22001-224]
+2024-05-13 19:52:30.847831+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Caracteristica no soportada: "CHARACTER VARYING /"
+Feature not supported: "CHARACTER VARYING /"; SQL statement:
+insert into producto (id,  nombre, descripcion, precio, imagen, categoria_id) values (1, 'Balon','balón del centario aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa '/n' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 300.0, 'https://m.media-amazon.com/images/I/71XnnlWmbmL._AC_SL1500_.jpg', 1) [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.value.Value.getUnsupportedExceptionForOperation(Value.java:2796)
+	at org.h2.value.Value.divide(Value.java:955)
+	at org.h2.expression.BinaryOperation.getValue(BinaryOperation.java:123)
+	at org.h2.expression.BinaryOperation.optimize(BinaryOperation.java:168)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:300)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.FranciscoJoseAlcantarillaCaladoProyectoApplication.main(FranciscoJoseAlcantarillaCaladoProyectoApplication.java:10)
+2024-05-13 19:52:59.457862+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "DESCRIPCION CHARACTER VARYING(255)": "U&'bal\\00f3n del centario aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... (258)"
+Value too long for column "DESCRIPCION CHARACTER VARYING(255)": "U&'bal\\00f3n del centario aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... (258)"; SQL statement:
+insert into producto (id,  nombre, descripcion, precio, imagen, categoria_id) values (1, 'Balon','balón del centario aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa "/n" aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 300.0, 'https://m.media-amazon.com/images/I/71XnnlWmbmL._AC_SL1500_.jpg', 1) [22001-224]
