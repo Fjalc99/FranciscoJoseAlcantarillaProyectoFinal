@@ -27,5 +27,21 @@ insert into producto (id,  nombre, descripcion, precio, imagen, categoria_id) va
 insert into producto (id,  nombre, descripcion, precio, imagen, categoria_id) values (6, 'Bufanda del derbi','Bufanda del derbi 23/24', 300.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/000773_1.jpg?crop=center&v=1714122305&width=960', 3);
 
 ALTER SEQUENCE PRODUCTO_SEQ RESTART WITH (57)
+-----------------------------------------------------------------------
+/*Venta*/
+insert into venta (total, id) values (20, 1)
+insert into venta (total, id) values (20, 2)
+insert into venta (total, id) values (20, 3)
+insert into venta (total, id) values (20, 4)
+insert into venta (total, id) values (20, 5)
 
+ALTER SEQUENCE VENTA_SEQ RESTART WITH (1000)
 ---------------------------------------------------------------------
+/*Linea de ventas*/
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (1, 1, 3, 10, 1)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (2, 2, 2, 10, 2)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (3, 3, 5, 10, 3)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (4, 4, 6, 10, 4)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (5, 5, 7, 10, 5)
+
+ALTER SEQUENCE LINEA_DE_VENTA_SEQ RESTART WITH (1000)

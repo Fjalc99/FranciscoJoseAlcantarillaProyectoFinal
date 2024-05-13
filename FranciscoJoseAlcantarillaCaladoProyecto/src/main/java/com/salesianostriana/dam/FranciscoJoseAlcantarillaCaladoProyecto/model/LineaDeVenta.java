@@ -2,9 +2,11 @@ package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,7 +27,12 @@ public class LineaDeVenta {
 	private int cantidadProducto;
 	private double subTotal;
 	
-	@Id
+
+	
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name = "fk_lineadeventa_producto"))
+	private Producto producto;
+	
 	@ManyToOne
 	private Venta venta;
 	
