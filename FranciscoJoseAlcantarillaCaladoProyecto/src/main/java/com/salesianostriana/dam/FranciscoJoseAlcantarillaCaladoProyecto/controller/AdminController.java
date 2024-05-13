@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.TallaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.UsuarioService;
 
 
@@ -24,6 +25,10 @@ public class AdminController {
 	
 	@Autowired
 	private CategoriaService categoriaService;
+	
+	
+	@Autowired
+	private TallaService tallaService;
 	
 	
 	
@@ -45,4 +50,12 @@ public class AdminController {
 		model.addAttribute("listaSocios", usuarioService.findAll());
 		return "/admin/socioVistaAdmin";
 	}
+	
+	
+	@GetMapping("/tallasAdmin")
+	private String listarVariantes(Model model) {
+		model.addAttribute("variante", tallaService.findAll());
+		return "/admin/varianteVistaAdmin";
+	}
+
 }
