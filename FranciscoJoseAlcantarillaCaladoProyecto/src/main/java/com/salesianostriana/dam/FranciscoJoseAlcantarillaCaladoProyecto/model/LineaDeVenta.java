@@ -33,7 +33,10 @@ public class LineaDeVenta {
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_lineadeventa_producto"))
 	private Producto producto;
 	
+	@Id
 	@ManyToOne
 	private Venta venta;
+	
+	/*Metodo para el calcular la linea de venta*/
 	
 }
