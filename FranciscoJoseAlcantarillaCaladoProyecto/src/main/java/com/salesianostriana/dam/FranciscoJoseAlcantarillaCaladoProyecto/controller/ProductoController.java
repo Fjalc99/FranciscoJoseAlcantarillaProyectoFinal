@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.TallaService;
 
 
 
@@ -24,6 +25,9 @@ public class ProductoController {
 	
 	@Autowired
 	private CategoriaService categoriaService;
+	
+	@Autowired
+	private TallaService tallaService;
 	
 	
 	@GetMapping("/tiendaPrincipal")
@@ -55,6 +59,7 @@ public class ProductoController {
 	public String formularioProducto(Model model) {
 		model.addAttribute("producto", new  Producto());
 		model.addAttribute("listaCategorias", categoriaService.findAll());
+		model.addAttribute("ListaTalla", tallaService.findAll());
 		return "/admin/formularioProductos";
 	}
 	
@@ -74,6 +79,7 @@ public class ProductoController {
 		if (pEditar.isPresent()) {
 			model.addAttribute("producto", pEditar.get());
 			model.addAttribute("listaCategorias", categoriaService.findAll());
+			model.addAttribute("listaTalla", tallaService.findAll());
 			return "/admin/formularioProductos";
 		}else {
 			return "redirect:/admin/productoAdmin";
