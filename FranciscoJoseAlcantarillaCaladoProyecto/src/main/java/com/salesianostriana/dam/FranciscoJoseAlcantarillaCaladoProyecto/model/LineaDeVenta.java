@@ -37,6 +37,6 @@ public class LineaDeVenta {
 	@ManyToOne
 	private Venta venta;
 	
-	/*Metodo para el calcular la linea de venta*/
+	
 	
 }
