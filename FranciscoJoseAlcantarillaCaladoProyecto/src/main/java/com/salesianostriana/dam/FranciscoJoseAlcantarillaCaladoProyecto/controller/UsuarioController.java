@@ -3,6 +3,7 @@ package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.control
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,13 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 	
 
+	@GetMapping("/usuario/perfil")
+	public String me (@AuthenticationPrincipal Usuario usuario, Model model) {
+		model.addAttribute("usuario", usuario);
+		return "perfil";
+	}
+	
+		
 	@GetMapping("/nuevoSocios")
 	private String formRegistro (Model model) {	
 		model.addAttribute("usuario", new Usuario());
@@ -34,7 +42,6 @@ public class UsuarioController {
 		usuarioService.save(usuario);
 		return "redirect:/admin/sociosAdmin";
 	}
-	
 	
 	
 	@GetMapping("/editarSocio/{id}")

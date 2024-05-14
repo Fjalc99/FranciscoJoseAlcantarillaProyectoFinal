@@ -25,15 +25,29 @@
 
 
           <main>
-            <div class="container mt-3 text-center">
-                <h2 class="text-center">¿Eres socio?</h2>
-                <h4 class="text-center">Si lo eres inicia sesión aquí</h4>
-				<form name="login" method="POST" action="#" th:action="@{/login}">
-					<input type="text" id="username" name="username" placeholder="Username" required autofocus> 
-					<input type="password" name="password" id="password" placeholder="Password" required>
-					<input type="submit" name="enviar" value="Enviar" />
-				</form>
-            </div>
+       	
+			<div class="container mt-3 text-center">
+			            <h2 class="text-center">¿Eres socio?</h2>
+			            <h4 class="text-center">Si lo eres inicia sesión aquí</h4>
+						<form name="login" method="POST" action="#" th:action="@{/login}">
+			                <div class="mb-3 mt-3 d-flex justify-content-center">
+			                    <div class="w-50">
+			                        <label for="username" class="form-label">Usuario:</label>
+			                        <input type="text" class="form-control p-3" id="username"
+			                            placeholder="Ingrese su correo electrónico" name="username">
+			                    </div>
+			                </div>
+			                <div class="mb-3 d-flex justify-content-center">
+			                    <div class="w-50">
+			                        <label for="password">Contraseña:</label>
+			                        <input type="password" class="form-control p-3" id="password" placeholder="Ingrese su contraseña"
+			                            name="password">
+			                    </div>
+			                </div>
+			                <h4 class="text-center"><a href="./registroSocio.html">Hazte socio aquí</a></h4>
+			                <button type="submit" name="enviar" class="btn btn-success my-3">Enviar</button>
+			            </form>
+			        </div>
          </main>
     </body>
 </html>
