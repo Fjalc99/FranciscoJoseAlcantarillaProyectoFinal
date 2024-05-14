@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Talla;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.TallaService;
 
@@ -25,13 +28,34 @@ public class TallaController {
 	}
 	
 	@PostMapping("/nuevaTalla/submit")
-	public String submitCategoria (@ModelAttribute("talla") Talla talla) {
+	public String submitTalla (@ModelAttribute("talla") Talla talla) {
 		tallaService.save(talla);
 		return "redirect:/admin/tallasAdmin";
 	}
 	
+	
+	@GetMapping("/editarTalla/{id}")
+	public String verEditarTalla (@PathVariable("id") Long id, Model model) {
+
+		Optional<Talla> tEditar = tallaService.findById(id); 
+		if (tEditar.isPresent()) {
+			model.addAttribute("talla", tEditar.get());
+			return "/admin/formularioVariante";
+		}else {
+			return "redirect:/admin/tallasAdmin";
+		}
+	}
+	
+	@PostMapping("/editarTalla/submit")
+	public String verInformacionEditada (@ModelAttribute("talla")Talla t) {
+		tallaService.edit(t);
+		return"redirect:/admin/tallasAdmin";
+	}
+	
+	
+	
 	@GetMapping("/borrarTalla/{id}")
-	public String borrarCategoria(@PathVariable("id")Long id, Model model) {
+	public String borrarTalla(@PathVariable("id")Long id, Model model) {
 		tallaService.deleteById(id);
 		return "redirect:/admin/tallasAdmin";
 		

@@ -30,7 +30,9 @@ public class Producto {
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_producto_categoria"))
 	private Categoria categoria;
 	
-	
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name="fk_producto_talla"))
+	private Talla talla;
 	
 	
 	
@@ -42,6 +44,18 @@ public class Producto {
 	public void deleteCategoria(Categoria categoria) {
 		categoria.getProductos().remove(this);
 		this.categoria = categoria;
+		
+	}
+	
+	
+	public void addTalla(Talla talla) {
+		this.talla = talla;
+		talla.getProductos().add(this);
+	}
+	
+	public void deleteTalla(Talla talla) {
+		talla.getProductos().remove(this);
+		this.talla = talla;
 		
 	}
 }

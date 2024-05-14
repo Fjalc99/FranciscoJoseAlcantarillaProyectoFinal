@@ -5,7 +5,7 @@
 
 <body>
 
-	<nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/nav::nav}"></nav>
+	<nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
 
 
 
@@ -13,8 +13,8 @@
 
 		<div class="container mt-3">
 			<h2>Hazte socio</h2>
-			<form action="#" th:action="${producto.id != 0} ? @{/editar/submit} : @{/nuevo/submit}"
-				method="POST" th:object="${producto}">
+			<form action="#" th:action="${producto.id != 0} ? @{/editar/submit} : @{/nuevo/submit}" method="POST"
+				th:object="${producto}">
 
 
 				<div class="col input-group">
@@ -26,9 +26,18 @@
 					<div class="col input-group mt-2">
 						<label for="nombreCategoria" class="input-group-text">Categoria</label>
 						<select th:field="*{categoria}">
-						    <option th:each="categoria : ${listaCategorias}" th:value="${categoria.id}" th:text="${categoria.nombreCategoria}"></option>
+							<option th:each="categoria : ${listaCategorias}" th:value="${categoria.id}"
+								th:text="${categoria.nombreCategoria}"></option>
 						</select>
 					</div>
+					<div class="col input-group mt-2">
+						<label for="nombreTalla" class="input-group-text">Talla</label>
+						<select th:field="*{talla}">
+							<option th:each="talla : ${listaTalla}" th:value="${talla.id}"
+								th:text="${talla.nombreTalla}"></option>
+						</select>
+					</div>
+
 					<div class="col input-group mt-2">
 						<label for="nombre" class="input-group-text">Nombre</label>
 						<input type="text" class="form-control" name="nombre" th:field="*{nombre}">
@@ -53,7 +62,8 @@
 
 				<div class="row">
 					<div class="col-5 input-group w-25 align-content-center mt-2">
-						<input th:href="@{/admin/productoAdmin}" type="submit" class="form-control input-group" value="Enviar">
+						<input th:href="@{/admin/productoAdmin}" type="submit" class="form-control input-group"
+							value="Enviar">
 					</div>
 				</div>
 			</form>
