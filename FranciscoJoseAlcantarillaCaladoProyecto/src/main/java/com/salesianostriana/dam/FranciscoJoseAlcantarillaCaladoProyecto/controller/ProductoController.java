@@ -44,9 +44,8 @@ public class ProductoController {
         Optional<Producto> hayProducto = productoService.findById(id);
 
         if (hayProducto.isPresent()) {
-
             model.addAttribute("producto", hayProducto.get());
-
+            model.addAttribute("ListaTalla", tallaService.findAll());
             return "descripcionDelProducto";
         } else {
 
@@ -79,7 +78,6 @@ public class ProductoController {
 		if (pEditar.isPresent()) {
 			model.addAttribute("producto", pEditar.get());
 			model.addAttribute("listaCategorias", categoriaService.findAll());
-			model.addAttribute("listaTalla", tallaService.findAll());
 			return "/admin/formularioProductos";
 		}else {
 			return "redirect:/admin/productoAdmin";
