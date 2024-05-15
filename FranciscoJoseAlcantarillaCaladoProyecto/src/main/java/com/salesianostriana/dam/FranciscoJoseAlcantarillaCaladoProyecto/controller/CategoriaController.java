@@ -59,4 +59,10 @@ public class CategoriaController {
 		return "redirect:/admin/categoriaAdmin";
 		
 	}
+	
+	@GetMapping("/categoria")
+	public String listarCategorias(Model model) {
+		model.addAttribute("listarCategorias", categoriaService.findAll());
+		return "/tienda";
+	}
 }

@@ -13,8 +13,15 @@ public interface ProductoRepository extends JpaRepository <Producto, Long> {
 	@Query("select p from Producto p where p.precio > 100.00")
 	public List <Producto> prodcutosMasCarosDeCien (@Param("precio") double precio);
 	
-	@Query("select p from Producto p where p.nombreCategoria is Balones ")
-	public List <Producto> filtradoPorBalones ();
-	
-	
+
+	 @Query("SELECT p FROM Producto p WHERE p.categoria.nombreCategoria = 'Balones'")
+	  public List<Producto> findByCategoriaBalones();
+
+	 @Query("SELECT p FROM Producto p WHERE p.categoria.nombreCategoria = 'Equipaciones'")
+	  public List<Producto> findByCategoriaEquipaciones();
+	 
+	 
+	 @Query("SELECT p FROM Producto p WHERE p.categoria.nombreCategoria = 'Accesorios'")
+	  public List<Producto> findByCategoriaAccesorios();
+
 }
