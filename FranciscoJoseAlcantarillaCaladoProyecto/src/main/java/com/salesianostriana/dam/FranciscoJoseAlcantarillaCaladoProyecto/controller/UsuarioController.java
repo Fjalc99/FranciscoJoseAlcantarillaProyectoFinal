@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +24,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+
 	
 
 	@GetMapping("/usuario/perfil")
@@ -41,12 +40,9 @@ public class UsuarioController {
 		return "/admin/registroSocio";
 	}
 	
-	@PostMapping("/nuevoSocios/addSocioNuevo")
-	public String submitRegistro(@ModelAttribute("usuario") Usuario usuario, Model model) {
-		String passwordEncriptada = passwordEncoder.encode(usuario.getPassword());
-		usuario.setPassword(passwordEncriptada);
+	@PostMapping("/nuevoSocios/submit")
+	public String submitRegistro( Usuario usuario, Model model) {
 		usuarioService.save(usuario);
-		model.addAttribute("usuario", usuario);
 		return "redirect:/admin/sociosAdmin";
 	}
 	
@@ -75,6 +71,22 @@ public class UsuarioController {
 		usuarioService.deleteById(id);
 		 model.addAttribute("mensaje", "El socio ha sido eliminado exitosamente.");
 		return "redirect:/admin/sociosAdmin";
+	}
+	
+	
+	@GetMapping("/nuevoSocio")
+	public String verFormSocio (Model model) {
+		model.addAttribute("usuario", new Usuario());
+		
+		return "registroSocioManualmente";
+	}
+	
+	
+	@PostMapping("/nuevoSocio/submit")
+	public String submitSocio (Usuario usuario, Model model) {
+		
+		usuarioService.save(usuario);
+		return "redirect:/";
 	}
 	
 }
