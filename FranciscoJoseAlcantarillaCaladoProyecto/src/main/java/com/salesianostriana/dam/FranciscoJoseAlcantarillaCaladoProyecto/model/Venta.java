@@ -6,8 +6,11 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +31,7 @@ public class Venta {
 	private Long id;
 	
 	private double Total;
+	private boolean finalizada;
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
@@ -39,6 +43,10 @@ public class Venta {
 				orphanRemoval = true
 			)
 	private List<LineaDeVenta> LineaDeVenta = new ArrayList <>();
+	
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name="fk_venta_usuario"))
+	private Usuario usuario;
 	
 	//Metodos Helper
 	

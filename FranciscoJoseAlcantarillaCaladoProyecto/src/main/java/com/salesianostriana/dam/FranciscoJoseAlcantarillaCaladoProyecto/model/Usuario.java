@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -10,13 +11,18 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @SuppressWarnings("serial")
 @Data
@@ -43,7 +49,11 @@ public class Usuario implements UserDetails {
 	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate fechaDeNacimiento;
 	
-	
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@Builder.Default
+	private List <Venta> venta = new ArrayList<>();
 	
 	
 	@Override
