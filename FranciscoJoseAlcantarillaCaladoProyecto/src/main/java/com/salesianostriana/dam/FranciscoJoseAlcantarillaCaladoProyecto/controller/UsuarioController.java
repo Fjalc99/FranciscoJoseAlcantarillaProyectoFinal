@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,9 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 
 	@GetMapping("/usuario/perfil")
 	public String me (@AuthenticationPrincipal Usuario usuario, Model model) {
@@ -38,11 +42,13 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/nuevoSocios/addSocioNuevo")
-	public String submitRegistro (@ModelAttribute("usuario") Usuario usuario) {
+	public String submitRegistro(@ModelAttribute("usuario") Usuario usuario, Model model) {
+		String passwordEncriptada = passwordEncoder.encode(usuario.getPassword());
+		usuario.setPassword(passwordEncriptada);
 		usuarioService.save(usuario);
+		model.addAttribute("usuario", usuario);
 		return "redirect:/admin/sociosAdmin";
 	}
-	
 	
 	@GetMapping("/editarSocio/{id}")
 	public String verEditarFormulario (@PathVariable("id") Long id, Model model) {
@@ -67,6 +73,7 @@ public class UsuarioController {
 	@GetMapping("/borrarSocio/{id}")
 	public String borrarSocio (@PathVariable("id")Long id, Model model) {
 		usuarioService.deleteById(id);
+		 model.addAttribute("mensaje", "El socio ha sido eliminado exitosamente.");
 		return "redirect:/admin/sociosAdmin";
 	}
 	
