@@ -40,11 +40,11 @@ insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, catego
 ALTER SEQUENCE PRODUCTO_SEQ RESTART WITH (57)
 -----------------------------------------------------------------------
 /*Venta*/
-insert into venta (total, id) values (20, 1)
-insert into venta (total, id) values (20, 2)
-insert into venta (total, id) values (20, 3)
-insert into venta (total, id) values (20, 4)
-insert into venta (total, id) values (20, 5)
+insert into venta (finalizada, usuario_id ,total, id) values (false, 2, 20, 1)
+insert into venta (finalizada, usuario_id ,total, id) values (true, 2, 20, 2)
+insert into venta (finalizada, usuario_id ,total, id) values (true, 3, 20, 3)
+insert into venta (finalizada, usuario_id ,total, id) values (false, 4, 20, 4)
+insert into venta (finalizada, usuario_id ,total, id) values (false, 4, 20, 5)
 
 ALTER SEQUENCE VENTA_SEQ RESTART WITH (1000)
 ---------------------------------------------------------------------
