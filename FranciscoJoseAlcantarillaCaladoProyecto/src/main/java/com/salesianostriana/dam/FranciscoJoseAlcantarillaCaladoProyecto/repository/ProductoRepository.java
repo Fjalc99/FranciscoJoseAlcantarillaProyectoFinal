@@ -13,4 +13,8 @@ public interface ProductoRepository extends JpaRepository <Producto, Long> {
 	@Query("select p from Producto p where p.precio > 100.00")
 	public List <Producto> prodcutosMasCarosDeCien (@Param("precio") double precio);
 	
+	@Query("select p from Producto p where p.nombreCategoria is Balones ")
+	public List <Producto> filtradoPorBalones ();
+	
+	
 }

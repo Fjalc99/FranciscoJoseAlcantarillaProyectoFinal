@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
+
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Talla;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.TallaService;
 

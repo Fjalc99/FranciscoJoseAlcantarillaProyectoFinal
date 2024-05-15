@@ -9,4 +9,5 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 @Service
 public class ProductoService extends BaseServiceImpl <Producto, Long, ProductoRepository> {
 
+	
 }

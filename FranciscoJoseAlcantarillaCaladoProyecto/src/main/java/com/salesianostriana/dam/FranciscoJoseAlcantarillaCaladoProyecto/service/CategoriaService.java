@@ -9,4 +9,7 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 @Service
 public class CategoriaService extends BaseServiceImpl<Categoria, Long, CategoriaRepository> {
 
+	
+	
+	
 }
