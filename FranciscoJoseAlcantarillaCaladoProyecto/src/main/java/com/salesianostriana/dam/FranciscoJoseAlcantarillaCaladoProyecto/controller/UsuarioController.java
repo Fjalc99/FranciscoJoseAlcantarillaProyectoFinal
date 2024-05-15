@@ -42,7 +42,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/nuevoSocios/addSocioNuevo")
-	public String submitRegistro(Usuario usuario, Model model) {
+	public String submitRegistro(@ModelAttribute("usuario") Usuario usuario, Model model) {
 		String passwordEncriptada = passwordEncoder.encode(usuario.getPassword());
 		usuario.setPassword(passwordEncriptada);
 		usuarioService.save(usuario);
