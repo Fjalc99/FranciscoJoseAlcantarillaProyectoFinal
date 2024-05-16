@@ -44,6 +44,8 @@ public class Venta {
 			)
 	private List<LineaDeVenta> LineaDeVenta = new ArrayList <>();
 	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_venta_usuario"))
 	private Usuario usuario;
@@ -58,6 +60,19 @@ public class Venta {
 	public void removeLineaDeVenta (LineaDeVenta LDV) {
 		this.LineaDeVenta.add(LDV);
 		LDV.setVenta(null);
+	}
+	
+	
+	public void addUsuario (Usuario usuario) {
+		this.usuario = usuario;
+		usuario.getVenta().add(this);
+	}
+	
+	public void removeUsuario (Usuario usuario) {
+		this.usuario = null;
+		usuario.getVenta().remove(this);
+		
+		
 	}
 	
 	

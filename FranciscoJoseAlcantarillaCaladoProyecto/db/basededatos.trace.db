@@ -5793,3 +5793,7 @@ insert into producto (id, talla,  nombre, descripcion, precio, imagen, categoria
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.FranciscoJoseAlcantarillaCaladoProyectoApplication.main(FranciscoJoseAlcantarillaCaladoProyectoApplication.java:10)
+2024-05-16 12:36:23.010393+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * [*]FROMUSUARIO"
+Syntax error in SQL statement "SELECT * [*]FROMUSUARIO"; SQL statement:
+SELECT * FROMUSUARIO [42000-224]
