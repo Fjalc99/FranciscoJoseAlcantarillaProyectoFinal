@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragmentos/header::header}"> 
+   
+</head>
+<body>
+	
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+		</div>
+		<div sec:authorize="hasRole('ROLE_USER')">
+			<nav th:replace="~{fragmentos/nav::nav}"></nav>
+		</div>
+
+  
+        <main id="colorMainPortada" class="row justify-content-center">
+			
+         
+          <div class="card col-4 m-5" data-aos="flip-left" th:each="productos : ${listaDeProductos}" style="width:450px">
+            <img class="card-img-top" th:src="${producto.imagen}" alt="Card image">
+            <div class="card-body">
+              <h4 th:text="${producto.nombre}" class="card-title"></h4>
+              <p  th:text="${producto.precio + '€'}"class="card-text"></p>
+			  <a th:href="@{'/producto/' + ${producto.id}}" class="btn btn-primary">Ir al producto</a>
+            </div>
+          </div>
+      
+      </main>
+
+
+
+
+      <footer th:replace="~{fragmentos/footer::footer}" id="colorFooter" class="container-fluid text-center text-light"> </footer>
+	  <script>
+	    AOS.init();
+	  </script>
+
+</body>
+</html>

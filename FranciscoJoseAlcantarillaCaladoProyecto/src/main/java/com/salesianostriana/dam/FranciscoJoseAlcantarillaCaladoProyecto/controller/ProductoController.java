@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.repository.ProductoRepository;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.TallaService;
@@ -28,6 +30,10 @@ public class ProductoController {
 	
 	@Autowired
 	private TallaService tallaService;
+	
+	
+    @Autowired
+    private ProductoRepository productoRepository;
 	
 	
 	@GetMapping("/tiendaPrincipal")
@@ -98,5 +104,8 @@ public class ProductoController {
 		productoService.deleteById(id);
 		return "redirect:/admin/productoAdmin";
 	}
+	
+	
+	
 	
 }
