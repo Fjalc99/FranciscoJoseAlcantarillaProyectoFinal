@@ -17,7 +17,7 @@
 			
          
           <div class="card col-4 m-5" data-aos="flip-left" th:each="producto : ${accesorios}" style="width:450px">
-            <img class="card-img-top" th:src="${producto.imagen}" alt="Card image">
+            <img class="card-img-top my-2 ms-5" th:src="${producto.imagen}" alt="Card image" style="width: 250px;">
             <div class="card-body">
               <h4 th:text="${producto.nombre}" class="card-title"></h4>
               <p  th:text="${producto.precio + '€'}"class="card-text"></p>
