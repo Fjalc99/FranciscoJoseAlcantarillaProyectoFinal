@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.repository.ProductoRepository;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.base.BaseServiceImpl;
@@ -29,5 +30,6 @@ public class ProductoService extends BaseServiceImpl <Producto, Long, ProductoRe
 	public List<Producto> getProductosAccesorios() {
         return productoRepository.findByCategoriaAccesorios();
     }
+	
 
 }
