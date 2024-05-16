@@ -112,4 +112,19 @@ public class ProductoController {
 		return "categoriaBalones";
 	}
 	
+	
+	
+	
+	
+	@GetMapping("/equipaciones")
+	public String filtroEquipaciones (Model model) {
+		model.addAttribute("equipacion", productoService.getProductosEquipaciones());
+		return "categoriaEquipaciones";
+	}
+	
+	@GetMapping("/accesorios")
+	public String filtroAccesorios (Model model) {
+		model.addAttribute("accesorios", productoService.getProductosAccesorios());
+		return "categoriaAccesorios";
+	}
 }
