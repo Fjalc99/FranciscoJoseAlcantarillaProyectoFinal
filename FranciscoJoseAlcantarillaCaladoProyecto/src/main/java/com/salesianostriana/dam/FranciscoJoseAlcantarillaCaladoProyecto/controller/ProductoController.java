@@ -32,8 +32,7 @@ public class ProductoController {
 	private TallaService tallaService;
 	
 	
-    @Autowired
-    private ProductoRepository productoRepository;
+  
 	
 	
 	@GetMapping("/tiendaPrincipal")
@@ -111,9 +110,6 @@ public class ProductoController {
 		model.addAttribute("balones", productoService.getProductosBalones());
 		return "categoriaBalones";
 	}
-	
-	
-	
 	
 	
 	@GetMapping("/equipaciones")
