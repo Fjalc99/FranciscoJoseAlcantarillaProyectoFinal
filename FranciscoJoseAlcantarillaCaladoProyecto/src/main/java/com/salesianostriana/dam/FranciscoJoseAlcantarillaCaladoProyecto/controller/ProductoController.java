@@ -64,7 +64,7 @@ public class ProductoController {
 	public String formularioProducto(Model model) {
 		model.addAttribute("producto", new  Producto());
 		model.addAttribute("listaCategorias", categoriaService.findAll());
-		model.addAttribute("ListaTalla", tallaService.findAll());
+		model.addAttribute("listaTalla", tallaService.findAll());
 		return "/admin/formularioProductos";
 	}
 	
@@ -84,6 +84,7 @@ public class ProductoController {
 		if (pEditar.isPresent()) {
 			model.addAttribute("producto", pEditar.get());
 			model.addAttribute("listaCategorias", categoriaService.findAll());
+			model.addAttribute("listaTalla", tallaService.findAll());
 			return "/admin/formularioProductos";
 		}else {
 			return "redirect:/admin/productoAdmin";
@@ -105,8 +106,11 @@ public class ProductoController {
 		return "redirect:/admin/productoAdmin";
 	}
 	
-	
-	
+	@GetMapping("/balones")
+	public String filtrarBalones(Model model) {
+		model.addAttribute("balones", productoService.getProductosBalones());
+		return "categoriaBalones";
+	}
 	
 	
 	

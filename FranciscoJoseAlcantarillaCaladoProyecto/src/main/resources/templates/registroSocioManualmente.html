@@ -5,7 +5,7 @@
 
 <body>
 
-	<nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+	<nav id="colorNav" class="navbar navbar-expand-sm text-light" th:replace="~{fragmentos/nav::nav}"></nav>
 
 
 
@@ -13,13 +13,11 @@
 
 		<div class="container mt-3">
 			<h2>Hazte socio</h2>
-			<form action="#" th:action="${usuario.id != 0} ? @{/nuevoSocios/submit} : @{/editarSocio/submit}" method="POST"
+			<form action="#" th:action="@{/nuevoSocio/submit}" method="POST"
 				th:object="${usuario}">
 
 
-				<div class="col input-group">
-					<input th:if="${usuario.id != 0}" type="hidden" name="id" th:field="*{id}" />
-				</div>
+				
 
 
 				<div class="row">
