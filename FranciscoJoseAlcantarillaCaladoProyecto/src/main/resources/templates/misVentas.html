@@ -15,32 +15,53 @@
   
         <main id="colorMainPortada" class="row justify-content-center min-vh-100">
 			
-            <div class="container mt-3">
-                <h2 class="text-center mt-3">Lista de productos</h2>      
-                <table class="table table-striped align-content-center mt-3">
-                  <thead>
-                    <tr>
-                      <th>Id</th>
-                      <th>Categoria</th>
-                      <th>Nombre</th>
-                      <th>Talla</th>
-                      <th>Descripción</th>
-                      <th>Precio</th>
-                      <th>Imagen</th>
-                      <th>Editar</th>
-                      <th>Borrar</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr th:each="venta : ${lineaDeVentas}">
-                        
-                        <td th:text="${venta.producto.nombre}"></td>		
-                        
-                    </tr>
-                    
-                  </tbody>
-                </table>
-              </div>
+			<div class="container mt-5">
+			  <table class="table table-bordered">
+			    <thead>
+			      <tr>
+			        <th>ID Venta</th>
+			        <th>Total Venta</th>
+			        <th>Nombre del Producto</th>
+			        <th>Cantidad</th>
+			        <th>Subtotal</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <!-- Iterar sobre las ventas -->
+			      <tr th:each="venta : ${ventas}">
+			        <td th:text="${venta.id}"></td>
+			        <td th:text="${venta.total}"></td>
+			        <!-- Si hay líneas de venta -->
+			        <td>
+			          <!-- Iterar sobre las líneas de venta -->
+			          <span th:each="lineaVenta : ${venta.lineaDeVenta}">
+			            <span th:text="${lineaVenta.producto.nombre}"></span><br/>
+			          </span>
+			        </td>
+			        <!-- Si no hay líneas de venta -->
+			        <td th:unless="${venta.lineaDeVenta.size() > 0}">-</td>
+			        <!-- Si hay líneas de venta -->
+			        <td>
+			          <!-- Iterar sobre las líneas de venta -->
+			          <span th:each="lineaVenta : ${venta.lineaDeVenta}">
+			            <span th:text="${lineaVenta.cantidadProducto}"></span><br/>
+			          </span>
+			        </td>
+			        <!-- Si no hay líneas de venta -->
+			        <td th:unless="${venta.lineaDeVenta.size() > 0}">-</td>
+			        <!-- Si hay líneas de venta -->
+			        <td>
+			          <!-- Iterar sobre las líneas de venta -->
+			          <span th:each="lineaVenta : ${venta.lineaDeVenta}">
+			            <span th:text="${lineaVenta.subTotal}"></span><br/>
+			          </span>
+			        </td>
+			        <!-- Si no hay líneas de venta -->
+			        <td th:unless="${venta.lineaDeVenta.size() > 0}">-</td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
 
       
         </main>
