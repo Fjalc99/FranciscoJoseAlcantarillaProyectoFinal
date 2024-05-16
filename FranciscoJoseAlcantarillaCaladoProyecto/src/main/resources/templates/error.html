@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-  <head th:replace="~{fragmentos/header::header}"> 
+
+<head th:replace="~{fragmentos/header::header}">
+
 <body>
-    <nav th:replace="~{fragmentos/nav::nav}" id="colorNav" class="navbar navbar-expand-sm"></nav>
-    
-    <main>
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+		<nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+	</div>
+	<div sec:authorize="hasRole('ROLE_USER')">
+		<nav th:replace="~{fragmentos/nav::nav}"></nav>
+	</div>
 
-        <h1>ERROR ESTA PAGINA NO LA PUEDES VER</h1>
+	<main>
+
+		<h1>ERROR ESTA PAGINA NO LA PUEDES VER</h1>
 
 
-    </main>
+	</main>
 
 
 </body>
+
 </html>
