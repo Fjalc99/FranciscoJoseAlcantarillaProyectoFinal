@@ -12,11 +12,7 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 @Service
 public class ProductoService extends BaseServiceImpl <Producto, Long, ProductoRepository> {
 
-<<<<<<< HEAD
-	
-	
-	
-=======
+
 	 @Autowired
 	    private ProductoRepository productoRepository;
 	 
@@ -33,5 +29,5 @@ public class ProductoService extends BaseServiceImpl <Producto, Long, ProductoRe
 	public List<Producto> getProductosAccesorios() {
         return productoRepository.findByCategoriaAccesorios();
     }
->>>>>>> 39-hu-21-consultas-para-filtrar
+
 }
