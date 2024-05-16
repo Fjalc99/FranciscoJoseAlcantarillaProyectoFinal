@@ -12,7 +12,7 @@ ALTER SEQUENCE USUARIO_SEQ RESTART WITH (57)
 
 /*Categorias*/
 insert into categoria (id, nombre_categoria) values (1,'Balones');
-insert into categoria (id, nombre_categoria) values (2,'Equipación');
+insert into categoria (id, nombre_categoria) values (2,'Equipacion');
 insert into categoria (id, nombre_categoria) values (3,'Accesorios');
 
 ALTER SEQUENCE CATEGORIA_SEQ RESTART WITH (53)
