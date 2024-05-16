@@ -106,7 +106,10 @@ public class ProductoController {
 		return "redirect:/admin/productoAdmin";
 	}
 	
-	
-	
+	@GetMapping("/balones")
+	public String filtrarBalones(Model model) {
+		model.addAttribute("balones", productoService.getProductosBalones());
+		return "categoriaBalones";
+	}
 	
 }

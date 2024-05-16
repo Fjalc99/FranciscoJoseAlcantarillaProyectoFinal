@@ -31,3 +31,15 @@ li{
 table{
     border: 1px solid green;
 }
+
+
+/*cards*/
+
+.witdh{
+    width: 15%;
+}
+
+
+.witdhImg{
+	width: 100px;
+}
