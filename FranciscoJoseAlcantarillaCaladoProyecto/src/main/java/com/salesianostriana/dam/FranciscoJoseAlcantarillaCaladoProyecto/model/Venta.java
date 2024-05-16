@@ -50,6 +50,9 @@ public class Venta {
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_venta_usuario"))
 	private Usuario usuario;
 	
+	
+	
+	
 	//Metodos Helper
 	
 	public void addLineDeVenta (LineaDeVenta LDV) {
