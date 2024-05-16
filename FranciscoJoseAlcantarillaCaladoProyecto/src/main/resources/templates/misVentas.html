@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragmentos/header::header}"> 
+   
+</head>
+<body>
+	
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+		</div>
+		<div sec:authorize="hasRole('ROLE_USER')">
+			<nav th:replace="~{fragmentos/nav::nav}"></nav>
+		</div>
+
+  
+        <main id="colorMainPortada" class="row justify-content-center min-vh-100">
+			
+            <div class="container mt-3">
+                <h2 class="text-center mt-3">Lista de productos</h2>      
+                <table class="table table-striped align-content-center mt-3">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Categoria</th>
+                      <th>Nombre</th>
+                      <th>Talla</th>
+                      <th>Descripción</th>
+                      <th>Precio</th>
+                      <th>Imagen</th>
+                      <th>Editar</th>
+                      <th>Borrar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="venta : ${lineaDeVentas}">
+                        
+                        <td th:text="${venta.producto.nombre}"></td>		
+                        
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+
+      
+        </main>
+
+
+
+
+      <footer th:replace="~{fragmentos/footer::footer}" id="colorFooter" class="container-fluid text-center text-light"> </footer>
+	
+</body>
+</html>
