@@ -38,5 +38,7 @@ public class LineaDeVenta {
 	private Venta venta;
 	
 	
-	
+	public double calcularSubtotal() {
+		return producto.getPrecio() * cantidadProducto;
+	}
 }

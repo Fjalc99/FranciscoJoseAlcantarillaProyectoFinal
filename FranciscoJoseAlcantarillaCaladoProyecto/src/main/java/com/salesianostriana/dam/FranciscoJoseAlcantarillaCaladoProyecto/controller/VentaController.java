@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
-
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.VentaService;
 
 
@@ -17,6 +17,9 @@ public class VentaController {
 
 	@Autowired
 	private VentaService ventaService;
+	
+	@Autowired 
+	private ProductoService	productoService;
 	
 	
 	@GetMapping("/Ventas")

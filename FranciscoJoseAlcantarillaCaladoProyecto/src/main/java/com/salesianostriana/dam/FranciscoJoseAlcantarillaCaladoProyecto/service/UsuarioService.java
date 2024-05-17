@@ -1,6 +1,8 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service;
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,9 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 @Service
 public class UsuarioService extends BaseServiceImpl <Usuario, Long, UsuarioRepository> {
 
+	private UsuarioRepository usuarioRepository;
+	
+	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	@Override
@@ -25,6 +30,9 @@ public class UsuarioService extends BaseServiceImpl <Usuario, Long, UsuarioRepos
 		
 		return super.save(t);
 	}
+	
+	
+	
 
 	
 	
