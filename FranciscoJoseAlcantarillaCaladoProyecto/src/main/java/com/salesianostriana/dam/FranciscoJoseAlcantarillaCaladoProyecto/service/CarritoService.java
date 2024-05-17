@@ -71,7 +71,7 @@ public class CarritoService  {
 	    public double getImporte(Usuario usuario){
 	        return getCarrito(usuario).getLineaDeVenta()
 	            .stream()
-	            .mapToDouble(LineaDeVenta::calcularSubtotal)
+	            .mapToDouble(lv -> lv.getSubTotal())
 	            .sum();
 	    }
 	    

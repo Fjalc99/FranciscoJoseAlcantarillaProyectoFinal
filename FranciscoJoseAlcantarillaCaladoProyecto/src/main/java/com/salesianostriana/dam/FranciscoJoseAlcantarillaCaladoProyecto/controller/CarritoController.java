@@ -31,6 +31,7 @@ public class CarritoController {
 		    if (carritoService.hayCarrito(usuario)) {
 		        Venta carrito = carritoService.getCarrito(usuario);
 		        model.addAttribute("ventas", carrito.getLineaDeVenta());
+		        model.addAttribute("total", carritoService.getImporte(usuario));
 		        return "paginaCarrito";
 		    }
 		    return "redirect:/tiendaPrincipal";
