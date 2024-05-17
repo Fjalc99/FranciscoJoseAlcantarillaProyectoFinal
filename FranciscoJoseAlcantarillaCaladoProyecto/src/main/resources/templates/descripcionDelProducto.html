@@ -17,10 +17,12 @@
 					<p th:text="${producto.descripcion}" class="my-3">Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac velit efficitur, consectetur odio eu, tempus ligula.</p>
 				</div>
 				<!-- Columna derecha -->
-				<div class="col-md-6 mt-md-5 text-end">
-					<p class="my-3 fw-bold" th:text="${producto.precio + '€'}"></p>
-					<button class="btn btn-primary">Agregar al Carrito</button>
-				</div>
+				<form th:action="@{/productoACarrito/{id}(id=${producto.id})}" method="get">
+					<!-- Enviar el ID del producto al controlador -->
+					<input type="hidden" name="id" th:value="${producto.id}" />
+					<!-- Botón para agregar el producto al carrito -->
+					<button type="submit">Agregar al carrito</button>
+				</form>
 			</div>
 		</div>
 

@@ -27,6 +27,7 @@ public class CarritoService  {
 	                    LineaDeVenta.builder()
 	                    .producto(producto)
 	                    .cantidadProducto(cantidad)
+	                    .subTotal(cantidad*producto.getPrecio())
 	                    .build()
 	                    );    
 	        }else {
@@ -48,7 +49,8 @@ public class CarritoService  {
 	            Optional<LineaDeVenta> lv = buscarPorProducto(producto, usuario);
 	            if(lv.isPresent()) {
 	                LineaDeVenta a = lv.get();
-	                a.setCantidadProducto(cantidad);;
+	                a.setCantidadProducto(cantidad);
+	                a.setSubTotal(a.calcularSubtotal());
 	                ventaService.edit(carrito);
 	            }else {
 	                addProducto(producto, cantidad, usuario);
@@ -105,6 +107,7 @@ public class CarritoService  {
 	    public boolean hayCarrito(Usuario usuario) {
 	        return ventaService.existeVentaNoFinaliza(usuario);
 	    }
+	    
 	  public Venta getCarrito(Usuario usuario) {
 	        return ventaService.getVentaNoFinaliza(usuario).orElseGet(() -> crearCarrito(usuario));
 	    }

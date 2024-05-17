@@ -14,36 +14,45 @@
 
 
         <main>
-            <table>
-                <thead>
-                    <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Precio Ud.</th>
-                    <th>Subtotal</th>
-                    <th>Total</th>
-                </thead>
-                <tbody>
-                    <tr th:each=" lineaDeVenta : ${ventas}">
-                        <td th:text="${lineaDeVenta.producto.nombre}"></td>
-                        <td th:text="${lineaDeVenta.cantidadProducto}"></td>
-                        <td th:text="${#numbers.formatDecimal(lineaDeVenta.subtotal, 1, 2)+' €'}"></td>
-                        <td th:text="${#numbers.formatDecimal(venta.total, 1, 2)+' €'}"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-
-
-
-
-
+            <div class="container">
+                <h1 class="mt-5 mb-4">Carrito de Compras</h1>
+        
+                <!-- Lista de productos en el carrito -->
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Iterar sobre las líneas de venta -->
+                            <tr th:each="lineaDeVenta : ${ventas}">
+                                <td th:text="${lineaDeVenta.producto.nombre}"></td>
+                                <td th:text="${lineaDeVenta.producto.precio}"></td>
+                                <td th:text="${lineaDeVenta.cantidadProducto}"></td>
+                                <td th:text="${lineaDeVenta.subTotal}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Total del carrito -->
+                <div>
+                    <!-- Suponiendo que el total es una propiedad de cada línea de venta -->
+                    <h3>Total: <span th:text="${total}"></span></h3>
+                </div>
+                
+                <!-- Botón para finalizar la compra -->
+                <form action="/confirmar" method="get">
+                    <button class="btn btn-primary" type="submit">Finalizar Compra</button>
+                </form>
 
 
         </main>
-
-
-
 
 
         <footer th:replace="~{fragmentos/footer::footer}" id="colorFooter" class="container-fluid text-center text-light"> </footer>

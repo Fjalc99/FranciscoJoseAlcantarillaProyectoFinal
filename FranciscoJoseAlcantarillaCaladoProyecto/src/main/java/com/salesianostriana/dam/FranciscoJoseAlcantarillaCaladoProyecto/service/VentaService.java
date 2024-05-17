@@ -24,8 +24,7 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> 
     }
 
     public boolean hayProductosEnCarrito(Usuario usuario, Producto producto) {
-        return this.repository.hayProductoEnCarrito(usuario, producto);
+        return this.repository.hayProductoEnCarrito(usuario.getId(), producto.getId());
     }
-
 	
 }
