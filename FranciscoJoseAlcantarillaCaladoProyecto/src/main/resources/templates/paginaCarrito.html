@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragmentos/header::header}"> 
+   
+</head>
+<body>
+	
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+		</div>
+		<div sec:authorize="hasRole('ROLE_USER')">
+			<nav th:replace="~{fragmentos/nav::nav}"></nav>
+		</div>
+
+
+        <main>
+            <table>
+                <thead>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio Ud.</th>
+                    <th>Subtotal</th>
+                    <th>Total</th>
+                </thead>
+                <tbody>
+                    <tr th:each=" lineaDeVenta : ${ventas}">
+                        <td th:text="${lineaDeVenta.producto.nombre}"></td>
+                        <td th:text="${lineaDeVenta.cantidadProducto}"></td>
+                        <td th:text="${#numbers.formatDecimal(lineaDeVenta.subtotal, 1, 2)+' €'}"></td>
+                        <td th:text="${#numbers.formatDecimal(venta.total, 1, 2)+' €'}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+
+        </main>
+
+
+
+
+
+        <footer th:replace="~{fragmentos/footer::footer}" id="colorFooter" class="container-fluid text-center text-light"> </footer>
+<body>
+    
+</body>
+</html>
