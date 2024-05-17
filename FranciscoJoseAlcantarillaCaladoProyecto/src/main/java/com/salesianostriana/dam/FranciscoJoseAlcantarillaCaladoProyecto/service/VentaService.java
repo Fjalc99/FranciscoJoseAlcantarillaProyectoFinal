@@ -1,9 +1,6 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service;
 
 
-
-
-
 import org.springframework.stereotype.Service;
 
 
@@ -16,8 +13,6 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> {
 
 	
-	 
-
 
 	
 }

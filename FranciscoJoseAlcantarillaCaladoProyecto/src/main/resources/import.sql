@@ -15,7 +15,7 @@ insert into categoria (id, nombre_categoria) values (1,'Balones');
 insert into categoria (id, nombre_categoria) values (2,'Equipacion');
 insert into categoria (id, nombre_categoria) values (3,'Accesorios');
 
-ALTER SEQUENCE CATEGORIA_SEQ RESTART WITH (53)
+ALTER SEQUENCE CATEGORIA_SEQ RESTART WITH (1000)
 ----------------------------------------------------
 /*Tallas*/
 
@@ -26,7 +26,7 @@ insert into talla (id, nombre_talla) values (4, 'XL')
 insert into talla (id, nombre_talla) values (5, 'XXL')
 
 
-ALTER SEQUENCE TALLA_SEQ RESTART WITH (55)
+ALTER SEQUENCE TALLA_SEQ RESTART WITH (1000)
 -------------------------------------------
 /*Productos*/
 
@@ -37,7 +37,7 @@ insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, catego
 insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (5, 4, 'Bufanda del derbi','Bufanda del derbi 23/24', 300.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/000773_1.jpg?crop=center&v=1714122305&width=960', 3);
 insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (6, 2, 'Bufanda del derbi','Bufanda del derbi 23/24', 300.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/000773_1.jpg?crop=center&v=1714122305&width=960', 3);
 
-ALTER SEQUENCE PRODUCTO_SEQ RESTART WITH (57)
+ALTER SEQUENCE PRODUCTO_SEQ RESTART WITH (1000)
 -----------------------------------------------------------------------
 /*Venta*/
 insert into venta (finalizada, usuario_id ,total, id) values (false, 2, 20, 1)
@@ -49,9 +49,9 @@ insert into venta (finalizada, usuario_id ,total, id) values (false, 4, 20, 5)
 ALTER SEQUENCE VENTA_SEQ RESTART WITH (1000)
 ---------------------------------------------------------------------
 /*Linea de ventas*/
-insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (1, 1, 3, 10, 1)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (1, 1, 3, 10, 2)
 insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (2, 2, 2, 10, 2)
-insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (3, 3, 5, 10, 3)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (3, 3, 5, 10, 2)
 insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (4, 4, 6, 10, 4)
 insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (5, 5, 7, 10, 5)
 
