@@ -41,6 +41,7 @@ public class CarritoService  {
 	        ventaService.edit(carrito);
 	    }
 	  
+	  
 	  public void modificar(Producto producto, int cantidad, Usuario usuario) {
 		    Venta carrito = getCarrito(usuario);
 
@@ -72,12 +73,17 @@ public class CarritoService  {
 
 	    }
 	  
+	  
+	  
+	  
 	    public double getImporte(Usuario usuario){
 	        return getCarrito(usuario).getLineaDeVenta()
 	            .stream()
 	            .mapToDouble(LineaDeVenta::getSubTotal)
 	            .sum();
 	    }
+	    
+	    
 	    
 	    public void borrar( Producto producto, Usuario usuario){
 	        Venta carrito = getCarrito(usuario);
@@ -91,12 +97,19 @@ public class CarritoService  {
 	    
 	    
 	    
+	    
+	    
 	    public Optional<LineaDeVenta> buscarPorProducto(Producto producto, Usuario usuario){
 	        Venta carrito = getCarrito(usuario);
 	        return carrito.getLineaDeVenta().stream()
 	                .filter(lv -> lv.getProducto().getId()== producto.getId())
 	                .findFirst();
+	        
+	        
 	    }
+	    
+	    
+	    
 	    
 	    public Venta crearCarrito(Usuario usuario) {
 	        
@@ -106,15 +119,24 @@ public class CarritoService  {
 	                .build();
 	        ventaService.save(carrito);
 	        return carrito;  
-	    }            
+	    }       
+	    
+	    
 	  
 	    public boolean hayCarrito(Usuario usuario) {
 	        return ventaService.existeVentaNoFinaliza(usuario);
 	    }
 	    
+	    
+	    
 	  public Venta getCarrito(Usuario usuario) {
 	        return ventaService.getVentaNoFinaliza(usuario).orElseGet(() -> crearCarrito(usuario));
+	        
+	        
 	    }
+	  
+	  
+	  
 	  
 	   public Map<Producto, Integer> getProductoEnCarrito(Usuario usuario){
 	        return getCarrito(usuario)
@@ -122,4 +144,6 @@ public class CarritoService  {
 	                .stream()
 	                .collect(Collectors.toMap(lv -> lv.getProducto(),lv -> lv.getCantidadProducto()));
 	    }
+	   
+	   
 }
