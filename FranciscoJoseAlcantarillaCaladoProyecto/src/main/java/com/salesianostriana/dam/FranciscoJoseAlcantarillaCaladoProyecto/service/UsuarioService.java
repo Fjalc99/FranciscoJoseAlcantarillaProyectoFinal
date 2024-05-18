@@ -3,13 +3,17 @@ package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Venta;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.repository.UsuarioRepository;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.repository.VentaRepository;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.base.BaseServiceImpl;
 
 
@@ -18,7 +22,9 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 @Service
 public class UsuarioService extends BaseServiceImpl <Usuario, Long, UsuarioRepository> {
 
-	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private VentaRepository ventaRepository;
 	
 	
 	@Autowired
@@ -31,7 +37,9 @@ public class UsuarioService extends BaseServiceImpl <Usuario, Long, UsuarioRepos
 		return super.save(t);
 	}
 	
-	
+	public List<Venta> getVentasPorUsuario(Usuario usuario) {
+	    return ventaRepository.findByUsuario(usuario);
+	}
 	
 
 	
