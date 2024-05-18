@@ -31,17 +31,18 @@
 			<h1 th:text="${producto.nombre}" class="mb-4 text-center"></h1>
 			<div class="row">
 
-				<div class="col-md-6">
+				<div class="col-md-6 product-description-image">
 					<img th:src="${producto.imagen}" width="100%" alt="Nombre del Producto" class="mb-4">
 					<p th:text="${producto.descripcion}" class="my-3">Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac velit efficitur, consectetur odio eu, tempus ligula.</p>
 				</div>
 
-				<form th:action="@{/productoACarrito/{id}(id=${producto.id})}" method="get">
-
-					<input type="hidden" name="id" th:value="${producto.id}" />
-
-					<input type="submit" value="Añadir al carrito" class="btn" name="addcarrito" id="addcarrito">
-				</form>
+                <div class="col-md-6 align-right price-and-add-to-cart">
+                    <td th:text="${#numbers.formatDecimal(producto.precio, 1, 2)+' €'}"></td>
+                    <form th:action="@{/productoACarrito/{id}(id=${producto.id})}" method="get">
+                        <input type="hidden" name="id" th:value="${producto.id}" />
+                        <input type="submit" value="Añadir al carrito" class="btn" name="addcarrito" id="addcarrito">
+                    </form>
+                </div>
 			</div>
 		</div>
 
