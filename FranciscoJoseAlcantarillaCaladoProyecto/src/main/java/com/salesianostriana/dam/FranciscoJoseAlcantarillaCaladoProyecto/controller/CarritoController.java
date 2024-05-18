@@ -37,6 +37,8 @@ public class CarritoController {
 		    return "redirect:/tiendaPrincipal";
 		}
 
+	   
+	   
 	   @GetMapping("/productoACarrito/{id}")
 	   public String agregarProductoCarrito(@PathVariable("id") Long id, Model model, @AuthenticationPrincipal Usuario usuario) {
 	       Optional<Producto> producto = productoService.findById(id);
