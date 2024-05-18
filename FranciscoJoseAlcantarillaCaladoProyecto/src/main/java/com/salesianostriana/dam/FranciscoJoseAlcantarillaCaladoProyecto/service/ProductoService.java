@@ -17,19 +17,11 @@ public class ProductoService extends BaseServiceImpl <Producto, Long, ProductoRe
 	 @Autowired
 	    private ProductoRepository productoRepository;
 	 
-	public List<Producto> getProductosBalones() {
-        return productoRepository.findByCategoriaBalones();
-    }
+	 public List<Producto> findByCategoriaId(Long categoriaId) {
+	        return productoRepository.findByCategoriaId(categoriaId);
+	    }
 	
 	
-	public List<Producto> getProductosEquipaciones() {
-        return productoRepository.findByCategoriaEquipaciones();
-    }
-	
-	
-	public List<Producto> getProductosAccesorios() {
-        return productoRepository.findByCategoriaAccesorios();
-    }
 	
 
 }

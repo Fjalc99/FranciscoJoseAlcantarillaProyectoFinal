@@ -24,19 +24,22 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item">
-						<a class="nav-link border text-light" th:href="@{/tiendaPrincipal}">Tienda</a>
+						<a class="btn border nav-link text-light" th:href="@{/tiendaPrincipal}">Tienda</a>
 					<li class="nav-item">
-						<a class="nav-link border text-light" th:href="@{/index}">Quienes Somos</a>
+						<a class="btn border nav-link text-light" th:href="@{/index}">Quienes Somos</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link border text-light" th:href="@{/balones}">Balones</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link border text-light" th:href="@{/equipaciones}">Equipaciones</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link border text-light" th:href="@{/accesorios}">Accesorios</a>
-					</li>
+					<form action="/tiendaPrincipal" method="get" class="form-inline">
+						<div class="form-group mr-2">
+							<select name="categoriaId" id="categoriaId" class="form-control">
+								<option value="">Todas las categorías</option>
+								<option th:each="categoria : ${listaCategorias}" 
+										th:value="${categoria.id}" 
+										th:text="${categoria.nombreCategoria}">
+								</option>
+							</select>
+						</div>
+						<button type="submit" class="btn ">Filtrar</button>
+					</form>
 					</li>
 
 				</ul>
