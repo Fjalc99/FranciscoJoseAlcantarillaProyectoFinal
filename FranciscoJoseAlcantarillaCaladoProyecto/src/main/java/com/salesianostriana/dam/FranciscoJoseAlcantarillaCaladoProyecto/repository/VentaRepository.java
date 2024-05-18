@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -35,4 +36,10 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
             AND lv.venta.finalizada = false
             """)
     boolean hayProductoEnCarrito(Long usuarioId, Long productoId);
+    
+    
+    @Query("SELECT v FROM Venta v WHERE v.usuario = ?1")
+    List<Venta> findAllByUsuario(Usuario usuario);
+
+	List<Venta> findByUsuario(Usuario usuario);
 }

@@ -1,7 +1,12 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model;
 
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -32,6 +37,9 @@ public class Venta {
 	
 	private double Total;
 	private boolean finalizada;
+	
+	
+	private LocalDateTime fechaCompra;
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

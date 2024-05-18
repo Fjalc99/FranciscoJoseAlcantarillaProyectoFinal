@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -25,6 +26,10 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> 
 
     public boolean hayProductosEnCarrito(Usuario usuario, Producto producto) {
         return this.repository.hayProductoEnCarrito(usuario.getId(), producto.getId());
+    }
+    
+    public List<Venta> findAllByUsuario(Usuario usuario) {
+        return this.repository.findAllByUsuario(usuario);
     }
 	
 }

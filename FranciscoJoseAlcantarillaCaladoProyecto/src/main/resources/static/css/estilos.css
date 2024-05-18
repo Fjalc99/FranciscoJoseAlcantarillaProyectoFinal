@@ -23,7 +23,25 @@ li{
     background-color: cornsilk;
 }
 
+.btn{
+  background-color: green;
+  color: white;
+}
 
+.btn:hover{
+  background-color: green;
+  color: white;
+}
+
+
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  height: 50px; /* Altura del footer */
+  line-height: 50px; /* Centrado vertical del texto */
+}
 
 /*Tabla*/
 .limited-width-table {

@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -41,37 +42,40 @@ public class CarritoService  {
 	    }
 	  
 	  public void modificar(Producto producto, int cantidad, Usuario usuario) {
-	        Venta carrito = getCarrito(usuario);
+		    Venta carrito = getCarrito(usuario);
 
-	        if(cantidad <= 0) {
-	            borrar(producto, usuario);
-	        }else {
-	            Optional<LineaDeVenta> lv = buscarPorProducto(producto, usuario);
-	            if(lv.isPresent()) {
-	                LineaDeVenta a = lv.get();
-	                a.setCantidadProducto(cantidad);
-	                a.setSubTotal(a.calcularSubtotal());
-	                ventaService.edit(carrito);
-	            }else {
-	                addProducto(producto, cantidad, usuario);
-	            }
-	        }
-	    }
+		    if (cantidad <= 0) {
+		        borrar(producto, usuario);
+		    } else {
+		        Optional<LineaDeVenta> lv = buscarPorProducto(producto, usuario);
+		        if (lv.isPresent()) {
+		            LineaDeVenta lineaDeVenta = lv.get();
+		            lineaDeVenta.setCantidadProducto(cantidad);
+
+		            lineaDeVenta.setSubTotal(lineaDeVenta.getProducto().getPrecio() * cantidad);
+		            ventaService.edit(carrito);
+		        } else {
+		            addProducto(producto, cantidad, usuario);
+		        }
+		    }
+		}
 	  
 	  public void finalizarCompra(Usuario usuario) {
 	        Venta carrito = getCarrito(usuario);
 	        
 	        carrito.setFinalizada(true);
 	        carrito.setTotal(getImporte(usuario));
+	        carrito.setFechaCompra(LocalDateTime.now());
 	        
 	        ventaService.edit(carrito);
+	        usuario.getVenta().add(carrito);
 
 	    }
 	  
 	    public double getImporte(Usuario usuario){
 	        return getCarrito(usuario).getLineaDeVenta()
 	            .stream()
-	            .mapToDouble(lv -> lv.getSubTotal())
+	            .mapToDouble(LineaDeVenta::getSubTotal)
 	            .sum();
 	    }
 	    
