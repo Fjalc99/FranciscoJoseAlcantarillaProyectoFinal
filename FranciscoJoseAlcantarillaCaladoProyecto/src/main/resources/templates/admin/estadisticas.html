@@ -31,12 +31,12 @@
 			<nav th:replace="~{fragmentos/nav::nav}"></nav>
 		</div>
 
-        <h1>Producto Más Vendido</h1>
+        <h2>Producto Más Vendido</h2>
         <div th:if="${producto != null}">
-            <p>Nombre: <span th:text="${producto.nombre}"></span></p>
-            <p>Descripción: <span th:text="${producto.descripcion}"></span></p>
-            <p>Precio: <span th:text="${producto.precio}"></span></p>
-            <p>Imagen: <img th:src="@{${producto.imagen}}" alt="Imagen del producto"></p>
+            <h4><span th:text="${producto.nombre}"></span></h4>
+            <p><span th:text="${producto.descripcion}"></span></p>
+            <p><span th:text="${producto.precio}"></span></p>
+            <p><img th:src="@{${producto.imagen}}" class="productImage" alt="Imagen del producto"></p>
         
         </div>
 
@@ -44,7 +44,7 @@
 
         <h2>Socio que ha comprado más</h2>
         <div th:if="${socioMasCompras != null}">
-            <p>Nombre: <span th:text="${socioMasCompras.nombre}"></span></p>
+            <h4>Nombre: <span th:text="${socioMasCompras.nombre}"></span></h4>
             <p>Email: <span th:text="${socioMasCompras.email}"></span></p>
            
         </div>

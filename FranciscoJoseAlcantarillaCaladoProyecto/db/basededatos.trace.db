@@ -5797,3 +5797,51 @@ insert into producto (id, talla,  nombre, descripcion, precio, imagen, categoria
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * [*]FROMUSUARIO"
 Syntax error in SQL statement "SELECT * [*]FROMUSUARIO"; SQL statement:
 SELECT * FROMUSUARIO [42000-224]
+2024-05-19 21:09:18.639830+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]<<<<<<< HEAD"
+Syntax error in SQL statement "[*]<<<<<<< HEAD"; SQL statement:
+<<<<<<< HEAD [42000-224]
+2024-05-19 21:09:18.654789+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]======="
+Syntax error in SQL statement "[*]======="; SQL statement:
+======= [42000-224]
+2024-05-19 21:09:18.668752+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]>>>>>>> refs/remotes/origin/main"
+Syntax error in SQL statement "[*]>>>>>>> refs/remotes/origin/main"; SQL statement:
+>>>>>>> refs/remotes/origin/main [42000-224]
+2024-05-19 21:16:32.295958+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]<<<<<<< HEAD"
+Syntax error in SQL statement "[*]<<<<<<< HEAD"; SQL statement:
+<<<<<<< HEAD [42000-224]
+2024-05-19 21:16:32.309920+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]======="
+Syntax error in SQL statement "[*]======="; SQL statement:
+======= [42000-224]
+2024-05-19 21:16:32.316931+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]>>>>>>> refs/remotes/origin/main"
+Syntax error in SQL statement "[*]>>>>>>> refs/remotes/origin/main"; SQL statement:
+>>>>>>> refs/remotes/origin/main [42000-224]
+2024-05-19 21:17:35.139726+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]<<<<<<< HEAD"
+Syntax error in SQL statement "[*]<<<<<<< HEAD"; SQL statement:
+<<<<<<< HEAD [42000-224]
+2024-05-19 21:17:35.153687+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]======="
+Syntax error in SQL statement "[*]======="; SQL statement:
+======= [42000-224]
+2024-05-19 21:17:35.162665+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]>>>>>>> refs/remotes/origin/main"
+Syntax error in SQL statement "[*]>>>>>>> refs/remotes/origin/main"; SQL statement:
+>>>>>>> refs/remotes/origin/main [42000-224]
+2024-05-19 21:40:05.259375+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]<<<<<<< HEAD"
+Syntax error in SQL statement "[*]<<<<<<< HEAD"; SQL statement:
+<<<<<<< HEAD [42000-224]
+2024-05-19 21:40:05.273338+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]======="
+Syntax error in SQL statement "[*]======="; SQL statement:
+======= [42000-224]
+2024-05-19 21:40:05.282314+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]>>>>>>> refs/remotes/origin/main"
+Syntax error in SQL statement "[*]>>>>>>> refs/remotes/origin/main"; SQL statement:
+>>>>>>> refs/remotes/origin/main [42000-224]

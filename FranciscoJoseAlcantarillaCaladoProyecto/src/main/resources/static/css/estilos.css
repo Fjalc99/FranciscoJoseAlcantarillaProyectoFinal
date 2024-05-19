@@ -61,6 +61,10 @@ a{
   color: white;
 }
 
+.productImage {
+  width: 200px;
+  height: auto;
+}
 
 
 .footer {
