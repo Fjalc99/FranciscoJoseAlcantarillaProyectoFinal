@@ -1,8 +1,14 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service;
 
 
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 import java.util.Optional;
+
 
 import org.springframework.stereotype.Service;
 
@@ -15,6 +21,18 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 
 @Service
 public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> {
+
+
+	 @Autowired
+	    private VentaRepository ventaRepository;
+	
+	 public Optional<Producto> obtenerProductoMasVendido() {
+	        return ventaRepository.findProductoMasVendido();
+	    }
+	 
+	 public Optional<Usuario> obtenerSocioQueHaCompradoMas() {
+	        return ventaRepository.findSocioQueHaCompradoMas();
+	    }
 
     public boolean existeVentaNoFinaliza(Usuario usuario) {
         return this.repository.existVentaNoFinalizada(usuario);  
@@ -31,5 +49,5 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> 
     public List<Venta> findAllByUsuario(Usuario usuario) {
         return this.repository.findAllByUsuario(usuario);
     }
-	
+
 }

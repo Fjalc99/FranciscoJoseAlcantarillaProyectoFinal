@@ -1,15 +1,20 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.TallaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.UsuarioService;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.VentaService;
 
 
 @Controller
@@ -30,6 +35,9 @@ public class AdminController {
 	@Autowired
 	private TallaService tallaService;
 	
+	
+	@Autowired
+	private VentaService ventaService;
 	
 	
 	
@@ -58,4 +66,16 @@ public class AdminController {
 		return "/admin/varianteVistaAdmin";
 	}
 
+	
+	@GetMapping("/estadisticas")
+	public String mostrarEstadisticas(Model model) {
+	    Optional<Producto> productoMasVendido = ventaService.obtenerProductoMasVendido();
+	    Optional<Usuario> socioMasCompras = ventaService.obtenerSocioQueHaCompradoMas();
+
+	    productoMasVendido.ifPresent(producto -> model.addAttribute("producto", producto));
+	    socioMasCompras.ifPresent(socio -> model.addAttribute("socioMasCompras", socio));
+	    model.addAttribute("mensaje", "No hay ventas registradas");
+
+	    return "/admin/estadisticas";
+	}
 }
