@@ -42,7 +42,7 @@ ALTER SEQUENCE PRODUCTO_SEQ RESTART WITH (1000)
 /*Venta*/
 insert into venta (finalizada, usuario_id ,total, id) values (false, 2, 20, 1)
 insert into venta (finalizada, usuario_id ,total, id) values (true, 2, 20, 2)
-insert into venta (finalizada, usuario_id ,total, id) values (true, 3, 20, 3)
+insert into venta (finalizada, usuario_id ,total, id) values (true, 2, 20, 3)
 insert into venta (finalizada, usuario_id ,total, id) values (false, 4, 20, 4)
 insert into venta (finalizada, usuario_id ,total, id) values (false, 4, 20, 5)
 
@@ -50,7 +50,7 @@ ALTER SEQUENCE VENTA_SEQ RESTART WITH (1000)
 ---------------------------------------------------------------------
 /*Linea de ventas*/
 insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (1, 1, 3, 10, 2)
-insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (2, 2, 2, 10, 2)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (2, 1, 2, 10, 2)
 insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (3, 3, 5, 10, 2)
 insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (4, 4, 6, 10, 4)
 insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (5, 5, 7, 10, 5)

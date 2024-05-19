@@ -19,7 +19,7 @@
 <body>
   <nav id="colorNav" class="navbar navbar-expand-sm" th:fragment="navAdmin">
     <div class="container-fluid">
-      <a id="colorNav" class="navbar-brand"><img src="../img/logo-rb.png" width="200px" alt="logo del betis"></a>
+      <a id="colorNav" class="navbar-brand"><img src="../static/img/logoTienda.png" width="200px" alt="logo del betis"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,7 +39,10 @@
 		 </li>
 		 <li class="nav-item">
 		 		 	 <a class="nav-link border text-light" th:href="@{/admin/tallasAdmin}">Lista de tallas</a>
-		 		 </li>
+		 </li>
+     <li class="nav-item">
+          <a class="nav-link border text-light" th:href="@{/admin/estadisticas}">Estadisticas</a>
+     </li>
 		 <li class="nav-item">
 		 	 <a class="nav-link border text-light" th:href="@{/index}">Quienes Somos</a>
 		 </li>
