@@ -32,7 +32,7 @@
 		<div class="container mt-3">
 			<h2>Hazte socio</h2>
 			<form action="#" th:action="${usuario.id != 0} ? @{/nuevoSocios/submit} : @{/editarSocio/submit}" method="POST"
-				th:object="${usuario}">
+				th:object="${usuario}" onsubmit="return validateForm()">
 
 
 				<div class="col input-group">
@@ -46,27 +46,33 @@
 						<div class="col input-group mt-3">
 							<label for="nombre" class="input-group-text">Nombre</label>
 							<input type="text" class="form-control" name="nombre" th:field="*{nombre}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="col input-group mt-3">
 							<label for="apellidos" class="input-group-text">Apellidos</label>
 							<input type="text" class="form-control" name="apellidos" th:field="*{apellidos}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="col input-group mt-3">
 							<label for="telefono" class="input-group-text">Telefono</label>
 							<input type="text" class="form-control" name="telefono" th:field="*{telefono}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="col input-group mt-3">
 							<label for="email" class="input-group-text">Email</label>
 							<input type="email" class="form-control" name="email" th:field="*{email}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 
 						<div class="col input-group mt-3">
 							<label for="direccion" class="input-group-text">Direccion</label>
 							<input type="text" class="form-control" name="direccion" th:field="*{direccion}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="col input-group mt-3">
 							<label for="provincia" class="input-group-text">Provincia</label>
 							<input type="text" class="form-control" name="provincia" th:field="*{provincia}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 
 					</div>
@@ -77,27 +83,33 @@
 						<div class="col input-group mt-3">
 							<label for="codigoPostal" class="input-group-text">Codigo Postal</label>
 							<input type="text" class="form-control" name="codigoPostal" th:field="*{codigoPostal}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="col input-group mt-3">
 							<label for="dni" class="input-group-text">DNI</label>
 							<input type="text" class="form-control" name="dni" th:field="*{dni}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 
 						<div class="col input-group mt-3">
 							<label for="username" class="input-group-text">Usuario</label>
 							<input type="text" class="form-control" name="username" th:field="*{username}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="col input-group mt-3">
 							<label for="password" class="input-group-text">Contraseña</label>
 							<input type="password" class="form-control" name="password" th:field="*{password}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="col input-group mt-3">
 							<label for="repeatPassword" class="input-group-text">Repetir Contraseña</label>
 							<input type="password" class="form-control" name="repeatPassword">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="col input-group mt-3">
 							<label for="fechaDeNacimiento" class="input-group-text">Fecha de nacimiento</label>
 							<input type="date" class="form-control" name="fechaDeNacimiento" th:field="*{fechaDeNacimiento}">
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 					</div>
 				</div>
