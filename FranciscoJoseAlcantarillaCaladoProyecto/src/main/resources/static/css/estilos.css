@@ -12,7 +12,35 @@ li{
     list-style: none;
 }
 
+a{
+  color: green;
+}
 
+.product-image {
+  width: 250px; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-card {
+  width: 450px;
+  margin: 20px;
+}
+
+.product-description-image {
+  width: 500px; 
+  display: block;
+  margin: auto; 
+}
+
+.align-right {
+  text-align: right;
+}
+
+.price-and-add-to-cart {
+  margin-top: 400px; 
+}
 
 /*Portada*/
 #colorAsidePortada{
@@ -23,35 +51,27 @@ li{
     background-color: cornsilk;
 }
 
+.btn{
+  background-color: green;
+  color: white;
+}
+
+.btn:hover{
+  background-color: green;
+  color: white;
+}
 
 
-/*Tabla*/
-.limited-width-table {
-    border-collapse: collapse;
-    width: 80%; /* Ancho máximo de la tabla */
-    margin: 0 auto; /* Centra la tabla horizontalmente */
-    border: 1px solid #000; /* Borde para la tabla */
-  }
-  
-  .limited-width-table th,
-  .limited-width-table td {
-    border: 1px solid #000; /* Borde para las celdas */
-    padding: 2px; /* Ajuste del relleno */
-  }
 
-  
-  
-  th {
-    background-color: #f2f2f2; /* Color de fondo para los encabezados */
-  }
-  
-  tbody tr:last-child td {
-    border-bottom: none; /* Elimina la línea inferior en la última fila del cuerpo de la tabla */
-  }
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  height: 50px; /* Altura del footer */
+  line-height: 50px; /* Centrado vertical del texto */
+}
 
-  tr {
-    padding: 0; /* Quitar el relleno de las filas */
-  }
 
-/*cards*/
+
+
 

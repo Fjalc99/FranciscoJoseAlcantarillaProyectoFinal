@@ -14,16 +14,7 @@ public interface ProductoRepository extends JpaRepository <Producto, Long> {
 	public List <Producto> prodcutosMasCarosDeCien (@Param("precio") double precio);
 	
 
-	 @Query("SELECT p FROM Producto p WHERE p.categoria.nombreCategoria = 'Balones'")
-	  public List<Producto> findByCategoriaBalones();
-
-	 @Query("SELECT p FROM Producto p WHERE p.categoria.nombreCategoria = 'Equipacion'")
-	  public List<Producto> findByCategoriaEquipaciones();
-	 
-	 
-	 @Query("SELECT p FROM Producto p WHERE p.categoria.nombreCategoria = 'Accesorios'")
-	  public List<Producto> findByCategoriaAccesorios();
-
-	 
+	   @Query("SELECT p FROM Producto p WHERE p.categoria.id = :categoriaId")
+	    List<Producto> findByCategoriaId(Long categoriaId);
 	 
 }

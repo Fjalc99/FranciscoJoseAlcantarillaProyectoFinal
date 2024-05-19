@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
@@ -34,9 +35,14 @@ public class ProductoController {
 	
 	
 	@GetMapping("/tiendaPrincipal")
-	private String vistaTienda(Model model) {
-		model.addAttribute("listaProductos", productoService.findAll());
-		return "tienda";
+	private String vistaTienda(@RequestParam(name = "categoriaId", required = false) Long categoriaId, Model model) {
+	    if (categoriaId != null) {
+	        model.addAttribute("listaProductos", productoService.findByCategoriaId(categoriaId));
+	    } else {
+	        model.addAttribute("listaProductos", productoService.findAll());
+	    }
+	    model.addAttribute("listaCategorias", categoriaService.findAll());
+	    return "tienda";
 	}
 	
 	
@@ -103,22 +109,7 @@ public class ProductoController {
 		return "redirect:/admin/productoAdmin";
 	}
 	
-	@GetMapping("/balones")
-	public String filtrarBalones(Model model) {
-		model.addAttribute("balones", productoService.getProductosBalones());
-		return "categoriaBalones";
-	}
 	
 	
-	@GetMapping("/equipaciones")
-	public String filtroEquipaciones (Model model) {
-		model.addAttribute("equipacion", productoService.getProductosEquipaciones());
-		return "categoriaEquipaciones";
-	}
-	
-	@GetMapping("/accesorios")
-	public String filtroAccesorios (Model model) {
-		model.addAttribute("accesorios", productoService.getProductosAccesorios());
-		return "categoriaAccesorios";
-	}
+
 }

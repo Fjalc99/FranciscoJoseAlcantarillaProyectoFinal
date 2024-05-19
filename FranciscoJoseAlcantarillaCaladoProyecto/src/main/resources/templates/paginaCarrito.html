@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:fragment="header">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carrito</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../static/css/estilos.css"
+            th:href="@{/css/estilos.css}">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script th:src="@{/js/script.js}" src="../static/js/script.js"
+            defer></script>
+    </head>
+    <body>
+
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+        </div>
+        <div sec:authorize="hasRole('ROLE_USER')">
+            <nav th:replace="~{fragmentos/nav::nav}"></nav>
+        </div>
+
+        <main class="row justify-content-center min-vh-100">
+            <div class="container">
+                <h1 class="mt-5 mb-4">Carrito de Compras</h1>
+
+                <!-- Lista de productos en el carrito -->
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Iterar sobre las líneas de venta -->
+                            <tr th:each="lineaDeVenta : ${ventas}">
+                                <td
+                                    th:text="${lineaDeVenta.producto.nombre}"></td>
+                                <td class="precio"
+                                    th:text="${lineaDeVenta.producto.precio}"></td>
+                                <td>
+                                    <input type="number"
+                                        class="form-control change-input"
+                                        data-id="${lineaDeVenta.producto.id}"
+                                        th:value="${lineaDeVenta.cantidadProducto}">
+                                </td>
+                                <td class="subtotal"
+                                    th:text="${lineaDeVenta.subTotal}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Total del carrito -->
+                <div>
+                    <!-- Suponiendo que el total es una propiedad de cada línea de venta -->
+                    <h3>Total: <span th:text="${total}"></span></h3>
+                </div>
+
+                <!-- Botón para finalizar la compra -->
+                <form action="/confirmar" method="get">
+                    <button class="btn" type="submit">Finalizar Compra</button>
+                </form>
+
+            </main>
+
+            <footer th:replace="~{fragmentos/footer::footer}" id="colorFooter"
+                class="container-fluid text-center text-light"> </footer>
+
+        </body>
+
+       
+        <script>
+       $(document).ready(function() {
+    $('.change-input').on('input', function(event) {
+        let element = event.target;
+        let cantidad = parseInt(element.value); // Obtener la nueva cantidad
+        let precioUnitario = parseFloat($(element).closest('tr').find('.precio').text()); // Obtener el precio unitario del producto
+        let subtotal = precioUnitario * cantidad; // Calcular el nuevo subtotal
+
+        // Actualizar el subtotal en la interfaz de usuario
+        $(element).closest('tr').find('.subtotal').text(subtotal.toFixed(2));
+
+        // Recalcular el total del carrito
+        let totalCarrito = 0;
+        $('.subtotal').each(function() {
+            totalCarrito += parseFloat($(this).text());
+        });
+        $('#totalCarrito').text(totalCarrito.toFixed(2));
+
+        // Verificar si la cantidad es cero
+        if (cantidad == 0) {
+            // Eliminar la fila de la tabla
+            $(element).closest('tr').remove();
+        } else {
+            // Redirigir para modificar la cantidad (si es necesario)
+            let idProducto = $(element).data('id');
+            location.href = 'carrito/modificar/' + idProducto + '/cantidad/' + cantidad;
+        }
+    });
+});
+         </script>
+    </html>
