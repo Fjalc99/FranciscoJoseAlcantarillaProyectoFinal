@@ -3,12 +3,14 @@
 
 	<head th:replace="~{fragmentos/header::header}"></head>
 
-    <body>
+	<body>
 
 		<nav id="colorNav" class="navbar navbar-expand-sm">
 			<div class="container-fluid">
-				<a id="colorNav" class="navbar-brand"><img src="../img/logo-rb.png" width="200px" alt="logo del betis"></a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<a id="colorNav" class="navbar-brand"><img src="../img/logo-rb.png"
+						width="200px" alt="logo del betis"></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#mynavbar">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="mynavbar">
@@ -17,37 +19,39 @@
 						<i class="bi bi-search nav-item m-2 p-1 text-light border"></i>
 						<i class="bi bi-cart nav-item m-2 p-1 text-light border"></i>
 						<a href="javascript:document.getElementById('logoutForm').submit()">
-						<i class="bi bi-person nav-item m-2 p-1 text-light border"></i></a>
+							<i class="bi bi-person nav-item m-2 p-1 text-light border"></i></a>
 					</div>
 				</div>
 			</div>
 		</nav>
 
+		<main>
 
-          <main>
-       	
 			<div class="container mt-3 text-center">
-			            <h2 class="text-center">¿Eres socio?</h2>
-			            <h4 class="text-center">Si lo eres inicia sesión aquí</h4>
-						<form name="login" method="POST" action="#" th:action="@{/login}">
-			                <div class="mb-3 mt-3 d-flex justify-content-center">
-			                    <div class="w-50">
-			                        <label for="username" class="form-label">Usuario:</label>
-			                        <input type="text" class="form-control p-3" id="username"
-			                            placeholder="Ingrese su correo electrónico" name="username">
-			                    </div>
-			                </div>
-			                <div class="mb-3 d-flex justify-content-center">
-			                    <div class="w-50">
-			                        <label for="password">Contraseña:</label>
-			                        <input type="password" class="form-control p-3" id="password" placeholder="Ingrese su contraseña"
-			                            name="password">
-			                    </div>
-			                </div>
-			                <h4 class="text-center"><a th:href="@{/nuevoSocio}">Hazte socio aquí</a></h4>
-			                <button type="submit" name="enviar" class="btn btn-success my-3">Enviar</button>
-			            </form>
-			        </div>
-         </main>
-    </body>
+				<h2 class="text-center">¿Eres socio?</h2>
+				<h4 class="text-center">Si lo eres inicia sesión aquí</h4>
+				<form name="login" method="POST" action="#" th:action="@{/login}">
+
+					<div class="row">
+						<div class="col-md-6 mb-3 mt-3 input-group w-50">
+							<label for="username" class="input-group-text">Nombre:</label>
+							<input type="text" class="form-control" id="username" name="username">
+						</div>
+						<div class="col-md-6  mb-3 mt-3 input-group w-50">
+							<label for="password" class="input-group-text">Contraseña:</label>
+							<input type="password" class="form-control" id="password"
+								name="password">
+							<i class="bi bi-eye-fill input-group-text toggle-password"
+								id="togglePassword"></i>
+						</div>
+					</div>
+
+					<h4 class="text-center"><a th:href="@{/nuevoSocio}">Hazte socio
+							aquí</a></h4>
+					<button type="submit" name="enviar"
+						class="btn btn-success my-3">Enviar</button>
+				</form>
+			</div>
+		</main>
+	</body>
 </html>
