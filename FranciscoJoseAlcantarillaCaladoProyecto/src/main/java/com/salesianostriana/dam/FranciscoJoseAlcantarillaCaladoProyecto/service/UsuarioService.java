@@ -38,7 +38,7 @@ public class UsuarioService extends BaseServiceImpl <Usuario, Long, UsuarioRepos
 	}
 	
 	public List<Venta> getVentasPorUsuario(Usuario usuario) {
-	    return ventaRepository.findByUsuario(usuario);
+	    return ventaRepository.findAllByUsuario(usuario);
 	}
 	
 

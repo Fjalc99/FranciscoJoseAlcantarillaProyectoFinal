@@ -1,15 +1,15 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service;
 
 
-<<<<<<< HEAD
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-=======
+
 import java.util.List;
 import java.util.Optional;
 
->>>>>>> refs/remotes/origin/main
+
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
@@ -22,7 +22,7 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 @Service
 public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> {
 
-<<<<<<< HEAD
+
 	 @Autowired
 	    private VentaRepository ventaRepository;
 	
@@ -33,7 +33,7 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> 
 	 public Optional<Usuario> obtenerSocioQueHaCompradoMas() {
 	        return ventaRepository.findSocioQueHaCompradoMas();
 	    }
-=======
+
     public boolean existeVentaNoFinaliza(Usuario usuario) {
         return this.repository.existVentaNoFinalizada(usuario);  
     }
@@ -49,6 +49,5 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> 
     public List<Venta> findAllByUsuario(Usuario usuario) {
         return this.repository.findAllByUsuario(usuario);
     }
-	
->>>>>>> refs/remotes/origin/main
+
 }

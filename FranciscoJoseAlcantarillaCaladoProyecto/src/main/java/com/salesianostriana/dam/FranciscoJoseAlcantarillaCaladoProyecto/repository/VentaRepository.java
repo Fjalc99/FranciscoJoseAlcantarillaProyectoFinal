@@ -1,25 +1,22 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.repository;
 
-<<<<<<< HEAD
-=======
+
 import java.util.List;
->>>>>>> refs/remotes/origin/main
+
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-<<<<<<< HEAD
-import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
-=======
 
->>>>>>> refs/remotes/origin/main
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
+
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Venta;
 
 public interface VentaRepository extends JpaRepository<Venta, Long> {
 
-<<<<<<< HEAD
+
 	@Query("SELECT lv.producto, SUM(lv.cantidadProducto) " +
 		       "FROM LineaDeVenta lv " +
 		       "GROUP BY lv.producto " +
@@ -34,7 +31,7 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
 		       "ORDER BY COUNT(v.usuario) DESC " +
 		       "LIMIT 1")
 		Optional<Usuario> findSocioQueHaCompradoMas();
-=======
+
 	@Query("""
             SELECT v
             FROM Venta v 
@@ -64,6 +61,5 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
     @Query("SELECT v FROM Venta v WHERE v.usuario = ?1")
     List<Venta> findAllByUsuario(Usuario usuario);
 
-	List<Venta> findByUsuario(Usuario usuario);
->>>>>>> refs/remotes/origin/main
+
 }
