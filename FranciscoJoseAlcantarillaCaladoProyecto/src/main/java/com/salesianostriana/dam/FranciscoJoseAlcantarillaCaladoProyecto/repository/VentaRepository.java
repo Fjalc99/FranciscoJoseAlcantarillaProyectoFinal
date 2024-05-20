@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
+import org.springframework.data.repository.query.Param;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
 
@@ -66,7 +66,10 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
     @Query("SELECT v FROM Venta v WHERE v.usuario = ?1")
     List<Venta> findAllByUsuario(Usuario usuario);
 
-    
+    @Query("select count(v) from Venta  join v.lineasDeventa lv where lv.producto = ?1")
+    List<Venta> countNumProductoByVenta(@Param("productoId") Long productoId);
+
+   
    
 
 }

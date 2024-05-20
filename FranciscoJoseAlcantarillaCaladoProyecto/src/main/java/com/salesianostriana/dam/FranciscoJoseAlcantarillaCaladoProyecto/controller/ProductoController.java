@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Venta;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.TallaService;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.VentaService;
 
 
 
@@ -31,6 +33,9 @@ public class ProductoController {
 	
 	@Autowired
 	private TallaService tallaService;
+	
+	@Autowired
+	private VentaService ventaService;
 	
 	
   
@@ -108,7 +113,7 @@ public class ProductoController {
 	public String borrarProducto(@PathVariable("id")Long id) {
 		Producto productoEncotrado = productoService.findById(id).get();
 		
-		if (productoService.countNumProductoByLineaDeVenta(productoEncotrado)==0) {
+		if (productoService.countNumProductoByVenta(productoEncotrado)==0) {
 			productoService.delete(productoEncotrado);
 		}else {
 			return"redirect:/admin/productoAdmin/?error=true";

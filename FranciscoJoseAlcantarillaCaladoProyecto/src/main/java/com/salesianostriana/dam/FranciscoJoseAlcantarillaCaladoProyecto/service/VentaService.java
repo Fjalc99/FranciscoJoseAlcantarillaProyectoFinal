@@ -50,4 +50,7 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> 
         return this.repository.findAllByUsuario(usuario);
     }
 
+    
+    
+    
 }
