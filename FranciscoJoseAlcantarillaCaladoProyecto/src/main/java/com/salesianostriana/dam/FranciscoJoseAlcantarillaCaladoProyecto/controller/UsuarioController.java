@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.exceptions.ExceptionBorrarUsuario;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.UsuarioService;
 
@@ -68,9 +68,20 @@ public class UsuarioController {
 	
 	@GetMapping("/borrarSocio/{id}")
 	public String borrarSocio (@PathVariable("id")Long id, Model model) {
-		usuarioService.deleteById(id);
-		 model.addAttribute("mensaje", "El socio ha sido eliminado exitosamente.");
-		return "redirect:/admin/sociosAdmin";
+		Optional<Usuario> optionalUsuario = usuarioService.findById(id);
+        
+        if (optionalUsuario.isPresent()) {
+            Usuario usuarioEncontrado = optionalUsuario.get();
+            
+            if (usuarioService.countVentasByUsuario(usuarioEncontrado.getId()) == 0) {
+                usuarioService.delete(usuarioEncontrado);
+            } else {
+            	
+            	throw new ExceptionBorrarUsuario("No se puede borrar el usuario porque tiene ventas asociadas");
+            }
+        }
+        
+        return "redirect:/admin/sociosAdmin";
 	}
 	
 	

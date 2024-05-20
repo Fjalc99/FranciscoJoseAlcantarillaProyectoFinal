@@ -48,6 +48,25 @@
            
         </div>
 
+        <hr>
+
+        <div>
+            <h2>Total de Ganancias</h2>
+            <p th:text="${#numbers.formatDecimal(totalGanancias, 2, 2) + '€'}"></p>
+        </div>
+
+        <hr>
+
+
+        <div>
+            <h2>Categoría más vendida</h2>
+            <p th:text="'Categoría: ' + ${categoriaMasVendida}"></p>
+        </div>
+
+
+
+
+
 
     </main>
     

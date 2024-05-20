@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:fragment="header">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Política de privacidad</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../static/css/estilos.css"
+            th:href="@{/css/estilos.css}">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script th:src="@{/js/script.js}" src="../static/js/script.js"
+            defer></script>
+    </head>
+    <body>
+
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
+        </div>
+        <div sec:authorize="hasRole('ROLE_USER')">
+            <nav th:replace="~{fragmentos/nav::nav}"></nav>
+        </div>
+    
+
+
+
+        <main>
+
+            <section>
+                <h2 class="mov">Política de Privacidad</h2>
+
+                <p>Esta Política de Privacidad describe cómo Antigüedades Real
+                    Betis recopila, utiliza y protege la información personal
+                    que usted proporciona cuando utiliza este sitio web.</p>
+            </section>
+
+            <section>
+                <h3>Recopilación de Información Personal</h3>
+
+                <p>Podemos recopilar información personal que usted nos
+                    proporciona directamente cuando interactúa con nuestro sitio
+                    web, como al suscribirse a nuestro boletín informativo,
+                    completar formularios de contacto, realizar compras o
+                    participar en encuestas. La información personal que podemos
+                    recopilar incluye, entre otros, su nombre, dirección de
+                    correo electrónico, dirección postal, número de teléfono y
+                    detalles de pago.</p>
+            </section>
+
+            <section>
+                <h3>Uso de la Información Personal</h3>
+
+                <p>La información personal que recopilamos se utiliza para los
+                    siguientes fines:</p>
+
+                <ul>
+                    <li>Procesar transacciones</li>
+                    <li>Comunicación</li>
+                    <li>Mejora de nuestros servicios</li>
+                    <li>Cumplimiento legal</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Protección de la Información Personal</h3>
+
+                <p>Nos comprometemos a proteger la seguridad de su información
+                    personal y tomamos medidas razonables para protegerla contra
+                    el acceso no autorizado, la divulgación, la alteración o la
+                    destrucción. Sin embargo, tenga en cuenta que ninguna
+                    transmisión de datos a través de Internet o método de
+                    almacenamiento electrónico es completamente segura y no
+                    podemos garantizar su seguridad absoluta.</p>
+            </section>
+
+            <section>
+                <h3>Divulgación a Terceros</h3>
+
+                <p>No vendemos, intercambiamos ni transferimos su información
+                    personal a terceros sin su consentimiento, excepto cuando
+                    sea necesario para proporcionarle los servicios solicitados
+                    o cuando estemos obligados por ley a hacerlo.</p>
+            </section>
+
+            <section>
+                <h3>Cookies y Tecnologías Similares</h3>
+
+                <p>Este sitio web utiliza cookies y tecnologías similares para
+                    mejorar su experiencia de usuario y para recopilar
+                    información sobre cómo utiliza el sitio. Puede configurar su
+                    navegador para que rechace todas las cookies o para que le
+                    avise cuando se envíe una cookie. Sin embargo, si bloquea
+                    las cookies, es posible que algunas partes del sitio no
+                    funcionen correctamente.</p>
+            </section>
+
+            <section>
+                <h3>Cambios en esta Política de Privacidad</h3>
+
+                <p>Nos reservamos el derecho de actualizar o modificar esta
+                    Política de Privacidad en cualquier momento y sin previo
+                    aviso. Le recomendamos que revise esta Política de
+                    Privacidad periódicamente para estar al tanto de cualquier
+                    cambio.</p>
+            </section>
+
+            <section>
+                <h3>Contacto</h3>
+
+                <p>Si tiene alguna pregunta sobre esta Política de Privacidad,
+                    puede ponerse en contacto con nosotros a través de
+                    antiguedadesRealBetis@gmail.com.</p>
+            </section>
+        </main>
+
+    </body>
+
+    <script>
+        let typed = new Typed(".mov", {
+                strings: ["Política ", "Política de ", "Política de privacidad"],
+                typeSpeed: 10,
+                backSpeed: 80,
+                loop: false
+            })
+    </script>
+
+    <footer th:replace="~{fragmentos/footer::footer}"></footer>
+
+</html>

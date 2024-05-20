@@ -12,4 +12,14 @@ public class PortadaController {
 	}
 	
 	
+	@GetMapping("/avisoLegal")
+	 public String mostraAvisoLegal(){
+		return "avisoLegal";
+	}
+	
+	@GetMapping("/politicaPrivacidad")
+	 public String mostraPoliticaPrivacidad(){
+		return "politicaDePrivacidad";
+	}
+	
 }

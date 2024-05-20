@@ -49,8 +49,14 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository> 
     public List<Venta> findAllByUsuario(Usuario usuario) {
         return this.repository.findAllByUsuario(usuario);
     }
-
     
     
+    public Double getTotalGanancias() {
+        return ventaRepository.getTotalGanancias();
+    }
+    
+    public String getCategoriaMasVendida() {
+        return ventaRepository.getCategoriaMasVendida();
+    }
     
 }

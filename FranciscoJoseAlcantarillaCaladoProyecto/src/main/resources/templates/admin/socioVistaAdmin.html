@@ -27,6 +27,11 @@
 
 	</nav>
 
+	<div role="alert" th:if="${param.error}">
+        <p class="error-message">¡No se puede eliminar un socio que tiene ventas asociadas!
+            <span th:text="${errorUsuario}"></span>
+        </p>
+    </div>
 
 	<main class="row justify-content-center min-vh-100">
 

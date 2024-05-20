@@ -65,16 +65,24 @@ public class AdminController {
 		model.addAttribute("listarTallas", tallaService.findAll());
 		return "/admin/varianteVistaAdmin";
 	}
-
+	
 	
 	@GetMapping("/estadisticas")
 	public String mostrarEstadisticas(Model model) {
+		
 	    Optional<Producto> productoMasVendido = ventaService.obtenerProductoMasVendido();
 	    Optional<Usuario> socioMasCompras = ventaService.obtenerSocioQueHaCompradoMas();
 
-	    productoMasVendido.ifPresent(producto -> model.addAttribute("producto", producto));
-	    socioMasCompras.ifPresent(socio -> model.addAttribute("socioMasCompras", socio));
-	    model.addAttribute("mensaje", "No hay ventas registradas");
+	    if (productoMasVendido.isPresent() && socioMasCompras.isPresent()) { 
+	    	
+	    	
+			model.addAttribute("producto", productoMasVendido.get());
+	    	model.addAttribute("socioMasCompras", socioMasCompras.get());
+	        model.addAttribute("totalGanancias", ventaService.getTotalGanancias());
+	        model.addAttribute("categoriaMasVendida", ventaService.getCategoriaMasVendida());
+		}
+	
+	    
 
 	    return "/admin/estadisticas";
 	}

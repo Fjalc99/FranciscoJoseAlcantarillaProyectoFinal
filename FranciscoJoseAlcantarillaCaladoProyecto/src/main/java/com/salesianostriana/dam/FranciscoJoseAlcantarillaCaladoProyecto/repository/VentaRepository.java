@@ -18,6 +18,26 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
 
 /*Revisar estas consultas*/
 	
+	
+	
+	@Query("""
+	           SELECT c.nombreCategoria
+	           FROM Categoria c
+	           WHERE c.id = (
+	               SELECT lv.producto.categoria.id
+	               FROM Venta v 
+	               JOIN v.LineaDeVenta lv 
+	               GROUP BY lv.producto.categoria.id 
+	               ORDER BY SUM(lv.cantidadProducto) DESC
+	               LIMIT 1
+	           )
+	           """)
+	    String getCategoriaMasVendida();
+	
+	
+	@Query("SELECT SUM(v.total) FROM Venta v")
+    Double getTotalGanancias();
+	
 	@Query("""		
 			SELECT lv.producto, SUM(lv.cantidadProducto)
 		       FROM LineaDeVenta lv  
@@ -66,10 +86,9 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
     @Query("SELECT v FROM Venta v WHERE v.usuario = ?1")
     List<Venta> findAllByUsuario(Usuario usuario);
 
-    @Query("select count(v) from Venta  join v.lineasDeventa lv where lv.producto = ?1")
-    List<Venta> countNumProductoByVenta(@Param("productoId") Long productoId);
-
+    @Query("SELECT COUNT(v) FROM Venta v JOIN v.LineaDeVenta lv JOIN lv.producto p WHERE p.id = :productoId")
+    int countNumProductoByVenta(@Param("productoId") Long productoId);
    
-   
-
+    @Query("SELECT COUNT(v) FROM Venta v WHERE v.usuario.id = :usuarioId")
+    int countVentasByUsuario(@Param("usuarioId") Long usuarioId);
 }

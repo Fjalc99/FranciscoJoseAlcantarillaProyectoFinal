@@ -54,11 +54,21 @@ public class TallaController {
 	
 	
 	
-	@GetMapping("/borrarTalla/{id}")
-	public String borrarTalla(@PathVariable("id")Long id, Model model) {
-		tallaService.deleteById(id);
-		return "redirect:/admin/tallasAdmin";
-		
-	}
+	   @GetMapping("/borrarTalla/{id}")
+	    public String borrarTalla(@PathVariable("id") Long id) {
+	        Optional<Talla> optionalTalla = tallaService.findById(id);
+	        
+	        if (optionalTalla.isPresent()) {
+	            Talla tallaEncontrada = optionalTalla.get();
+	            
+	            if (tallaService.countProductosByTalla(tallaEncontrada.getId()) == 0) {
+	                tallaService.delete(tallaEncontrada);
+	            } else {
+	                return "redirect:/admin/tallasAdmin?error=true";
+	            }
+	        }
+	        
+	        return "redirect:/admin/tallasAdmin";
+	    }
 	
 }

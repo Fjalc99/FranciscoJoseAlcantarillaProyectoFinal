@@ -30,10 +30,15 @@
         </div>
       </nav>
 
+	  
+	  <div role="alert" th:if="${param.error}">
+		<p>¡No se puede borrar una categoria que tiene productos asociados!</p>
+	</div>
+
 
 	<main class="row justify-content-center min-vh-100">
 
-
+		
 		<div class="container mt-3">
 			<a  th:href="@{/nuevaCategoria}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
 			<h2 class="text-center mt-3">Lista de categorias</h2>      

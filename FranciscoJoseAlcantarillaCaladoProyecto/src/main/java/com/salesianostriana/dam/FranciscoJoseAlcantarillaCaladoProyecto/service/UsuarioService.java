@@ -41,6 +41,10 @@ public class UsuarioService extends BaseServiceImpl <Usuario, Long, UsuarioRepos
 	    return ventaRepository.findAllByUsuario(usuario);
 	}
 	
+	
+	  public int countVentasByUsuario(Long usuarioId) {
+	        return ventaRepository.countVentasByUsuario(usuarioId);
+	    }
 
 	
 	

@@ -25,9 +25,7 @@ public class ProductoService extends BaseServiceImpl <Producto, Long, ProductoRe
 	        return productoRepository.findByCategoriaId(categoriaId);
 	    }
 	
-	 public void borraProductosConVentas(Long productoId) {
-		 
-	 }
-	    
-
+	 public int countNumProductoByVenta(Long productoId) {
+	        return ventaRepository.countNumProductoByVenta(productoId);
+	    }
 }

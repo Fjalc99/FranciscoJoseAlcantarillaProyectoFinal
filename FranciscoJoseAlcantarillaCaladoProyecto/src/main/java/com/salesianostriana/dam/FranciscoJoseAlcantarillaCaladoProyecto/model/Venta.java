@@ -34,7 +34,7 @@ public class Venta {
 	@Id @GeneratedValue
 	private Long id;
 	
-	private double Total;
+	private double total;
 	private boolean finalizada;
 	
 	

@@ -54,11 +54,21 @@ public class CategoriaController {
 	}
 	
 	@GetMapping("/borrarCategoria/{id}")
-	public String borrarCategoria(@PathVariable("id")Long id, Model model) {
-		categoriaService.deleteById(id);
-		return "redirect:/admin/categoriaAdmin";
-		
-	}
+    public String borrarCategoria(@PathVariable("id") Long id) {
+        Optional<Categoria> optionalCategoria = categoriaService.findById(id);
+        
+        if (optionalCategoria.isPresent()) {
+            Categoria categoriaEncontrada = optionalCategoria.get();
+            
+            if (categoriaService.countProductosByCategoria(categoriaEncontrada.getId()) == 0) {
+                categoriaService.delete(categoriaEncontrada);
+            } else {
+                return "redirect:/admin/categoriaAdmin?error=true";
+            }
+        }
+        
+        return "redirect:/admin/categoriaAdmin";
+    }
 	
 	@GetMapping("/categoria")
 	public String listarCategorias(Model model) {
