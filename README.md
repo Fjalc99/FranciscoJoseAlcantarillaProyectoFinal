@@ -1,7 +1,6 @@
-                                                  Antigüedades Real betis 
 
-                                      ![logoTienda](https://github.com/Fjalc99/FranciscoJoseAlcantarillaProyectoFinal/assets/150147505/4f829ade-9c87-4295-a0cf-0e2e75056793)
-
+  ![logoTienda](https://github.com/Fjalc99/FranciscoJoseAlcantarillaProyectoFinal/assets/150147505/a3574790-56da-4776-81e2-2c83ee8a4dd8)
+                                                
 
                                           Ven a nuestra tienda exclusiva de productos del real betis 
                                           solo para socios y veras productos que no veras en otra tienda.
