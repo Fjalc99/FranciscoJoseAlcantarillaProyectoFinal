@@ -22,6 +22,8 @@ public class ProductoService extends BaseServiceImpl <Producto, Long, ProductoRe
 	    }
 	
 	
-	
+	 public int countNumProductoByLineaDeVenta(Producto producto) {
+		 return productoRepository.CountNumProductoByLineaDeVenta(producto);
+	 }
 
 }

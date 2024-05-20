@@ -105,8 +105,15 @@ public class ProductoController {
 	
 	
 	@GetMapping("/borrar/{id}")
-	public String borrarProducto(@PathVariable("id")Long id, Model model) {
-		productoService.deleteById(id);
+	public String borrarProducto(@PathVariable("id")Long id) {
+		Producto productoEncotrado = productoService.findById(id).get();
+		
+		if (productoService.countNumProductoByLineaDeVenta(productoEncotrado)==0) {
+			productoService.delete(productoEncotrado);
+		}else {
+			return"redirect:/admin/productoAdmin/?error=true";
+		}
+			
 		return "redirect:/admin/productoAdmin";
 	}
 	

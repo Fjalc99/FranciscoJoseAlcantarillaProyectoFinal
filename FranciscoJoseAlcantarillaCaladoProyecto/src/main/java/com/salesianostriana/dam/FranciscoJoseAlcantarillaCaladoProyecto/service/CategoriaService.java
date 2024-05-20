@@ -10,6 +10,5 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 public class CategoriaService extends BaseServiceImpl<Categoria, Long, CategoriaRepository> {
 
 	
-	
-	
+
 }

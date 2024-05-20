@@ -31,7 +31,11 @@
 
 	<main class="row justify-content-center min-vh-100">
 
-		<h1>ERROR ESTA PAGINA NO LA PUEDES VER</h1>
+		<div th:if="${param.error}">
+            <p>¡No se puede borrar un producto que se encuentra en una linea de venta!</p>
+
+            <p>Esta pagina no la puedes ver</p>
+        </div>
 
 
 	</main>

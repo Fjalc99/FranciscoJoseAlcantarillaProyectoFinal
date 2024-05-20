@@ -24,9 +24,9 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item">
-						<a class="btn border nav-link text-light" th:href="@{/tiendaPrincipal}">Tienda</a>
+						<a class="btn  nav-link text-light" th:href="@{/tiendaPrincipal}">Tienda</a>
 					<li class="nav-item">
-						<a class="btn border nav-link text-light" th:href="@{/index}">Quienes Somos</a>
+						<a class="btn  nav-link text-light" th:href="@{/index}">Quienes Somos</a>
 					</li>
 					<form action="/tiendaPrincipal" method="get" class="form-inline">
 						<div class="form-group mr-2">
@@ -45,12 +45,11 @@
 				</ul>
 				<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
 				<div class="collapse navbar-collapse justify-content-end">
-					<i class="bi bi-search nav-item m-2 p-1 text-light border"></i>
 					<a th:href="@{/carrito}"><i class="btn bi bi-cart nav-item m-2 p-1 text-light border"></i></a>
-					<a class="btn border text-white" th:href="@{/Ventas}">Mis Ventas</a>
+					<a class="btn b text-white" th:href="@{/Ventas}">Mis Ventas</a>
 					<a th:href="@{/usuario/perfil}"><i
-							class="btn bi bi-person nav-item m-2 p-1 text-light border">Perfil</i></a>
-					<a class="btn border text-light" href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesion</a>
+							class="btn bi bi-person nav-item m-2 p-1 text-light ">Perfil</i></a>
+					<a class="btn  text-light" href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesion</a>
 				</div>
 			</div>
 		</div>

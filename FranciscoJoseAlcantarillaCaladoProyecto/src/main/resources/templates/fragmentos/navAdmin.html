@@ -26,29 +26,28 @@
       <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
 		  <li class="nav-item">
-		     <a class="nav-link border text-light" th:href="@{/admin/categoriaAdmin}">Categorias</a>
+		     <a class="nav-link  text-light" th:href="@{/admin/categoriaAdmin}">Categorias</a>
 		  </li>
 		  <li class="nav-item">
-		       <a class="nav-link border text-light" th:href="@{/admin/productoAdmin}">Productos</a>
+		       <a class="nav-link  text-light" th:href="@{/admin/productoAdmin}">Productos</a>
 		   </li>
 		  <li class="nav-item">
-			 <a class="nav-link border text-light" th:href="@{/admin/sociosAdmin}">Socios</a>
+			 <a class="nav-link  text-light" th:href="@{/admin/sociosAdmin}">Socios</a>
 		 </li>
 		 <li class="nav-item">
-		 		 	 <a class="nav-link border text-light" th:href="@{/admin/tallasAdmin}">Lista de tallas</a>
+		 		 	 <a class="nav-link  text-light" th:href="@{/admin/tallasAdmin}">Lista de tallas</a>
 		 </li>
      <li class="nav-item">
-          <a class="nav-link border text-light" th:href="@{/admin/estadisticas}">Estadisticas</a>
+          <a class="nav-link  text-light" th:href="@{/admin/estadisticas}">Estadisticas</a>
      </li>
 		 <li class="nav-item">
-		 	 <a class="nav-link border text-light" th:href="@{/index}">Quienes Somos</a>
+		 	 <a class="nav-link  text-light" th:href="@{/index}">Quienes Somos</a>
 		 </li>
         </ul>
 		<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
         <div class="collapse navbar-collapse justify-content-end">
-            <i class="bi bi-search nav-item m-2 p-1 text-light border"></i>
-			<a th:href="@{/usuario/perfil}"><i class="btn bi bi-person nav-item m-2 p-1 text-light border">Perfil</i></a>
-			<a class="btn" href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesion</a> 
+			<a th:href="@{/usuario/perfil}"><i class="btn bi bi-person nav-item m-2 p-1 text-light ">Perfil</i></a>
+			<a class="btn  text-light" href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesion</a> 
         </div>
       </div>
     </div>

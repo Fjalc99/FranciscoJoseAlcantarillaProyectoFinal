@@ -31,7 +31,9 @@
       </nav>
 
 
-	
+	<div role="alert" th:if="${param.error}">
+		<p>¡No se puede borrar un producto que se encuentra en una linea de venta!</p>
+	</div>
     
 	  <main class="row justify-content-center min-vh-100">
 
