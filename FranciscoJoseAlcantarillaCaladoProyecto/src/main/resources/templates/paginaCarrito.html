@@ -36,7 +36,7 @@
             <div class="container">
                 <h1 class="mt-5 mb-4">Carrito de Compras</h1>
 
-                <!-- Lista de productos en el carrito -->
+
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -48,12 +48,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Iterar sobre las líneas de venta -->
+
                             <tr th:each="lineaDeVenta : ${ventas}">
                                 <td
                                     th:text="${lineaDeVenta.producto.nombre}"></td>
                                 <td class="precio"
-                                    th:text="${lineaDeVenta.producto.precio}"></td>
+                                th:text="${#numbers.formatDecimal(lineaDeVenta.producto.precio, 1, 2)+' €'}"></td>
+                                    </td> 
                                 <td>
                                     <input type="number"
                                         class="form-control change-input"
@@ -67,13 +68,11 @@
                     </table>
                 </div>
 
-                <!-- Total del carrito -->
                 <div>
-                    <!-- Suponiendo que el total es una propiedad de cada línea de venta -->
                     <h3>Total: <span th:text="${total}"></span></h3>
                 </div>
 
-                <!-- Botón para finalizar la compra -->
+
                 <form action="/confirmar" method="get">
                     <button class="btn" type="submit">Finalizar Compra</button>
                 </form>

@@ -3,6 +3,7 @@ package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.control
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Producto;
+import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Usuario;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.CategoriaService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.ProductoService;
 import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.TallaService;
@@ -33,9 +35,8 @@ public class ProductoController {
 	
   
 	
-	
 	@GetMapping("/tiendaPrincipal")
-	private String vistaTienda(@RequestParam(name = "categoriaId", required = false) Long categoriaId, Model model) {
+	private String vistaTienda(@RequestParam(name = "categoriaId", required = false) Long categoriaId, @AuthenticationPrincipal Usuario usuario, Model model) {
 	    if (categoriaId != null) {
 	        model.addAttribute("listaProductos", productoService.findByCategoriaId(categoriaId));
 	    } else {

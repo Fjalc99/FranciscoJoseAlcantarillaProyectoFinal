@@ -33,40 +33,45 @@
 	</nav>
 
 
+	<main class="row justify-content-center min-vh-100">
+
+
+		<div class="container mt-3">
+			<a th:href="@{/nuevaTalla}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
+			<h2 class="text-center mt-3">Lista de Tallas</h2>
+			<table class="table table-striped align-content-center mt-3">
+				<thead>
+					<tr>
+						<th>Talla</th>
+						<th>Editar</th>
+						<th>Eliminar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="talla : ${listarTallas}">
+						<td th:text="${talla.nombreTalla}"></td>
+						<td>
+							<a th:href="@{/editarTalla/{id}(id=${talla.id})}"><i class="bi bi-pencil-square"></i></a>
+						</td>
+						<td>
+							<a th:href="@{/borrarTalla/{id}(id=${talla.id})}"><i class="bi bi-trash"></i></a>
+						</td>
+	
+					</tr>
+	
+	
+				</tbody>
+			</table>
+		</div>
+
+
+	</main>
 
 
 
+	
 
-	<div class="container mt-3">
-		<a th:href="@{/nuevaTalla}"><i class="bi bi-plus-circle-fill">Añadir</i></a>
-		<h2 class="text-center mt-3">Lista de Tallas</h2>
-		<table class="table table-striped align-content-center mt-3">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Talla</th>
-					<th>Editar</th>
-					<th>Eliminar</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="talla : ${listarTallas}">
-					<td th:text="${talla.id}"></td>
-					<td th:text="${talla.nombreTalla}"></td>
-					<td>
-						<a th:href="@{/editarTalla/{id}(id=${talla.id})}"><i class="bi bi-pencil-square"></i></a>
-					</td>
-					<td>
-						<a th:href="@{/borrarTalla/{id}(id=${talla.id})}"><i class="bi bi-trash"></i></a>
-					</td>
-
-				</tr>
-
-
-			</tbody>
-		</table>
-	</div>
-
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
 </body>
 

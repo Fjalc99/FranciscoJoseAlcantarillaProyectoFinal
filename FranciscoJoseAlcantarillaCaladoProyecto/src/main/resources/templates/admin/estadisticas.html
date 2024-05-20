@@ -24,7 +24,8 @@
 
 <body>
 	
-	<div sec:authorize="hasRole('ROLE_ADMIN')">
+    <main class="row justify-content-center min-vh-100">
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
 			<nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
 		</div>
 		<div sec:authorize="hasRole('ROLE_USER')">
@@ -34,8 +35,6 @@
         <h2>Producto Más Vendido</h2>
         <div th:if="${producto != null}">
             <h4><span th:text="${producto.nombre}"></span></h4>
-            <p><span th:text="${producto.descripcion}"></span></p>
-            <p><span th:text="${producto.precio}"></span></p>
             <p><img th:src="@{${producto.imagen}}" class="productImage" alt="Imagen del producto"></p>
         
         </div>
@@ -50,9 +49,14 @@
         </div>
 
 
+    </main>
+    
+	
 
 
 
+
+    <footer th:replace="~{fragmentos/footer::footer}"></footer>
 
 
 </body>
