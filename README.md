@@ -25,7 +25,7 @@
                 Funciones del Usuario/Socio
         ______________________________________________________________________
         . Usuario: user  
-        . Contraseña: user
+        . Contraseña: 1234
         . Va a poder registrarse si no lo tiene hecho para poder entrar en la
           página.
         . Conocer sobre nosotros y nuestra tienda
