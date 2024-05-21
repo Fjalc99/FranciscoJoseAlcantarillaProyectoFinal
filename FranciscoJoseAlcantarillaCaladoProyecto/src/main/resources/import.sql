@@ -63,8 +63,9 @@ ALTER SEQUENCE PRODUCTO_SEQ RESTART WITH (1000)
 insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (false, 2, 20, 1,'2024-05-15 18:56:27' )
 insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (true, 2, 20, 2, '2024-03-17 12:16:37' )
 insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (true, 2, 20, 3, '2024-07-20 13:15:12' )
-insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (false, 4, 20, 4, '2024-02-11 14:36:15' )
-insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (false, 4, 20, 5,'2024-10-31 18:16:21' )
+insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (false, 3, 20, 4, '2024-02-11 14:36:15' )
+insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (true, 3, 20, 5,'2024-10-31 18:16:21' )
+insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (true, 3, 20, 6,'2024-10-31 18:16:21' )
 
 ALTER SEQUENCE VENTA_SEQ RESTART WITH (1000)
 ---------------------------------------------------------------------

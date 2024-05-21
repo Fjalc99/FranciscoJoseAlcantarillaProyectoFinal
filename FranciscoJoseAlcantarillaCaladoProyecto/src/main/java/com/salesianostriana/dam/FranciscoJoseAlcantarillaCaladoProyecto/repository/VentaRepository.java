@@ -16,10 +16,7 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model.Ve
 
 public interface VentaRepository extends JpaRepository<Venta, Long> {
 
-/*Revisar estas consultas*/
-	
-	
-	
+
 	@Query("""
 	           SELECT c.nombreCategoria
 	           FROM Categoria c
