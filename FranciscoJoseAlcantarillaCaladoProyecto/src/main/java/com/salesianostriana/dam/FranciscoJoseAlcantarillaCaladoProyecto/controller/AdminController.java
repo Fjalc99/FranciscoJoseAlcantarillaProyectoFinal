@@ -86,4 +86,12 @@ public class AdminController {
 
 	    return "/admin/estadisticas";
 	}
+	
+	
+	@GetMapping("/ventasAdmin")
+	public String mostraVentasUsuario(Model model) {
+		model.addAttribute("listaVentasAdmin", ventaService.findAll());
+		
+		return "/admin/vistaVentasAdmin";
+	}
 }
