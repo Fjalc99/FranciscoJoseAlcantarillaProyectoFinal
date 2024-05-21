@@ -5845,3 +5845,7 @@ Syntax error in SQL statement "[*]======="; SQL statement:
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]>>>>>>> refs/remotes/origin/main"
 Syntax error in SQL statement "[*]>>>>>>> refs/remotes/origin/main"; SQL statement:
 >>>>>>> refs/remotes/origin/main [42000-224]
+2024-05-21 12:31:18.522640+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "IMAGEN CHARACTER VARYING(255)": "'https://www.google.com/url?sa=i&url=https%3A%2F%2Ftiendascampeon.es%2Ffutbol%2F... (266)"
+Value too long for column "IMAGEN CHARACTER VARYING(255)": "'https://www.google.com/url?sa=i&url=https%3A%2F%2Ftiendascampeon.es%2Ffutbol%2F... (266)"; SQL statement:
+insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (22, 6, 'Balón de las categprias inferiores','Balon con el que entrenan los jugadores del equipo filiar', 15.0, 'https://www.google.com/url?sa=i&url=https%3A%2F%2Ftiendascampeon.es%2Ffutbol%2F2000673377-kappa-balon-real-betis-21-22-38136jw.html&psig=AOvVaw0Meg5chGz_yHSw4ZmQ6hl9&ust=1716372624587000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKj6_MjAnoYDFQAAAAAdAAAAABAE', 1) [22001-224]
