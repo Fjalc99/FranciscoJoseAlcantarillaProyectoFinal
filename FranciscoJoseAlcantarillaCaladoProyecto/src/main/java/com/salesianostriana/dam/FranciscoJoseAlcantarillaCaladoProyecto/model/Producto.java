@@ -1,9 +1,15 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,9 +36,14 @@ public class Producto {
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_producto_categoria"))
 	private Categoria categoria;
 	
-	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name="fk_producto_talla"))
-	private Talla talla;
+	@ManyToMany (fetch = FetchType.EAGER)
+	@JoinTable(
+				name = "Tiene",
+				joinColumns = @JoinColumn (name = "producto_id"),
+				inverseJoinColumns = @JoinColumn(name="talla_id")
+			)
+	@Builder.Default
+	private List <Talla> tallas = new ArrayList <>();
 	
 	
 	
@@ -48,14 +59,14 @@ public class Producto {
 	}
 	
 	
-	public void addTalla(Talla talla) {
-		this.talla = talla;
-		talla.getProductos().add(this);
+	public void addTalla(Talla t) {
+		this.tallas.add(t);
+		t.getProductos().add(this);
 	}
 	
-	public void deleteTalla(Talla talla) {
-		talla.getProductos().remove(this);
-		this.talla = talla;
+	public void deleteTalla(Talla t) {
+		t.getProductos().remove(this);
+		this.tallas.remove(t);
 		
 	}
 }
