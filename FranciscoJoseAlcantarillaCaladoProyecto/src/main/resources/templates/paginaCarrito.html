@@ -54,7 +54,7 @@
                                 <td
                                     th:text="${lineaDeVenta.producto.nombre}"></td>
                                 <td class="precio"
-                                th:text="${#numbers.formatDecimal(lineaDeVenta.producto.precio, 1, 2)+' €'}"></td>
+                                th:text="${#numbers.formatDecimal(lineaDeVenta.producto.precio, 1,2)+' €'}"></td>
                                     </td> 
                                 <td>
                                     <input type="number"
@@ -63,16 +63,18 @@
                                         th:value="${lineaDeVenta.cantidadProducto}">
                                 </td>
                                 <td class="subtotal"
-                                    th:text="${lineaDeVenta.subTotal}"></td>
+                                    th:text="${#numbers.formatDecimal(lineaDeVenta.subTotal, 1, 2)+' €'}"></td>
+                                    
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <div>
-                    <h3>Total: <span th:text="${total}"></span></h3>
+                    <h3>Total: <span th:text="${#numbers.formatDecimal(total, 1, 2)+' €'}"></span></h3>
                 </div>
-
+                
+                
 
                 <form action="/confirmar" method="get">
                     <button class="btn" type="submit">Finalizar Compra</button>

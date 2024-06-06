@@ -54,7 +54,7 @@ public class TallaController {
 	
 	
 	
-	/*   @GetMapping("/borrarTalla/{id}")
+	  @GetMapping("/borrarTalla/{id}")
 	    public String borrarTalla(@PathVariable("id") Long id) {
 	        Optional<Talla> optionalTalla = tallaService.findById(id);
 	        
@@ -70,12 +70,12 @@ public class TallaController {
 	        
 	        return "redirect:/admin/tallasAdmin";
 	    }
-	*/
+	
 	   
-	   @GetMapping("/borrarTalla/{id}")
+	  /* @GetMapping("/borrarTalla/{id}")
 	    public String borrarTalla(@PathVariable("id") Long id) {
 		   	tallaService.deleteById(id);
 	        
 	        return "redirect:/admin/tallasAdmin";
-	    }
+	    }  */
 }

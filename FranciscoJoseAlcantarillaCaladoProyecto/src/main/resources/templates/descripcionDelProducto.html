@@ -41,7 +41,7 @@
                     <td th:text="${#numbers.formatDecimal(producto.precio, 1, 2)+' €'}"></td>
                     <form th:action="@{/productoACarrito/{id}(id=${producto.id})}" method="get">
                         <input type="hidden" name="id" th:value="${producto.id}" />
-                        <input type="submit" value="Añadir al carrito" class="btn" name="addcarrito" id="addcarrito">
+                        <input type="submit" value="Añadir al carrito" class="btn border" name="addcarrito" id="addcarrito">
                     </form>
                 </div>
 			</div>

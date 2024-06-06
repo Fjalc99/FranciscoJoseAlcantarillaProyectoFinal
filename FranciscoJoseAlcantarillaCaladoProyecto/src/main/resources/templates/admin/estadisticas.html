@@ -25,7 +25,7 @@
 
 <body>
 	
-    <main id="colorMainPortada"  class="text-center row justify-content-center min-vh-100">
+    <main class="text-center row justify-content-center min-vh-100">
         <div sec:authorize="hasRole('ROLE_ADMIN')">
 			<nav th:replace="~{fragmentos/navAdmin::navAdmin}"></nav>
 		</div>

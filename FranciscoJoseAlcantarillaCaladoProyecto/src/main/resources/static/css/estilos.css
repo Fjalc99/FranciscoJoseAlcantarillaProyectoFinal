@@ -4,7 +4,11 @@
 }
 
 .verde{
-  background-color: rgb(55, 194, 55);
+  background-color: green;
+}
+
+.fondoCard{
+  background-color: whitesmoke;
 }
 
 /*Footer*/
@@ -73,7 +77,10 @@ a{
   width: 40%;
 }
 
-
+.green-background select {
+  background-color: green; 
+  color: white; 
+}
 
 
 

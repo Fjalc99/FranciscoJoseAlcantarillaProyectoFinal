@@ -31,36 +31,113 @@ ALTER SEQUENCE TALLA_SEQ RESTART WITH (1000)
 -------------------------------------------
 /*Productos*/
 
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (1, 6, 'Balon de champions','balón con el que el betis debuto en champions', 220.0, 'https://m.media-amazon.com/images/I/71XnnlWmbmL._AC_SL1500_.jpg', 1);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (2, 6, 'Balon de entramiento','balón con el entrenanmiento', 20.0, 'https://m.media-amazon.com/images/I/81dP3IFmfrL._AC_SL1500_.jpg', 1);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (3, 3, 'Equipación de entrenamiento de Isco','Equipación con la que entrena isco', 60.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/222512-6143_2_1.jpg?crop=center&v=1714122436&width=960', 2);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (4, 4, 'Camiseta de la expo92','Camiseta conmemorativa por la expo92', 100.0, 'https://www.mundodeportemadrid.com/wp-content/uploads/2021/03/camiseta-retro-betis-2024-600x600.jpg.webp', 2);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (5, 6, 'Ropa de bebe','trajecito para bebe del real betis balompie', 30.0, 'https://tiendayofutbol.es/15201-large_default/camiseta-oficial-para-perros-del-real-betis-balompi%C3%A9.jpg', 3);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (6, 6, 'Playmobil exclusivo','Muñeco de playmobil exclusivo del jugador del betis Perkis', 80.0, 'https://www.wearegames.es/wp-content/uploads/2021/07/Pokeeto-Jugador-Real-Betis-Balompie%CC%81.jpg', 3);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (7, 6, 'Balon del primer partido','balón con el debuto el betis en liga en 1935', 600.0, 'https://resize.sprintercdn.com/f/2048x2048/products/a97456e6662b4f92b6865329861bb596/balon-real-betis-72670_a97456e6662b4f92b6865329861bb596_323390027.jpg?w=2048&q=75', 1);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (8, 6, 'Balon de partido de españa','balón para conmemorar el 12-1 de españa en el campo del betis', 550.0, 'https://static.futbolmega.es/6308-thickbox_default/balon-grande-de-reglamento-real-betis-verde-con-franjas-blancas.jpg', 1);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (9, 1, 'Equipación exclusiva de la final','Camiseta con la que se  jugo en la final de la copa del rey', 120.0, 'https://www.soccerfactory.es/images/58496_S0_T800.jpg', 2);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (10, 1, 'Camiseta del dia de la mujer','Camiseta conmemorativa por el dia de la mujer', 130.0, 'https://imaginasport.es/images/productos/img/102398-1-galeria.jpg', 2);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (11, 4, 'Mochila del betis','Ha llegado la mochila para sentir los colores del betis al ir a la escuela', 20.0, 'https://static.glami.es/img/800x800bt/286231069-mochila-gde-c-ruedas-compact-ext-orga-real-betis-balompie.jpg', 3);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (12, 6, 'Bolsa reutilizable','Bolsa para reciclar y ayudar contra el cambio climatico', 5.0, 'https://ih1.redbubble.net/image.3345627269.8864/ssrco,tote,cotton,canvas_creme,flatlay,square,600x600-bg,f8f8f8.1.jpg', 3);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (13, 6, 'Balon para niños','balón pequeño para que los peques puedan jugar', 55.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/5715454058631-1.jpg?crop=center&v=1715241981&width=960', 1);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (14, 6, 'Balon de futbol sala','balón con el que el equipo jugo la final de futbol sala', 120.0, 'https://tiendascampeon.es/63169-large_default/kappa-balon-real-betis-21-22-38136jw.jpg', 1);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (15, 3, 'Primera equipacion del betis','Equipacion del año que el betis gano su unica liga', 400.0, 'https://www.vintagefootballclub.com/wp-content/uploads/2021/06/real-betis-sevilla-1934-35-1.jpg.webp', 2);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (16, 2, 'Camiseta de la despedida de joaquin','Camiseta en honor a una leyenda del beticismo como es joaquin sanchez', 300.0, 'https://www.todocamisetasfutbol.com/4631-thickbox_default/camiseta-real-betis-homenaje-joaquin.jpg', 2);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (17, 4, 'Monopoly de real betis','Se un autentico magnate con el monopoly de real betis y conquista la gloria', 90.0, 'https://lacuevaroja.com/9251-large_default/monopoly-real-betis-balompie.jpg', 3);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (18, 6, 'Llavero de Joaquin','Llavero exlusivo del partido de despedida en homenaje a joaquin', 75.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/llavero_negro_joaking.jpg?crop=center&height=1200&v=1715241140&width=1200', 3);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (19, 6, 'Balon del dia de la mujer','balón conmemorativo para el dia de la mujer', 100.0, 'https://www.tradeinn.com/f/13930/139302559_3/kappa-balon-futbol-betis-seville-2020-21-mini.jpg', 1);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (20, 6, 'Botella del Betis','Hidratate siempre luciendo con orgullo tus colores', 30.0, 'https://images-eu.ssl-images-amazon.com/images/I/41v7WgIVxAL._AC_UL750_SR750,750_.jpg', 3);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (21, 3, 'Camiseta de Ruben castro','Camiseta de otra leyenda como es el máximo goleador del real betis', 260.0, 'https://ae01.alicdn.com/kf/HTB1wV6bLVXXXXbdXFXXq6xXFXXXb/2016-rosa-real-betis-Jersey-de-futbol-local-visitante-2017-la-mejor-calidad-JOAQUIN-RUBEN-CASTRO.jpg', 2);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (22, 6, 'Balón de las categorias inferiores','Balon con el que entrenan los jugadores del equipo filiar', 15.0, 'https://static.privatesportshop.com/img/p/3818396-11493805-thickbox.jpg', 1);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (23, 6, 'Balón firmado','Balón que esta firmado por los jugadores de toda la plantilla del año 2005', 660.0, 'https://i.ebayimg.com/images/g/YkUAAOSwBGJjpFTj/s-l1600.jpg', 1);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (24, 3, 'Segunda equipacion 21/22','Equipacion del betis que representa a sevilla mostrando sus monumentos mas importantes', 45.0, 'https://static.privatesportshop.com/img/p/3818336-11493448-thickbox.jpg', 2);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (25, 4, 'Equipacion de feria','Camiseta conmemorativa la cual se ha hecho para jugar la semanaa de feria', 80.0, 'https://www.camisetasstore.com/webp/2025/CAMISETA-DE-FUTBOL-Real-Betis-2024-2025---especial-550.webp', 2);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (26, 6, 'Albornoz del betis','Secate sintintiendo tus colores y sintiente un verdadero jugador', 25.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/albornoz_betis.2.jpg?crop=center&v=1715241809&width=960', 3);
-insert into producto (id, talla_id,  nombre, descripcion, precio, imagen, categoria_id) values (27, 6, 'Funda del betis','Luce una funda como las que llevan todos los jugadores de la plantilla', 10.0, 'https://lacasadelascarcasas.es/1113293/funda-para-google-pixel-7-5g-del-real-betis-balompie-escudo-verde-fondo-trama-licencia-oficial-real-betis-balompie.jpg', 3);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (1, 'Balon de champions','balón con el que el betis debuto en champions', 220.0, 'https://m.media-amazon.com/images/I/71XnnlWmbmL._AC_SL1500_.jpg', 1);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (2, 'Balon de entramiento','balón con el entrenanmiento', 20.0, 'https://m.media-amazon.com/images/I/81dP3IFmfrL._AC_SL1500_.jpg', 1);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (3, 'Equipación de entrenamiento de Isco','Equipación con la que entrena isco', 60.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/222512-6143_2_1.jpg?crop=center&v=1714122436&width=960', 2);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (4, 'Camiseta de la expo92','Camiseta conmemorativa por la expo92', 100.0, 'https://www.mundodeportemadrid.com/wp-content/uploads/2021/03/camiseta-retro-betis-2024-600x600.jpg.webp', 2);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (5, 'Ropa de bebe','trajecito para bebe del real betis balompie', 30.0, 'https://tiendayofutbol.es/15201-large_default/camiseta-oficial-para-perros-del-real-betis-balompi%C3%A9.jpg', 3);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (6, 'Playmobil exclusivo','Muñeco de playmobil exclusivo del jugador del betis Perkis', 80.0, 'https://www.wearegames.es/wp-content/uploads/2021/07/Pokeeto-Jugador-Real-Betis-Balompie%CC%81.jpg', 3);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (7, 'Balon del primer partido','balón con el debuto el betis en liga en 1935', 600.0, 'https://resize.sprintercdn.com/f/2048x2048/products/a97456e6662b4f92b6865329861bb596/balon-real-betis-72670_a97456e6662b4f92b6865329861bb596_323390027.jpg?w=2048&q=75', 1);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (8, 'Balon de partido de españa','balón para conmemorar el 12-1 de españa en el campo del betis', 550.0, 'https://static.futbolmega.es/6308-thickbox_default/balon-grande-de-reglamento-real-betis-verde-con-franjas-blancas.jpg', 1);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (9, 'Equipación exclusiva de la final','Camiseta con la que se  jugo en la final de la copa del rey', 120.0, 'https://www.soccerfactory.es/images/58496_S0_T800.jpg', 2);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (10, 'Camiseta del dia de la mujer','Camiseta conmemorativa por el dia de la mujer', 130.0, 'https://imaginasport.es/images/productos/img/102398-1-galeria.jpg', 2);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (11, 'Mochila del betis','Ha llegado la mochila para sentir los colores del betis al ir a la escuela', 20.0, 'https://static.glami.es/img/800x800bt/286231069-mochila-gde-c-ruedas-compact-ext-orga-real-betis-balompie.jpg', 3);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (12, 'Bolsa reutilizable','Bolsa para reciclar y ayudar contra el cambio climatico', 5.0, 'https://ih1.redbubble.net/image.3345627269.8864/ssrco,tote,cotton,canvas_creme,flatlay,square,600x600-bg,f8f8f8.1.jpg', 3);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (13, 'Balon para niños','balón pequeño para que los peques puedan jugar', 55.0, 'https://www.tradeinn.com/f/13856/138561060/kappa-balon-futbol-real-betis-club.jpg', 1);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (14, 'Balon de futbol sala','balón con el que el equipo jugo la final de futbol sala', 120.0, 'https://tiendascampeon.es/63169-large_default/kappa-balon-real-betis-21-22-38136jw.jpg', 1);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (15, 'Primera equipacion del betis','Equipacion del año que el betis gano su unica liga', 400.0, 'https://www.vintagefootballclub.com/wp-content/uploads/2021/06/real-betis-sevilla-1934-35-1.jpg.webp', 2);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (16, 'Camiseta de la despedida de joaquin','Camiseta en honor a una leyenda del beticismo como es joaquin sanchez', 300.0, 'https://www.todocamisetasfutbol.com/4631-thickbox_default/camiseta-real-betis-homenaje-joaquin.jpg', 2);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (17, 'Monopoly de real betis','Se un autentico magnate con el monopoly de real betis y conquista la gloria', 90.0, 'https://lacuevaroja.com/9251-large_default/monopoly-real-betis-balompie.jpg', 3);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (18, 'Llavero de Joaquin','Llavero exlusivo del partido de despedida en homenaje a joaquin', 75.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/llavero_negro_joaking_22d39874-eb08-4626-9c70-9a3746e8559c.jpg?crop=center&v=1717671262&width=960', 3);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (19, 'Balon del dia de la mujer','balón conmemorativo para el dia de la mujer', 100.0, 'https://www.tradeinn.com/f/13930/139302559_3/kappa-balon-futbol-betis-seville-2020-21-mini.jpg', 1);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (20, 'Botella del Betis','Hidratate siempre luciendo con orgullo tus colores', 30.0, 'https://images-eu.ssl-images-amazon.com/images/I/41v7WgIVxAL._AC_UL750_SR750,750_.jpg', 3);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (21, 'Camiseta de Ruben castro','Camiseta de otra leyenda como es el máximo goleador del real betis', 260.0, 'https://ae01.alicdn.com/kf/HTB1wV6bLVXXXXbdXFXXq6xXFXXXb/2016-rosa-real-betis-Jersey-de-futbol-local-visitante-2017-la-mejor-calidad-JOAQUIN-RUBEN-CASTRO.jpg', 2);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (22, 'Balón de las categorias inferiores','Balon con el que entrenan los jugadores del equipo filiar', 15.0, 'https://static.privatesportshop.com/img/p/3818396-11493805-thickbox.jpg', 1);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (23, 'Balón firmado','Balón que esta firmado por los jugadores de toda la plantilla del año 2005', 660.0, 'https://i.ebayimg.com/images/g/YkUAAOSwBGJjpFTj/s-l1600.jpg', 1);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (24, 'Segunda equipacion 21/22','Equipacion del betis que representa a sevilla mostrando sus monumentos mas importantes', 45.0, 'https://static.privatesportshop.com/img/p/3818336-11493448-thickbox.jpg', 2);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (25, 'Equipacion de feria','Camiseta conmemorativa la cual se ha hecho para jugar la semanaa de feria', 80.0, 'https://www.camisetasstore.com/webp/2025/CAMISETA-DE-FUTBOL-Real-Betis-2024-2025---especial-550.webp', 2);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (26, 'Albornoz del betis','Secate sintintiendo tus colores y sintiente un verdadero jugador', 25.0, 'https://shop.realbetisbalompie.es/cdn/shop/files/albornoz_betis.2_9e4b9186-7a40-41c5-8b07-73deabf140b3.jpg?crop=center&v=1717672009&width=960', 3);
+insert into producto (id, nombre, descripcion, precio, imagen, categoria_id) values (27, 'Funda del betis','Luce una funda como las que llevan todos los jugadores de la plantilla', 10.0, 'https://lacasadelascarcasas.es/1113293/funda-para-google-pixel-7-5g-del-real-betis-balompie-escudo-verde-fondo-trama-licencia-oficial-real-betis-balompie.jpg', 3);
 
 
 ALTER SEQUENCE PRODUCTO_SEQ RESTART WITH (1000)
+-----------------------------------------------------------------------
+/*Tiene*/
+
+insert into tiene (producto_id, talla_id) values (1,6)
+insert into tiene (producto_id, talla_id) values (2,6)
+insert into tiene (producto_id, talla_id) values (3,1)
+insert into tiene (producto_id, talla_id) values (3,2)
+insert into tiene (producto_id, talla_id) values (3,3)
+insert into tiene (producto_id, talla_id) values (3,4)
+insert into tiene (producto_id, talla_id) values (3,5)
+insert into tiene (producto_id, talla_id) values (4,1)
+insert into tiene (producto_id, talla_id) values (4,2)
+insert into tiene (producto_id, talla_id) values (4,3)
+insert into tiene (producto_id, talla_id) values (4,4)
+insert into tiene (producto_id, talla_id) values (4,5)
+insert into tiene (producto_id, talla_id) values (5,6)
+insert into tiene (producto_id, talla_id) values (6,6)
+insert into tiene (producto_id, talla_id) values (7,6)
+insert into tiene (producto_id, talla_id) values (8,6)
+insert into tiene (producto_id, talla_id) values (9,1)
+insert into tiene (producto_id, talla_id) values (9,2)
+insert into tiene (producto_id, talla_id) values (9,3)
+insert into tiene (producto_id, talla_id) values (9,4)
+insert into tiene (producto_id, talla_id) values (9,5)
+insert into tiene (producto_id, talla_id) values (10,1)
+insert into tiene (producto_id, talla_id) values (10,2)
+insert into tiene (producto_id, talla_id) values (10,3)
+insert into tiene (producto_id, talla_id) values (10,4)
+insert into tiene (producto_id, talla_id) values (10,5)
+insert into tiene (producto_id, talla_id) values (11,1)
+insert into tiene (producto_id, talla_id) values (11,2)
+insert into tiene (producto_id, talla_id) values (11,3)
+insert into tiene (producto_id, talla_id) values (11,4)
+insert into tiene (producto_id, talla_id) values (11,5)
+insert into tiene (producto_id, talla_id) values (12,6)
+insert into tiene (producto_id, talla_id) values (13,6)
+insert into tiene (producto_id, talla_id) values (14,6)
+insert into tiene (producto_id, talla_id) values (15,1)
+insert into tiene (producto_id, talla_id) values (15,2)
+insert into tiene (producto_id, talla_id) values (15,3)
+insert into tiene (producto_id, talla_id) values (15,4)
+insert into tiene (producto_id, talla_id) values (15,5)
+insert into tiene (producto_id, talla_id) values (16,1)
+insert into tiene (producto_id, talla_id) values (16,2)
+insert into tiene (producto_id, talla_id) values (16,3)
+insert into tiene (producto_id, talla_id) values (16,4)
+insert into tiene (producto_id, talla_id) values (16,5)
+insert into tiene (producto_id, talla_id) values (17,1)
+insert into tiene (producto_id, talla_id) values (17,2)
+insert into tiene (producto_id, talla_id) values (17,3)
+insert into tiene (producto_id, talla_id) values (17,4)
+insert into tiene (producto_id, talla_id) values (17,5)
+insert into tiene (producto_id, talla_id) values (18,6)
+insert into tiene (producto_id, talla_id) values (19,6)
+insert into tiene (producto_id, talla_id) values (20,6)
+insert into tiene (producto_id, talla_id) values (21,1)
+insert into tiene (producto_id, talla_id) values (21,2)
+insert into tiene (producto_id, talla_id) values (21,3)
+insert into tiene (producto_id, talla_id) values (21,4)
+insert into tiene (producto_id, talla_id) values (21,5)
+insert into tiene (producto_id, talla_id) values (22,6)
+insert into tiene (producto_id, talla_id) values (23,6)
+insert into tiene (producto_id, talla_id) values (24,1)
+insert into tiene (producto_id, talla_id) values (24,2)
+insert into tiene (producto_id, talla_id) values (24,3)
+insert into tiene (producto_id, talla_id) values (24,4)
+insert into tiene (producto_id, talla_id) values (24,5)
+insert into tiene (producto_id, talla_id) values (25,1)
+insert into tiene (producto_id, talla_id) values (25,2)
+insert into tiene (producto_id, talla_id) values (25,3)
+insert into tiene (producto_id, talla_id) values (25,4)
+insert into tiene (producto_id, talla_id) values (25,5)
+insert into tiene (producto_id, talla_id) values (26,6)
+insert into tiene (producto_id, talla_id) values (27,6)
+
+
+
 -----------------------------------------------------------------------
 /*Venta*/
 insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (false, 2, 20, 1,'2024-05-15 18:56:27' )
