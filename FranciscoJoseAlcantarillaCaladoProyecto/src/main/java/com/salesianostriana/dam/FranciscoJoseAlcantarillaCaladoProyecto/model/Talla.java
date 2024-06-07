@@ -5,9 +5,13 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,5 +38,11 @@ public class Talla {
 	@Builder.Default
 	private List <Producto> productos = new ArrayList <> ();
 	
+	
+	@OneToMany(mappedBy = "talla", fetch = FetchType.EAGER)
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@Builder.Default
+	private List <LineaDeVenta> lv = new ArrayList<>();
 	
 }

@@ -150,10 +150,10 @@ insert into venta (finalizada, usuario_id ,total, id, fecha_compra) values (true
 ALTER SEQUENCE VENTA_SEQ RESTART WITH (1000)
 ---------------------------------------------------------------------
 /*Linea de ventas*/
-insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (1, 1, 3, 10, 2)
-insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (2, 1, 2, 10, 2)
-insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (3, 3, 5, 10, 2)
-insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (4, 4, 6, 10, 4)
-insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id) values (5, 5, 7, 10, 5)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id, talla_id) values (1, 1, 3, 10, 2, 2)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id, talla_id) values (2, 1, 2, 10, 2, 3)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id, talla_id) values (3, 3, 5, 10, 2, 4)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id, talla_id) values (4, 4, 6, 10, 4, 5)
+insert into linea_de_venta(id, producto_id, cantidad_producto, sub_total, venta_id, talla_id) values (5, 5, 7, 10, 5, 2)
 
 ALTER SEQUENCE LINEA_DE_VENTA_SEQ RESTART WITH (1000)
