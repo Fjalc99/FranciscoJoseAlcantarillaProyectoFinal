@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
@@ -32,9 +33,6 @@ public class LineaDeVenta {
 	
 
 	
-	@ManyToOne
-	@JoinColumn (foreignKey = @ForeignKey (name = "fk_lineaDeVenta_talla") )
-	private Talla talla;
 	
 	
 	@ManyToOne
