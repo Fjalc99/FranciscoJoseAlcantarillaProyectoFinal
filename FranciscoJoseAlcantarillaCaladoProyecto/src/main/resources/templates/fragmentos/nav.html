@@ -28,21 +28,6 @@
 						<a class="btn  nav-link text-light" th:href="@{/tiendaPrincipal}">Tienda</a>
 					<li class="nav-item">
 						<a class="btn  nav-link text-light" th:href="@{/index}">Quienes Somos</a>
-					</li>
-					<form action="/tiendaPrincipal" method="get" class="form-inline">
-						<div class="form-group mr-2">
-							<select name="categoriaId" id="categoriaId" class="form-control">
-								<option value="">Todas las categorías</option>
-								<option th:each="categoria : ${listaCategorias}" 
-										th:value="${categoria.id}" 
-										th:text="${categoria.nombreCategoria}">
-								</option>
-							</select>
-						</div>
-						<button type="submit" class="btn ">Filtrar</button>
-					</form>
-					</li>
-
 				</ul>
 				<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
 				<div class="collapse navbar-collapse justify-content-end">

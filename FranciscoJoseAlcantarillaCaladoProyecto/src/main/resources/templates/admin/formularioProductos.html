@@ -40,42 +40,41 @@
 					<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
 				</div>
 
-				<div class="row">
-
-					<div class="col input-group mt-2">
-						<label for="nombreCategoria" class="input-group-text">Categoria</label>
-						<select th:field="*{categoria}" required>
-							<option th:each="categoria : ${listaCategorias}" th:value="${categoria.id}"
-								th:text="${categoria.nombreCategoria}"></option>
-						</select>
+				<div class="form-row">
+					<div class="col-md-6 mb-3">
+						<label for="nombre">Nombre</label>
+						<input type="text" th:field="*{nombre}" class="form-control" id="nombre" required>
 					</div>
-					<div class="col input-group mt-2">
-						<label for="nombreTalla" class="input-group-text">Talla</label>
-						<select th:field="*{talla}" required>
-							<option th:each="talla : ${listaTalla}" th:value="${talla.id}"
-								th:text="${talla.nombreTalla}"></option>
-						</select>
-					</div>
-
-					<div class="col input-group mt-2">
-						<label for="nombre" class="input-group-text">Nombre</label>
-						<input type="text" class="form-control" name="nombre" th:field="*{nombre}" required>
-					</div>
-
-					<div class="col input-group mt-2">
-						<label for="descripcion" class="input-group-text">Descripción</label>
-						<input type="text" class="form-control" name="descripcion" th:field="*{descripcion}" required>
+					<div class="col-md-6 mb-3">
+						<label for="descripcion">Descripción</label>
+						<input type="text" th:field="*{descripcion}" class="form-control" id="descripcion" required>
 					</div>
 				</div>
-
-				<div class="row">
-					<div class="col input-group mt-2">
-						<label for="precio" class="input-group-text">Precio</label>
-						<input type="number" class="form-control" name="precio" th:field="*{precio}" required>
+				<div class="form-row">
+					<div class="col-md-6 mb-3">
+						<label for="precio">Precio</label>
+						<input type="number" th:field="*{precio}" class="form-control" id="precio" required>
 					</div>
-					<div class="col input-group mt-2">
-						<label for="imagen" class="input-group-text">Imagen</label>
-						<input type="text" class="form-control" name="imagen" th:field="*{imagen}" required>
+					<div class="col-md-6 mb-3">
+						<label for="imagen">Imagen</label>
+						<input type="text" th:field="*{imagen}" class="form-control" id="imagen" required>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-md-6 mb-3">
+						<label for="categoria">Categoría</label>
+						<select th:field="*{categoria}" class="form-control" id="categoria" required>
+							<option th:each="categoria : ${listaCategorias}" th:value="${categoria.id}" th:text="${categoria.nombreCategoria}"></option>
+						</select>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label for="tallas">Tallas</label>
+						<div th:each="talla : ${listaTallas}">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" th:field="*{tallas}" th:value="${talla.id}" th:id="'talla-checkbox-' + ${talla.id}">
+								<label class="form-check-label" th:for="'talla-checkbox-' + ${talla.id}" th:text="${talla.nombreTalla}"></label>
+							</div>
+						</div>
 					</div>
 				</div>
 

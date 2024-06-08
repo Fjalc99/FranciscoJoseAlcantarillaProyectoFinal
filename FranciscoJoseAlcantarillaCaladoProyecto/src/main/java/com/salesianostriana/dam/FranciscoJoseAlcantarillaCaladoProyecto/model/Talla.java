@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,9 +30,10 @@ public class Talla {
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
-	@OneToMany(mappedBy="talla", fetch=FetchType.EAGER)
+	@ManyToMany(mappedBy="tallas", fetch=FetchType.EAGER)
 	@Builder.Default
 	private List <Producto> productos = new ArrayList <> ();
 	
 	
+
 }

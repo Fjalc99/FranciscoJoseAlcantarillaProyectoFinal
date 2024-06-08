@@ -16,8 +16,8 @@ public class TallaService extends BaseServiceImpl <Talla, Long, TallaRepository>
 	private ProductoRepository productoRepository;
 	
 	
-	  public int countProductosByTalla(Long tallaId) {
-	        return productoRepository.countProductosByTalla(tallaId);
-	    }
-	
+
+    public int countProductosByTalla(Long tallaId) {
+        return productoRepository.countProductosByTalla(tallaId);
+    }
 }
