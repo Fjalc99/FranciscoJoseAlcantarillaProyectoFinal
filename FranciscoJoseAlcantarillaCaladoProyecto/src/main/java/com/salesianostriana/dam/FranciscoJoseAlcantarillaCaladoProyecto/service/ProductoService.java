@@ -28,4 +28,12 @@ public class ProductoService extends BaseServiceImpl <Producto, Long, ProductoRe
 	 public int countNumProductoByVenta(Long productoId) {
 	        return ventaRepository.countNumProductoByVenta(productoId);
 	    }
+	 
+	  public List<Producto> obtenerTresProductosMasCaros() {
+	        return productoRepository.findTop3ByOrderByPrecioDesc();
+	    }
+	  
+	  public List<Producto> obtenerTresProductosMasBaratos() {
+	        return productoRepository.findTop3ByOrderByPrecioAsc();
+	    }
 }

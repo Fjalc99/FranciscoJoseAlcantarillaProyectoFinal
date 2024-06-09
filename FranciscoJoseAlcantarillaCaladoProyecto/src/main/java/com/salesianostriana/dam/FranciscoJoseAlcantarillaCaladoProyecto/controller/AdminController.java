@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,8 @@ public class AdminController {
 		
 	    Optional<Producto> productoMasVendido = ventaService.obtenerProductoMasVendido();
 	    Optional<Usuario> socioMasCompras = ventaService.obtenerSocioQueHaCompradoMas();
+	    List<Producto> productosMasCaros = productoService.obtenerTresProductosMasCaros();
+	    List<Producto> productosMasBaratos = productoService.obtenerTresProductosMasBaratos();
 
 	    if (productoMasVendido.isPresent() && socioMasCompras.isPresent()) { 
 	    	
@@ -80,6 +83,8 @@ public class AdminController {
 	    	model.addAttribute("socioMasCompras", socioMasCompras.get());
 	        model.addAttribute("totalGanancias", ventaService.getTotalGanancias());
 	        model.addAttribute("categoriaMasVendida", ventaService.getCategoriaMasVendida());
+	        model.addAttribute("productosMasCaros", productosMasCaros);
+	        model.addAttribute("productosMasBaratos", productosMasBaratos);
 		}
 	
 	    

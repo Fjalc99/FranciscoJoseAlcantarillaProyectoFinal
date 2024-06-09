@@ -33,36 +33,106 @@
 			<nav th:replace="~{fragmentos/nav::nav}"></nav>
 		</div>
 
-        <h2>Producto Más Vendido</h2>
-        <div th:if="${producto != null}">
-            <h4><span th:text="${producto.nombre}"></span></h4>
-            <p><img th:src= "${#strings.isEmpty(producto.imagen)} ? 'https://placehold.co/400x250' : ${producto.imagen}" class="productImage" alt="Imagen del producto"></p>
-        
+      
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Estadísticas</h1>
+
+    <div class="row mb-4 ms-1">
+        <div class="col-md-6">
+            <div class="card card-custom h-100">
+                <div class="card-header">
+                    <h3>Producto Más Vendido</h3>
+                </div>
+                <div class="card-body" th:if="${producto != null}">
+                    <h5 class="card-title" th:text="${producto.nombre}"></h5>
+                    <img th:src="${#strings.isEmpty(producto.imagen)} ? 'https://placehold.co/400x250' : ${producto.imagen}" class="card-img-top product-image my-4" alt="Imagen del producto">
+                </div>
+            </div>
         </div>
 
-        <hr>
+        <div class="col-md-6">
+            <div class="card card-custom h-100">
+                <div class="card-header">
+                   <h3> Socio que ha comprado más</h3>
+                </div>
+                <div class="card-body" th:if="${socioMasCompras != null}">
+                    <h5 class="card-title">Nombre: <span th:text="${socioMasCompras.nombre}"></span></h5>
+                    <p class="card-text">Email: <span th:text="${socioMasCompras.email}"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <h2>Socio que ha comprado más</h2>
-        <div th:if="${socioMasCompras != null}">
-            <h4>Nombre: <span th:text="${socioMasCompras.nombre}"></span></h4>
-            <p>Email: <span th:text="${socioMasCompras.email}"></span></p>
-           
+    <div class="row mb-4 ms-1">
+        <div class="col-md-6">
+            <div class="card card-custom mb-3">
+                <div class="card-header ms-1">
+                    <h3>Total de Ganancias</h3>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${#numbers.formatDecimal(totalGanancias, 2, 2) + ' €'}">0 €</h5>
+                </div>
+            </div>
         </div>
 
-        <hr>
-
-        <div>
-            <h2>Total de Ganancias</h2>
-            <p th:text="${#numbers.formatDecimal(totalGanancias, 2, 2) + '€'}"></p>
+        <div class="col-md-6">
+            <div class="card card-custom  mb-3">
+                <div class="card-header">
+                    <h3>Categoría más vendida</h3>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Categoría: ' + ${categoriaMasVendida}">Categoría</h5>
+                </div>
+            </div>
         </div>
-
-        <hr>
-
-
-        <div>
-            <h2>Categoría más vendida</h2>
-            <p th:text="'Categoría: ' + ${categoriaMasVendida}"></p>
+    </div>
+    <div class="row mb-4 ms-1">
+        <div class="col">
+            <div class="card card-custom h-100">
+                <div class="card-header ms-2">
+                   <h3>Top 3 Productos Más Caros</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div th:each="producto : ${productosMasCaros}" class="col-md-4">
+                            <div class="card mb-3">
+                                <img th:src="${producto.imagen}" class="card-img-top custom-img mx-auto my-4" alt="Imagen del producto">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${producto.nombre}"></h5>
+                                    <p class="card-text" th:text="${#numbers.formatDecimal(producto.precio, 2, 2) + ' €'}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="row mb-4 ms-1">
+        <div class="col">
+            <div class="card card-custom h-100">
+                <div class="card-header ms-2">
+                    <h3>Top 3 Productos Más Baratos</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div th:each="producto : ${productosMasBaratos}" class="col-md-4">
+                            <div class="card mb-3">
+                                <img th:src="${producto.imagen}" class="card-img-top custom-img mx-auto my-4" alt="Imagen del producto">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${producto.nombre}"></h5>
+                                    <p class="card-text" th:text="${#numbers.formatDecimal(producto.precio, 2, 2) + ' €'}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
 
 
 

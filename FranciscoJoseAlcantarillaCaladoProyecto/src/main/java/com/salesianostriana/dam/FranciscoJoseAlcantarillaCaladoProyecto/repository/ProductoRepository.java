@@ -23,6 +23,8 @@ public interface ProductoRepository extends JpaRepository <Producto, Long> {
 	   @Query("SELECT COUNT(p) FROM Producto p JOIN p.tallas t WHERE t.id = :tallaId")
 	    int countProductosByTalla(@Param("tallaId") Long tallaId);
 	   
+	   List<Producto> findTop3ByOrderByPrecioDesc();
 	   
+	   List<Producto> findTop3ByOrderByPrecioAsc();
 	
 }
