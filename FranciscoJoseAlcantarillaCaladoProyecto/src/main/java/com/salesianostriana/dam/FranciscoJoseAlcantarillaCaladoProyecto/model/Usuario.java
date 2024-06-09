@@ -11,7 +11,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -42,7 +42,10 @@ public class Usuario implements UserDetails {
 	private String provincia; 
 	private String codigoPostal;
 	private String dni;
+	
+	@Column (unique = true)
 	private String username;
+	
 	private String password;
 	private boolean admin;
 	
