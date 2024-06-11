@@ -42,9 +42,16 @@ public class UsuarioController {
 	
 	@PostMapping("/nuevoSocios/submit")
 	public String submitRegistro( Usuario usuario, Model model) {
-		usuarioService.save(usuario);
-		return "redirect:/admin/sociosAdmin";
+		
+		  if (usuarioService.noUserExistente(usuario.getUsername())) {
+			  model.addAttribute("error", "El nombre de usuario ya existe.");
+	            return "/admin/registroSocio";
+	        } else {
+	        	usuarioService.save(usuario);
+	    		return "redirect:/admin/sociosAdmin";
+	        }
 	}
+	
 	
 	@GetMapping("/editarSocio/{id}")
 	public String verEditarFormulario (@PathVariable("id") Long id, Model model) {
@@ -93,11 +100,15 @@ public class UsuarioController {
 	}
 	
 	
-	@PostMapping("/nuevoSocio/submit")
-	public String submitSocio (Usuario usuario, Model model) {
-		
-		usuarioService.save(usuario);
-		return "redirect:/";
-	}
+	 @PostMapping("/nuevoSocio/submit")
+	    public String submitSocio(Usuario usuario, Model model) {
+	        if (usuarioService.noUserExistente(usuario.getUsername())) {
+	        	model.addAttribute("error", "El nombre de usuario ya existe.");
+	            return "registroSocioManualmente";
+	        } else {
+	            usuarioService.save(usuario);
+	            return "redirect:/";
+	        }
+	    }
 	
 }

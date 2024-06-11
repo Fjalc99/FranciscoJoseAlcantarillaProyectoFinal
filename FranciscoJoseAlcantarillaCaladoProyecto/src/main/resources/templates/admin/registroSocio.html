@@ -119,9 +119,15 @@
 					<input type="submit" class="form-control bg-success w-25 align-content-center" value="Enviar">
 				</div>
 
+				<div th:if="${error}" class="row mt-3">
+					<div class="col">
+						<div class="alert alert-danger">
+							<span th:text="${error}"></span>
+						</div>
+					</div>
+				</div>
 			</form>
 		</div>
-
 
 	</main>
 

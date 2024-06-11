@@ -22,6 +22,9 @@ import com.salesianostriana.dam.FranciscoJoseAlcantarillaCaladoProyecto.service.
 @Service
 public class UsuarioService extends BaseServiceImpl <Usuario, Long, UsuarioRepository> {
 
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
 	
 	@Autowired
 	private VentaRepository ventaRepository;
@@ -47,6 +50,9 @@ public class UsuarioService extends BaseServiceImpl <Usuario, Long, UsuarioRepos
 	    }
 
 	
+	   public boolean noUserExistente(String username) {
+	        return usuarioRepository.noUserExistente(username);
+	    }
 	
 	
 }
