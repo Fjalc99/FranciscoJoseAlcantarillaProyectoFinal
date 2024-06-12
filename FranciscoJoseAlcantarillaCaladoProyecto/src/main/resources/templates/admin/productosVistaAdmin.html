@@ -42,7 +42,7 @@
 		<div class="container mt-3">
 			<a  th:href="@{/nuevo}"><i class=" bi bi-plus-circle-fill m-3">Añadir</i></a>
 			<h2 class="text-center mt-3">Lista de productos</h2>      
-			<table class="table table-striped align-content-center m-4 w-75">
+			<table class="table table-striped align-content-center m-4 w-75 mx-auto">
 			  <thead>
 				<tr>
 				  <th>Categoria</th>
@@ -57,20 +57,20 @@
 			  </thead>
 			  <tbody>
 				<tr th:each="producto : ${listaProductos}">
-					<td th:text="${producto.categoria.nombreCategoria}"></td>
-					<td th:text="${producto.nombre}"></td>
-					<td>
+					<td class="align-middle" th:text="${producto.categoria.nombreCategoria}"></td>
+					<td class="align-middle" th:text="${producto.nombre}"></td>
+					<td class="align-middle">
 						<ul>
 							<li th:each="talla : ${producto.tallas}" th:text="${talla.nombreTalla}"></li>
 						</ul>
 					</td>
-					<td th:text="${producto.descripcion}"></td>
-					<td th:text="${#numbers.formatDecimal(producto.precio, 1, 2)+' €'}"></td>
-					<td th:text="${producto.imagen}"></td>
-					<td>
+					<td class="align-middle" th:text="${producto.descripcion}"></td>
+					<td class="align-middle" th:text="${#numbers.formatDecimal(producto.precio, 1, 2)+' €'}"></td>
+					<td ><img th:src="${#strings.isEmpty(producto.imagen)} ? 'https://placehold.co/400x250' : ${producto.imagen}" class="custom-img-vista-producto" alt="Imagen del producto"></td>
+					<td class="align-middle">
 						<a th:href="@{/editar/{id}(id=${producto.id})}"><i class="bi bi-pencil-square"></i></a>
 					</td>
-					<td>
+					<td class="align-middle">
 						<a th:href="@{/borrar/{id}(id=${producto.id})}"><i class="bi bi-trash"></i></a>
 					</td>
 					
