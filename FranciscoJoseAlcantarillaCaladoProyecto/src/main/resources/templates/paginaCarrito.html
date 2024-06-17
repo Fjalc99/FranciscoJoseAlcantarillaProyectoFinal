@@ -28,15 +28,13 @@
     </div>
 
     <main class="row justify-content-center min-vh-100">
-        <div class="container align-content-center">
-            <h1 class="mt-5 mb-4">Carrito de Compras</h1>
-        
-
-           
+        <div class="container">
+            <h1 class="mt-5 mb-4 text-center">Carrito de Compras</h1>
+    
             <div class="table-responsive">
-                <table class="table table-striped w-50">
+                <table class="table table-striped w-75 mx-auto">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>Producto</th>
                             <th>Imagen</th>
                             <th>Precio</th>
@@ -45,43 +43,35 @@
                         </tr>
                     </thead>
                     <tbody>
-
-                        <tr th:each="lineaDeVenta : ${ventas}">
-                            <td th:text="${lineaDeVenta.producto.nombre}"></td>
-
-                            <td><img th:src="${#strings.isEmpty(lineaDeVenta.producto.imagen)} ? 'https://placehold.co/400x250' : ${lineaDeVenta.producto.imagen}"
-                                    class="custom-img-vista-producto" alt="Imagen del producto"></td>
-                            
-
-                            <td class="precio"
-                                th:text="${#numbers.formatDecimal(lineaDeVenta.producto.precio, 1,2)+' €'}"></td>
+                        <tr th:each="lineaDeVenta : ${ventas}" class="text-center">
+                            <td class="align-middle" th:text="${lineaDeVenta.producto.nombre}"></td>
+                            <td class="align-middle">
+                                <img th:src="${#strings.isEmpty(lineaDeVenta.producto.imagen) ? 'https://placehold.co/400x250' : lineaDeVenta.producto.imagen}"
+                                    class="custom-img-vista-producto" alt="Imagen del producto">
                             </td>
-
-
-                            <td>
-                                <input type="number" class="form-control change-input w-25"
+                            <td class="precio align-middle"
+                                th:text="${#numbers.formatDecimal(lineaDeVenta.producto.precio, 1,2)+' €'}"></td>
+                            <td class="align-middle">
+                                <input type="number" class="form-control text-center change-input w-25 mx-auto"
                                     data-id="${lineaDeVenta.producto.id}" th:value="${lineaDeVenta.cantidadProducto}">
                             </td>
-                            <td class="subtotal" th:text="${#numbers.formatDecimal(lineaDeVenta.subTotal, 1, 2)+' €'}">
-                            </td>
-
+                            <td class="subtotal align-middle"
+                                th:text="${#numbers.formatDecimal(lineaDeVenta.subTotal, 1, 2)+' €'}"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-            <div>
-                <h3>Total: <span th:text="${#numbers.formatDecimal(total, 1, 2)+' €'}"></span></h3>
+             <div class="row justify-content-center mt-4">
+            <div class="col-auto">
+                <a th:href="@{/tiendaPrincipal}" class="btn">Seguir comprando</a>
             </div>
-
-
-
-            <form action="/confirmar" method="get">
-                <button class="btn" type="submit">Finalizar Compra</button>
-            </form>
-
+            <div class="col-auto">
+                <form action="/confirmar" method="get">
+                    <button class="btn btn-primary" type="submit">Finalizar Compra</button>
+                </form>
+            </div>
         </div>
-
+        </div>
     </main>
 
     <footer th:replace="~{fragmentos/footer::footer}" id="colorFooter" class="container-fluid text-center text-light">

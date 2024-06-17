@@ -37,25 +37,49 @@
 				<h1 class="mb-4 text-center">Mis Ventas</h1>
 		
 				<div class="table-responsive">
-					<table class="table table-striped w-75 m-5">
+					<table class=" align-content-center mx-auto table table-striped w-75 m-5">
 						<thead>
-							<tr>
+							<tr class="text-center">
 								<th>Fecha</th>
 								<th>Total</th>
-								<th>Productos                 Descripción</th>
-								
+								<th>Producto</th>
+								<th>Descripción <br> del <br> producto</th>
+								<th>Imagen</th>
+								<th>Cantidad</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="venta : ${ventas}">
+							<tr th:each="venta : ${ventas}" class="text-center">
 								<td th:text="${#temporals.format(venta.fechaCompra, 'yyyy-MM-dd HH:mm')}"></td>
 								<td th:text="${#numbers.formatDecimal(venta.total, 1, 2)+' €'}"></td>
 								<td>
 									<ul>
-										<li th:each="lineaDeVenta : ${venta.lineaDeVenta}" th:text="${lineaDeVenta.producto.nombre} + ' x' + ${lineaDeVenta.cantidadProducto}"></li>
-										<li>th:text="${}"</li>
+										<li th:each="lineaDeVenta : ${venta.lineaDeVenta}">
+											<span th:text="${lineaDeVenta.producto.nombre}"></span>
+										</li>
 									</ul>
-									
+								</td>
+								<td>
+									<ul>
+										<li th:each="lineaDeVenta : ${venta.lineaDeVenta}">
+											<span th:text="${lineaDeVenta.producto.descripcion}"></span>
+										</li>
+									</ul>
+								</td>
+								<td class="text-center">
+									<ul>
+										<li th:each="lineaDeVenta : ${venta.lineaDeVenta}">
+											<img th:src="${#strings.isEmpty(lineaDeVenta.producto.imagen) ? 'https://placehold.co/25x25' : lineaDeVenta.producto.imagen}" 
+												 alt="Imagen del producto" class="img-thumbnail mx-2" style="width: 25px; height: 25px;"/>
+										</li>
+									</ul>
+								</td>
+								<td class="text-center">
+									<ul>
+										<li th:each="lineaDeVenta : ${venta.lineaDeVenta}">
+											<span th:text="${lineaDeVenta.cantidadProducto}"></span>
+										</li>
+									</ul>
 								</td>
 							</tr>
 						</tbody>
