@@ -42,7 +42,8 @@
 							<tr>
 								<th>Fecha</th>
 								<th>Total</th>
-								<th>Productos</th>
+								<th>Productos                 Descripción</th>
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -52,7 +53,9 @@
 								<td>
 									<ul>
 										<li th:each="lineaDeVenta : ${venta.lineaDeVenta}" th:text="${lineaDeVenta.producto.nombre} + ' x' + ${lineaDeVenta.cantidadProducto}"></li>
+										<li>th:text="${}"</li>
 									</ul>
+									
 								</td>
 							</tr>
 						</tbody>
