@@ -67,7 +67,7 @@
             </div>
             <div class="col-auto">
                 <form action="/confirmar" method="get">
-                    <button class="btn btn-primary" type="submit">Finalizar Compra</button>
+                    <button class="btn btn-primary" type="submit">Finalizar Compra <span th:text="${#numbers.formatDecimal(total, 1, 2)+' €'}"></span></button>
                 </form>
             </div>
         </div>
